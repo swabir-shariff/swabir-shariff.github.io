@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://swabir-shariff.github.io/sitemap.xml
