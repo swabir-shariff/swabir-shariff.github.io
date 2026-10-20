@@ -1,0 +1,4 @@
+Contact: mailto:swabir.shariff@thegoodguides.org
+Expires: 2027-10-20T00:00:00Z
+Preferred-Languages: en
+Canonical: https://swabir-shariff.github.io/.well-known/security.txt
