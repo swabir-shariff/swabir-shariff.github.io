@@ -364,6 +364,24 @@ html.js .hero .hero-note{animation:rise-in-sm .65s ease-out .76s backwards}
   .media-row .arr{transition:transform .2s ease}
   .media-row:hover .arr{transform:translateX(4px)}
 }
+/* Print — a clean paper copy: no nav, forms, video or dark bands;
+   every section expanded, black on white. */
+@media print{
+  @page{margin:18mm 16mm}
+  *{-webkit-print-color-adjust:economy;print-color-adjust:economy;box-shadow:none !important;text-shadow:none !important}
+  html,body{background:#fff !important;color:#000 !important}
+  header.nav,.mobile-menu,.skip-link,.cta-band,.booking-band,.speak-band,
+  .vid-frame,.watch,.hero-ctas,.dl-row,form#enquiryForm,.btn,.sent,
+  footer .foot span:last-child{display:none !important}
+  section,.hero,.philosophy,.accolades,.contact,.press,.proof{padding:12pt 0 !important;background:#fff !important}
+  .wrap{max-width:none !important}
+  .rv,.reveal{opacity:1 !important;transform:none !important;animation:none !important;transition:none !important}
+  h1,h2,h3,h4,p,li,figcaption,small,.sub,.lede,.big{color:#000 !important}
+  a{color:#000 !important;text-decoration:none !important}
+  img{filter:none !important}
+  .acc,.bring,.talk,.faq,.step,.kit-band,.typical,.media-row{break-inside:avoid}
+  .kit-band,.typical{border:1px solid #bbb !important;background:#fff !important}
+}
 </style>
 <script type="application/ld+json">
 {
@@ -483,7 +501,7 @@ html.js .hero .hero-note{animation:rise-in-sm .65s ease-out .76s backwards}
       "name": "How quickly will we hear back?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Enquiries are answered personally."
+        "text": "Fast — every enquiry is read and answered by me personally, never an assistant or an inbox queue. If you're working to a deadline, name it in the enquiry and I'll match it where I can."
       }
     }
   ]
@@ -559,11 +577,11 @@ html.js .hero .hero-note{animation:rise-in-sm .65s ease-out .76s backwards}
     <div class="wrap">
       <figure class="stages-video">
         <div class="vid-frame">
-          <button type="button" class="vid-facade" data-embed="https://www.youtube-nocookie.com/embed/o8S1yIeRFng?start=10299&amp;end=10530&amp;rel=0" data-title="Swabir Shariff — Scarborough Walk of Fame acceptance remarks, April 2024" aria-label="Play video: See him speak — Swabir Shariff's Scarborough Walk of Fame acceptance remarks">
-            <img src="assets/walk-of-fame-stage.webp" alt="Swabir Shariff on stage at his Scarborough Walk of Fame induction, April 2024" width="1290" height="724" loading="lazy" decoding="async">
+          <button type="button" class="vid-facade" data-embed="https://www.youtube-nocookie.com/embed/o8S1yIeRFng?start=10299&amp;end=10530&amp;rel=0" data-title="Swabir Shariff — Scarborough Walk of Fame acceptance remarks, April 2024" aria-label="Play video: See me speak — Swabir Shariff's Scarborough Walk of Fame acceptance remarks">
+            <img src="assets/walk-of-fame-stage.webp" alt="Swabir Shariff on stage at the Scarborough Walk of Fame induction, April 2024" width="1290" height="724" loading="lazy" decoding="async">
             <span class="vid-shade"></span>
             <span class="vid-play"><svg width="26" height="26" viewBox="0 0 24 24" fill="#1D1A15" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></span>
-            <span class="vid-label">See him speak<small>Acceptance remarks · Scarborough Walk of Fame · 3 min 51 sec</small></span>
+            <span class="vid-label">See me speak<small>Acceptance remarks · Scarborough Walk of Fame · 3 min 51 sec</small></span>
           </button>
         </div>
       </figure>
@@ -616,7 +634,7 @@ html.js .hero .hero-note{animation:rise-in-sm .65s ease-out .76s backwards}
     <div class="bring-grid">
       <div class="bring rv">
         <h3>Lived experience, built into the design</h3>
-        <p>I grew up in Toronto Community Housing in Scarborough. I built The Good Guides because services designed by outsiders weren't reaching the kids they were for — the <strong>“keys to the whole house”</strong> principle, practised from day one, and a standing reminder in any strategy conversation of who the strategy is actually for.</p>
+        <p>I grew up in Toronto Community Housing in Scarborough, so every strategy conversation I join starts from having been the young person those services were built for. It keeps one question in front of any plan: who is this actually for — and can they see themselves in it?</p>
       </div>
       <div class="bring rv">
         <h3>An operator, not a theorist</h3>
@@ -624,7 +642,7 @@ html.js .hero .hero-note{animation:rise-in-sm .65s ease-out .76s backwards}
       </div>
       <div class="bring rv">
         <h3>Executive vantage point</h3>
-        <p>Before the non-profit, there was the executive career — a <strong>Director of Security</strong> in the community I grew up in, leading round-the-clock (24/7) operations for a major retail centre. That vantage point, running complex operations before I ever led a non-profit, is one few people in a boardroom carry alongside the street view.</p>
+        <p>Before the non-profit, there was the executive career — a <strong>Director of Security</strong> in the community I grew up in, accountable around the clock for a site that never really closed. Running complex operations before I ever led a non-profit gave me a vantage point few people in a boardroom carry alongside the street view.</p>
       </div>
       <div class="bring rv">
         <h3>At the policy table</h3>
@@ -653,7 +671,7 @@ html.js .hero .hero-note{animation:rise-in-sm .65s ease-out .76s backwards}
       <article class="acc rv">
         <div class="yr">2026</div>
         <h3>One Young World Ambassador</h3>
-        <p>Featured in the Ambassador Spotlight, September 2026, as founder of The Good Guides. Swabir was a One Young World Global Delegate in 2025 — sponsored by Chanel to attend the summit in Germany.</p>
+        <p>Featured in the Ambassador Spotlight, September 2026, as founder of The Good Guides. I was a One Young World Global Delegate in 2025 — sponsored by Chanel to attend the summit in Germany.</p>
         <a href="https://www.oneyoungworld.com/ambassador-spotlight-september-2026" target="_blank" rel="noopener">Read the profile →</a>
         <figure class="acc-photo">
           <img src="assets/oyw-chanel.webp" alt="Swabir Shariff shaking hands with Leena Nair, Global CEO of Chanel, at One Young World in Germany, 2025" width="1290" height="860" loading="lazy" decoding="async">
@@ -663,7 +681,7 @@ html.js .hero .hero-note{animation:rise-in-sm .65s ease-out .76s backwards}
       <article class="acc rv">
         <div class="yr">2025</div>
         <h3>Toronto Community Champion — City of Toronto</h3>
-        <p>Under Swabir's leadership, The Good Guides received a Toronto Community Champion Award (Honourable Mention) from the City of Toronto in 2025 — civic recognition for the mentors and young people doing the work.</p>
+        <p>Under my leadership, The Good Guides received a Toronto Community Champion Award (Honourable Mention) from the City of Toronto in 2025 — civic recognition for the mentors and young people doing the work.</p>
       </article>
       <article class="acc rv">
         <div class="yr">2024</div>
@@ -671,7 +689,7 @@ html.js .hero .hero-note{animation:rise-in-sm .65s ease-out .76s backwards}
         <p>Inducted April 2024, for founding The Good Guides and leading full-time youth engagement and violence prevention in Scarborough.</p>
         <a href="https://scarboroughwalkoffame.com/rising-star-inductees-2022/" target="_blank" rel="noopener">Official inductee page →</a>
         <figure class="acc-photo">
-          <img src="assets/walk-of-fame-recipient-card.webp" alt="Official Scarborough Walk of Fame recipient card — Rising Star, Swabir Shariff, 2024 Recipient — with his portrait" width="1290" height="658" loading="lazy" decoding="async">
+          <img src="assets/walk-of-fame-recipient-card.webp" alt="Official Scarborough Walk of Fame recipient card — Rising Star, Swabir Shariff, 2024 Recipient — with portrait" width="1290" height="658" loading="lazy" decoding="async">
           <figcaption>Official inductee card — Scarborough Walk of Fame.</figcaption>
         </figure>
       </article>
@@ -779,7 +797,7 @@ html.js .hero .hero-note{animation:rise-in-sm .65s ease-out .76s backwards}
         <article class="talk rv">
           <span class="tlabel">Signature Talk · 01</span>
           <h3>“Keys to the Whole House”</h3>
-          <p>Why young people don't need a seat at someone else's table — they need the keys: real authority over the work, with real support behind them. Audiences leave with a working model for sharing decision-making with the people a program serves, and an honest account of the trust that follows when you do.</p>
+          <p>Why young people don't need a seat at someone else's table — they need real authority over the work — and people genuinely behind them as they use it. Audiences leave with a working model for sharing decision-making with the people a program serves, and an honest account of the trust that follows when you do.</p>
           <p class="talk-aud"><b>Best for:</b> youth-serving organizations, funders and public institutions redesigning programs with the communities they serve.</p>
         </article>
         <article class="talk rv">
@@ -791,7 +809,7 @@ html.js .hero .hero-note{animation:rise-in-sm .65s ease-out .76s backwards}
         <article class="talk rv">
           <span class="tlabel">Signature Talk · 03</span>
           <h3>“Every Piece of the Whole”</h3>
-          <p>Drawn from the oldest idea in my philosophy: each of us is a productive piece of a whole none of us can see in full. Audiences leave seeing their own people differently — every person in the room as a working part of the result, and leadership as the work of letting each piece land.</p>
+          <p>Drawn from the oldest idea in my philosophy: every one of us is a working part of a whole none of us can see in full. Audiences leave seeing their own people differently — every person in the room as a working part of the result, and leadership as the work of letting each piece land.</p>
           <p class="talk-aud"><b>Best for:</b> leadership teams, non-profit boards, and corporate and community partners building cultures where people carry real ownership.</p>
         </article>
       </div>
@@ -833,7 +851,7 @@ html.js .hero .hero-note{animation:rise-in-sm .65s ease-out .76s backwards}
   <div class="wrap reveal">
     <p class="kicker">The Philosophy</p>
     <p class="big">“Keys to the <em>whole house</em>.”</p>
-    <p class="sub">My philosophy is simple: don't offer young people a seat at the table, or a key to one room — hand them the keys to the whole house. A seat at the table is an invitation to be heard on someone else's terms; the keys to the whole house mean the work is theirs to lead — the direction, the decisions, the outcomes — with real support behind them as they go. In that house, everyone is a productive piece of the whole — young people, mentors and community alike, nobody a guest and nobody a passenger. It built The Good Guides, and it is the through-line of every talk, briefing and advisory engagement I take on.</p>
+    <p class="sub">My philosophy is simple: don't offer young people a seat at the table, or a key to one room — hand them the keys to the whole house. A seat at the table is an invitation to be heard on someone else's terms; those keys mean the work is theirs to lead — the direction, the decisions, the outcomes — with real support behind them as they go. In that house, everyone is a productive piece of the whole — young people, mentors and community alike, nobody a guest and nobody a passenger. It built The Good Guides, and it is the through-line of every talk, briefing and advisory engagement I take on.</p>
   </div>
 </section>
 
@@ -854,7 +872,7 @@ html.js .hero .hero-note{animation:rise-in-sm .65s ease-out .76s backwards}
     <p class="kicker">Media &amp; Public Record</p>
     <h2>Coverage, citations and partnerships.</h2>
     <div class="watch">
-      <h3 class="watch-h">See him speak</h3>
+      <h3 class="watch-h">See me speak</h3>
       <div class="watch-grid">
         <figure class="stages-video watch-card rv">
           <div class="vid-frame">
@@ -885,7 +903,7 @@ html.js .hero .hero-note{animation:rise-in-sm .65s ease-out .76s backwards}
       </a>
       <a class="media-row rv" href="https://scarboroughwalkoffame.com/rising-star-inductees-2022/" target="_blank" rel="noopener">
         <span class="when">Apr 10, 2024</span>
-        <span><h3>Scarborough Walk of Fame — Rising Star inductee</h3><p>Official inductee profile: founded The Good Guides in 2020 to mentor young people in his own neighbourhood, with co-op placements for hundreds of Scarborough youth.</p></span>
+        <span><h3>Scarborough Walk of Fame — Rising Star inductee</h3><p>Official inductee profile: I founded The Good Guides in 2020 to mentor young people in my own neighbourhood, with co-op placements for Scarborough youth — one strand of the 10,000+ young people mentored across Toronto, from its base in Scarborough.</p></span>
         <span class="arr">→</span>
       </a>
       <a class="media-row rv" href="https://www.toronto.ca/news/recipients-of-torontos-2-7-million-youth-violence-prevention-grant-announced/" target="_blank" rel="noopener">
@@ -903,12 +921,11 @@ html.js .hero .hero-note{animation:rise-in-sm .65s ease-out .76s backwards}
     <div class="kit-band rv">
       <div class="sp">
         <h3>The media kit — everything a booker needs.</h3>
-        <p>Verified biography, accolades and contact details in one PDF. His full biography is there too, for programme committees and speaker bureaus.</p>
+        <p>Verified biography, accolades and contact details in one PDF. My full biography is there too, for programme committees and speaker bureaus.</p>
       </div>
       <a class="btn btn-gold" href="assets/media-kit.pdf" download>Download Media Kit (PDF)</a>
       <a class="btn btn-dark" href="assets/speaker-one-sheet.pdf" download>Download Speaker One-Sheet (PDF)</a>
       <a class="btn btn-outline" href="assets/biography.pdf" download>Download Biography (PDF)</a>
-      <a class="btn btn-outline" href="assets/speaker-one-sheet.pdf" download>Download Speaker One-Sheet (PDF)</a>
       <a class="btn btn-outline" href="#contact">Advisory &amp; Speaking Enquiries</a>
     </div>
   </div>
@@ -967,7 +984,7 @@ html.js .hero .hero-note{animation:rise-in-sm .65s ease-out .76s backwards}
       </div>
       <div class="faq rv">
         <h3>How quickly will we hear back?</h3>
-        <p>Enquiries are answered personally.</p>
+        <p>Fast — every enquiry is read and answered by me personally, never an assistant or an inbox queue. If you're working to a deadline, name it in the enquiry and I'll match it where I can.</p>
       </div>
     </div>
   </div>
@@ -978,7 +995,7 @@ html.js .hero .hero-note{animation:rise-in-sm .65s ease-out .76s backwards}
   <div class="wrap reveal">
     <p class="kicker">Contact &amp; Enquiries</p>
     <h2>Start the conversation.</h2>
-    <p class="lede">One enquiry, answered personally, within two business days. Tell Swabir what you're planning — an advisory engagement, a leadership briefing, a keynote, or a media request — and he'll reply himself.</p>
+    <p class="lede">One enquiry, answered personally, within two business days. Tell me what you're planning — an advisory engagement, a leadership briefing, a keynote, or a media request — and I'll reply myself.</p>
     <div class="contact-grid">
       <div class="direct">
         <figure class="contact-photo rv">
@@ -1012,7 +1029,7 @@ html.js .hero .hero-note{animation:rise-in-sm .65s ease-out .76s backwards}
           <div><label for="fOrg">Organization / Event</label><input id="fOrg" type="text" autocomplete="organization" placeholder="Organization or event name"></div>
         </div>
         <label for="fEmail">Your email</label>
-        <input id="fEmail" type="email" autocomplete="email" placeholder="you@example.org">
+        <input id="fEmail" type="email" autocomplete="email" placeholder="you@example.org" required>
         <div class="frow">
           <div><label for="fType">Engagement type</label>
             <select id="fType">
@@ -1027,12 +1044,12 @@ html.js .hero .hero-note{animation:rise-in-sm .65s ease-out .76s backwards}
           <div><label for="fStart">When are you looking to start?</label><input id="fStart" type="text" placeholder="e.g. March 2027, or flexible"></div>
         </div>
         <label for="fMsg">What are you planning?</label>
-        <textarea id="fMsg" placeholder="Audience, size, location, what you'd like Swabir to bring to it…" required></textarea>
+        <textarea id="fMsg" placeholder="Audience, size, location, what you'd like me to bring to it…" required></textarea>
         <button class="btn btn-gold" type="submit" style="width:100%;justify-content:center">Send Enquiry by Email
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
         </button>
-        <p class="form-note">This opens your own email app with the enquiry addressed to Swabir — nothing is sent until you press send there. Prefer direct email? Write to swabir.shariff@thegoodguides.org.</p>
-        <p class="form-note">Advisory and speaking engagements are contracted with Swabir personally, independent of The Good Guides. Enquiries are answered personally. To avoid any conflict of interest, personal advisory engagements are not undertaken with The Good Guides' funders or partners.</p>
+        <p class="form-note">This opens your own email app with the enquiry addressed to me — nothing is sent until you press send there. Prefer direct email? Write to swabir.shariff@thegoodguides.org.</p>
+        <p class="form-note">Advisory and speaking engagements are contracted with me personally, independent of The Good Guides. Enquiries are answered personally. To avoid any conflict of interest, personal advisory engagements are not undertaken with The Good Guides' funders or partners.</p>
         <div class="sent" id="sentBox" role="status"></div>
       </form>
     </div>
@@ -1180,9 +1197,9 @@ html.js .hero .hero-note{animation:rise-in-sm .65s ease-out .76s backwards}
     var start = document.getElementById('fStart').value.trim();
     var msg = document.getElementById('fMsg').value.trim();
     var box = document.getElementById('sentBox');
-    if (!name || !msg) {
+    if (!name || !email || !msg) {
       box.style.display = 'block';
-      box.textContent = 'Please add your name and a few lines about what you are planning, then send again.';
+      box.textContent = 'Please add your name, your email and a few lines about what you are planning, then send again.';
       return;
     }
     var subject = 'Advisory / Speaking Enquiry — ' + type + (org ? ' — ' + org : '');
@@ -1194,7 +1211,7 @@ html.js .hero .hero-note{animation:rise-in-sm .65s ease-out .76s backwards}
     lines.push('', '— ' + name);
     var href = 'mailto:swabir.shariff@thegoodguides.org?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(lines.join('\n'));
     box.style.display = 'block';
-    box.innerHTML = 'Your email app should now open with the enquiry addressed to Swabir. If it didn\'t, <a href="' + href + '">tap here to open it</a> or write directly to swabir.shariff@thegoodguides.org.';
+    box.innerHTML = 'Your email app should now open with the enquiry addressed to me. If it didn\'t, <a href="' + href + '">tap here to open it</a> or write directly to swabir.shariff@thegoodguides.org.';
     window.location.href = href;
   });
 })();
