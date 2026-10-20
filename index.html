@@ -132,13 +132,15 @@ h1,h2,h3{font-family:"Playfair Display",Georgia,serif;line-height:1.08;margin:0}
 
 
 .testimonials{background:var(--surface)}
-.tquotes{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:36px;align-items:start}
+.tquotes{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;margin-top:36px;align-items:start}
 @media(max-width:900px){ .tquotes{grid-template-columns:1fr} }
 .tquote{border:1px solid var(--line);border-radius:var(--radius);background:var(--bg);padding:28px;margin:0}
 .tquote .qmark{font-family:"Playfair Display",serif;font-size:44px;line-height:.55;color:var(--gold);display:block;margin-bottom:16px}
 .tquote blockquote{margin:0;font-family:"Playfair Display",serif;font-size:19px;line-height:1.5;color:var(--ink)}
 .tquote figcaption{margin-top:18px;padding-top:14px;border-top:1px solid var(--line);font-size:14px;color:var(--ink2)}
 .tquote figcaption b{display:block;color:var(--ink);font-size:15px}
+.tquote blockquote p{margin:0 0 12px}
+.tquote blockquote p:last-child{margin-bottom:0}
 
 
 section{padding:76px 0}
@@ -321,6 +323,10 @@ form textarea{min-height:110px;resize:vertical}
 .frow{display:grid;grid-template-columns:1fr 1fr;gap:16px}
 @media(max-width:560px){ .frow{grid-template-columns:1fr} }
 .form-note{font-size:13.5px;color:var(--muted);margin:12px 0 0}
+.enquiry-panel{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:28px}
+.enquiry-panel .ep-h{margin:0 0 10px;font-size:22px}
+.enquiry-panel .ep-lede{margin:0 0 20px;color:var(--ink2);font-size:16.5px;line-height:1.55}
+.enquiry-panel .ep-btn{width:100%;justify-content:center}
 .sent{display:none;background:#EDF5E9;border:1px solid #B9D3A8;color:#2E4A22;border-radius:9px;padding:14px 16px;font-size:15px;margin-top:16px}
 
 footer{background:var(--green);color:var(--cream);padding:44px 0}
@@ -371,7 +377,7 @@ html.js .hero .hero-note{animation:rise-in-sm .65s ease-out .76s backwards}
   *{-webkit-print-color-adjust:economy;print-color-adjust:economy;box-shadow:none !important;text-shadow:none !important}
   html,body{background:#fff !important;color:#000 !important}
   header.nav,.mobile-menu,.skip-link,.cta-band,.booking-band,.speak-band,
-  .vid-frame,.watch,.hero-ctas,.dl-row,form#enquiryForm,.btn,.sent,
+  .vid-frame,.watch,.hero-ctas,.dl-row,.enquiry-panel,.btn,.sent,
   footer .foot span:last-child{display:none !important}
   section,.hero,.philosophy,.accolades,.contact,.press,.proof{padding:12pt 0 !important;background:#fff !important}
   .wrap{max-width:none !important}
@@ -485,7 +491,7 @@ html.js .hero .hero-note{animation:rise-in-sm .65s ease-out .76s backwards}
       "name": "Who do we contract with?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "With me personally. The details — including the one boundary that comes with it — are set out in the note beside the enquiry form below."
+        "text": "With me personally. The details — including the one boundary that comes with it — are set out in the note in the Contact section below."
       }
     },
     {
@@ -855,16 +861,31 @@ html.js .hero .hero-note{animation:rise-in-sm .65s ease-out .76s backwards}
   </div>
 </section>
 
-<!-- TESTIMONIALS (hidden — awaiting real organizer quotes)
+<!-- TESTIMONIALS -->
 <section class="testimonials" id="testimonials">
   <div class="wrap reveal">
     <p class="kicker">Testimonials</p>
     <h2>What organizers say.</h2>
     <div class="tquotes">
+      <figure class="tquote rv">
+        <span class="qmark" aria-hidden="true">&ldquo;</span>
+        <blockquote>
+          <p>&ldquo;Your discussion about this yesterday was perfect, especially addressing the N word, and great for them to start considering everything you mentioned.&rdquo;</p>
+          <p>&ldquo;They loved your visit and keeping talking about you.&rdquo;</p>
+        </blockquote>
+        <figcaption><b>Laura Mercieca</b>Teacher, Toronto District School Board — writing after a visit to her classroom, May 2022</figcaption>
+      </figure>
+      <figure class="tquote rv">
+        <span class="qmark" aria-hidden="true">&ldquo;</span>
+        <blockquote>
+          <p>&ldquo;The roundtables were the most highly rated part of the evening!&rdquo;</p>
+        </blockquote>
+        <figcaption><b>Erica Procter</b>Founder &amp; Executive Director, FUEL — on the roundtables at the FUEL community event, where I hosted a roundtable, July 2023</figcaption>
+      </figure>
     </div>
   </div>
 </section>
--->
+
 
 
 <section id="media" style="padding-top:0">
@@ -976,7 +997,7 @@ html.js .hero .hero-note{animation:rise-in-sm .65s ease-out .76s backwards}
       </div>
       <div class="faq rv">
         <h3>Who do we contract with?</h3>
-        <p>With me personally. The details — including the one boundary that comes with it — are set out in the note beside the enquiry form below.</p>
+        <p>With me personally. The details — including the one boundary that comes with it — are set out in the note in the Contact section below.</p>
       </div>
       <div class="faq rv">
         <h3>What does an advisory engagement look like?</h3>
@@ -1023,35 +1044,16 @@ html.js .hero .hero-note{animation:rise-in-sm .65s ease-out .76s backwards}
         </div>
       </div>
 
-      <form id="enquiryForm" class="rv" novalidate>
-        <div class="frow">
-          <div><label for="fName">Your name</label><input id="fName" type="text" autocomplete="name" placeholder="Full name" required></div>
-          <div><label for="fOrg">Organization / Event</label><input id="fOrg" type="text" autocomplete="organization" placeholder="Organization or event name"></div>
-        </div>
-        <label for="fEmail">Your email</label>
-        <input id="fEmail" type="email" autocomplete="email" placeholder="you@example.org" required>
-        <div class="frow">
-          <div><label for="fType">Engagement type</label>
-            <select id="fType">
-              <option>Speaking</option>
-              <option>Advisory</option>
-              <option>Leadership Briefings</option>
-              <option>Panel or fireside</option>
-              <option>Media request</option>
-              <option>Something else</option>
-            </select>
-          </div>
-          <div><label for="fStart">When are you looking to start?</label><input id="fStart" type="text" placeholder="e.g. March 2027, or flexible"></div>
-        </div>
-        <label for="fMsg">What are you planning?</label>
-        <textarea id="fMsg" placeholder="Audience, size, location, what you'd like me to bring to it…" required></textarea>
-        <button class="btn btn-gold" type="submit" style="width:100%;justify-content:center">Send Enquiry by Email
+      <div class="enquiry-panel rv">
+        <h3 class="ep-h">Send an enquiry</h3>
+        <p class="ep-lede">One short form, straight to my inbox — no email app needed. Tell me what you're planning: the audience, the date you're working to, and what you'd like me to bring to it.</p>
+        <a class="btn btn-gold ep-btn" href="https://docs.google.com/forms/d/e/1FAIpQLSdiCrA7REi6l-mytfo14O28CBNuIsEWtvlv127SMLz1WY9mZw/viewform" target="_blank" rel="noopener">Send an Enquiry
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-        </button>
-        <p class="form-note">This opens your own email app with the enquiry addressed to me — nothing is sent until you press send there. Prefer direct email? Write to swabir.shariff@thegoodguides.org.</p>
+        </a>
+        <p class="form-note">The form opens in a new tab and takes about two minutes. Prefer direct email? Write to swabir.shariff@thegoodguides.org.</p>
         <p class="form-note">Advisory and speaking engagements are contracted with me personally, independent of The Good Guides. Enquiries are answered personally. To avoid any conflict of interest, personal advisory engagements are not undertaken with The Good Guides' funders or partners.</p>
-        <div class="sent" id="sentBox" role="status"></div>
-      </form>
+      </div>
+
     </div>
 
   </div>
@@ -1186,34 +1188,7 @@ html.js .hero .hero-note{animation:rise-in-sm .65s ease-out .76s backwards}
     });
   });
 
-  // Enquiry form -> composes an email in the visitor's own mail app (no fake submit)
-  var form = document.getElementById('enquiryForm');
-  form.addEventListener('submit', function(ev){
-    ev.preventDefault();
-    var name = document.getElementById('fName').value.trim();
-    var email = document.getElementById('fEmail').value.trim();
-    var org = document.getElementById('fOrg').value.trim();
-    var type = document.getElementById('fType').value;
-    var start = document.getElementById('fStart').value.trim();
-    var msg = document.getElementById('fMsg').value.trim();
-    var box = document.getElementById('sentBox');
-    if (!name || !email || !msg) {
-      box.style.display = 'block';
-      box.textContent = 'Please add your name, your email and a few lines about what you are planning, then send again.';
-      return;
-    }
-    var subject = 'Advisory / Speaking Enquiry — ' + type + (org ? ' — ' + org : '');
-    var lines = ['Hi Swabir,', '', msg, ''];
-    if (org) lines.push('Organization / event: ' + org);
-    if (start) lines.push('Looking to start: ' + start);
-    lines.push('Engagement type: ' + type);
-    if (email) lines.push('Reply to: ' + email);
-    lines.push('', '— ' + name);
-    var href = 'mailto:swabir.shariff@thegoodguides.org?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(lines.join('\n'));
-    box.style.display = 'block';
-    box.innerHTML = 'Your email app should now open with the enquiry addressed to me. If it didn\'t, <a href="' + href + '">tap here to open it</a> or write directly to swabir.shariff@thegoodguides.org.';
-    window.location.href = href;
-  });
+  // Enquiries run through the linked form in the Contact section (no on-page submit).
 })();
 </script>
 
