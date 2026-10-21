@@ -7,7 +7,7 @@
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <script>document.documentElement.classList.add('js');</script>
 <meta name="description" content="Leadership Advisor and Speaker, and founder of The Good Guides — Swabir Shariff is a QECT 100 Young Leaders Awardee 2026, now accepting engagements for 2027.">
-<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%231D1A15'/%3E%3Ctext x='32' y='43' font-family='Georgia,serif' font-size='27' font-weight='700' fill='%23F5B921' text-anchor='middle'%3ESS%3C/text%3E%3C/svg%3E">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%232D6B38'/%3E%3Ctext x='32' y='43' font-family='Georgia,serif' font-size='27' font-weight='700' fill='%23F5B921' text-anchor='middle'%3ESS%3C/text%3E%3C/svg%3E">
 <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Swabir Shariff — Leadership Advisor &amp; Speaker">
@@ -30,8 +30,8 @@
   color-scheme: light;
   --bg:#F5F1E6; --surface:#FFFFFF; --surface2:#EFE8D3; --ink:#1D1A15; --ink2:#4C463B; --muted:#6B6353;
   --green:#2D6B38; --green-dark:#22552C; --gold:#F5B921; --gold-soft:#F9E7AE; --gold-on-green:#FFD554; --line:#DED4BC;
-  --black:#171310; --black2:#1D1A15; --cream:#F5F1E6; --cream2:#D9CFB2;
-  --radius:14px; --shadow:0 18px 45px rgba(29,26,21,.12);
+  --cream:#F5F1E6; --cream2:#D9CFB2;
+  --radius:14px; --shadow:0 18px 45px rgba(27,68,35,.14);
 }
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
@@ -54,6 +54,10 @@ h1,h2,h3{font-family:"Playfair Display",Georgia,serif;line-height:1.08;margin:0}
 .nav-links{display:flex;gap:15px;align-items:center;justify-self:center}
 .nav-links a{text-decoration:none;font-size:14.5px;font-weight:600;letter-spacing:.05em;white-space:nowrap;color:var(--cream);padding:6px 8px;transition:color .2s ease}
 .nav-cta{justify-self:end;white-space:nowrap}
+.nav-actions{display:flex;align-items:center;gap:14px;justify-self:end}
+.nav-social{display:inline-flex;align-items:center;justify-content:center;width:36px;height:36px;border-radius:999px;border:1.5px solid rgba(245,185,33,.55);color:var(--cream);transition:color .2s ease,border-color .2s ease}
+.nav-social svg{width:16px;height:16px;fill:currentColor;display:block}
+.nav-social:hover{color:var(--gold);border-color:var(--gold)}
 .nav-links a:hover{color:#fff}
 .btn{display:inline-flex;align-items:center;gap:9px;text-decoration:none;font-weight:700;font-size:15px;padding:12px 20px;border-radius:999px;border:1.5px solid transparent;cursor:pointer;transition:transform .15s ease, background .15s ease}
 .btn:active{transform:scale(.98)}
@@ -61,7 +65,7 @@ h1,h2,h3{font-family:"Playfair Display",Georgia,serif;line-height:1.08;margin:0}
 .btn-gold:hover{background:var(--green-dark)}
 .btn-ghost{border-color:rgba(245,241,230,.45);color:var(--cream);background:transparent}
 .btn-ghost:hover{border-color:var(--gold);color:#fff}
-.btn-dark{background:var(--ink);color:var(--bg)}
+.btn-dark{background:var(--green-dark);color:var(--bg)}
 .btn-outline{border-color:var(--green);color:var(--ink);background:transparent}
 .btn-outline:hover{border-color:var(--green);color:var(--green)}
 .nav .btn{padding:9px 16px;font-size:14px}
@@ -75,7 +79,7 @@ h1,h2,h3{font-family:"Playfair Display",Georgia,serif;line-height:1.08;margin:0}
 .mobile-menu a.mm-cta{color:var(--gold)}
 @media(min-width:921px){ .mobile-menu{display:none!important} }
 @media(max-width:920px){ .nav-links{display:none} .nav-toggle{display:inline-flex} .nav-in{grid-template-columns:1fr auto auto} }
-@media(max-width:480px){ .nav-in{gap:12px} .brand b{font-size:18px} .nav .btn{padding:8px 13px;font-size:13.5px} .nav .btn.nav-cta{padding:8px 12px;font-size:13px} }
+@media(max-width:480px){ .nav-in{gap:12px} .brand b{font-size:18px} .nav .btn{padding:8px 13px;font-size:13.5px} .nav .btn.nav-cta{padding:8px 12px;font-size:13px} .nav-actions{gap:10px} .nav-social{width:32px;height:32px} }
 
 
 .hero{background:var(--bg);color:var(--ink);position:relative;overflow:hidden}
@@ -178,7 +182,7 @@ h2{font-size:clamp(32px,4.6vw,46px);font-weight:700}
 .acc-photo.badge{background:var(--surface2);border:1px solid var(--line);border-radius:var(--radius);padding:24px 20px 16px;text-align:center}
 .acc-photo.badge img{width:auto;max-width:100%;height:148px;object-fit:contain;margin:0 auto;border:0;box-shadow:none;border-radius:6px}
 .acc-photo.badge figcaption{margin-top:12px;text-align:center}
-.acc.feature{grid-column:span 2;background:var(--black);color:var(--cream);border-color:var(--black)}
+.acc.feature{grid-column:span 2;background:var(--green-dark);color:var(--cream);border-color:var(--green-dark)}
 .acc.feature p{color:var(--cream2)} .acc.feature h3{color:#fff} .acc.feature .yr{color:var(--gold-on-green)}
 .acc.feature .acc-photo figcaption{color:var(--cream2)}
 .acc.feature .acc-photo{text-align:center}
@@ -200,7 +204,7 @@ h2{font-size:clamp(32px,4.6vw,46px);font-weight:700}
 .booking-band .btn{margin-top:14px}
 .speak-band{padding:38px 0 46px}
 .speak-band .stages-video{max-width:645px;margin:0 auto}
-.cta-band{background:var(--black);color:var(--cream);padding:26px 0}
+.cta-band{background:var(--green-dark);color:var(--cream);padding:26px 0}
 .cta-in{display:flex;align-items:center;justify-content:space-between;gap:18px;flex-wrap:wrap}
 .cta-band p{margin:0;font-family:"Playfair Display",serif;font-size:20px;color:#FFFDF6}
 .cta-band p span{color:var(--cream2);font-family:"Source Sans 3",sans-serif;font-size:16.5px}
@@ -371,9 +375,9 @@ html.js .hero .hero-note{animation:rise-in-sm .65s ease-out .76s backwards}
 
 @media (hover:hover) and (pointer:fine){
   .acc,.offer,.talk,.bring,.direct a{transition:transform .25s ease,box-shadow .25s ease,border-color .25s ease}
-  .acc:hover,.offer:hover,.talk:hover{transform:translateY(-3px);border-color:var(--gold);box-shadow:0 16px 34px rgba(29,26,21,.10)}
+  .acc:hover,.offer:hover,.talk:hover{transform:translateY(-3px);border-color:var(--gold);box-shadow:0 16px 34px rgba(27,68,35,.10)}
   .bring:hover{transform:translateY(-2px)}
-  .direct a:hover{transform:translateY(-2px);border-color:var(--gold);box-shadow:0 12px 26px rgba(29,26,21,.08)}
+  .direct a:hover{transform:translateY(-2px);border-color:var(--gold);box-shadow:0 12px 26px rgba(27,68,35,.08)}
   .btn:hover{transform:translateY(-1px)}
   .media-row .arr{transition:transform .2s ease}
   .media-row:hover .arr{transform:translateX(4px)}
@@ -541,7 +545,12 @@ html.js .hero .hero-note{animation:rise-in-sm .65s ease-out .76s backwards}
     <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="mobileMenu" aria-label="Open section menu">
       <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
     </button>
-    <a href="#contact" class="btn btn-gold nav-cta">Enquiries</a>
+    <div class="nav-actions">
+      <a class="nav-social" href="https://www.linkedin.com/in/swabir" target="_blank" rel="noopener" aria-label="Swabir Shariff on LinkedIn">
+        <svg viewBox="0 0 448 512" aria-hidden="true"><path d="M100.28 448H7.4V148.9h92.88zM53.79 108.1C24.09 108.1 0 83.5 0 53.8a53.79 53.79 0 0 1 107.58 0c0 29.7-24.1 54.3-53.79 54.3zM447.9 448h-92.68V302.4c0-34.7-.7-79.2-48.29-79.2-48.29 0-55.69 37.7-55.69 76.7V448h-92.78V148.9h89.08v40.8h1.3c12.4-23.5 42.69-48.3 87.88-48.3 94 0 111.28 61.9 111.28 142.3V448z"/></svg>
+      </a>
+      <a href="#contact" class="btn btn-gold nav-cta">Enquiries</a>
+    </div>
   </div>
   <nav class="mobile-menu" id="mobileMenu" aria-label="Sections">
     <a href="#about">About</a>
@@ -598,7 +607,7 @@ html.js .hero .hero-note{animation:rise-in-sm .65s ease-out .76s backwards}
           <button type="button" class="vid-facade" data-embed="https://www.youtube-nocookie.com/embed/o8S1yIeRFng?start=10299&amp;end=10530&amp;rel=0" data-title="Swabir Shariff — Scarborough Walk of Fame acceptance remarks, April 2024" aria-label="Play video: See me speak — Swabir Shariff's Scarborough Walk of Fame acceptance remarks">
             <img src="assets/walk-of-fame-stage.webp" alt="Swabir Shariff on stage at the Scarborough Walk of Fame induction, April 2024" width="1290" height="724" loading="lazy" decoding="async">
             <span class="vid-shade"></span>
-            <span class="vid-play"><svg width="26" height="26" viewBox="0 0 24 24" fill="#1D1A15" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></span>
+            <span class="vid-play"><svg width="26" height="26" viewBox="0 0 24 24" fill="#22552C" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></span>
             <span class="vid-label">See me speak<small>Acceptance remarks · Scarborough Walk of Fame · 3 min 51 sec</small></span>
           </button>
         </div>
@@ -912,7 +921,7 @@ html.js .hero .hero-note{animation:rise-in-sm .65s ease-out .76s backwards}
             <button type="button" class="vid-facade" data-embed="https://www.youtube-nocookie.com/embed/4_5MYASU6OM?rel=0" data-title="The Good Guides x Making A Difference — Global News segment with Swabir Shariff, interviewed by Susan Hay, 2021" aria-label="Play video: Global News 'Making a Difference' segment featuring Swabir Shariff">
               <img src="assets/making-a-difference-thumb.webp" alt="Frame from the Global News 'Making a Difference' segment: Swabir Shariff seated in the studio, with the on-screen banner 'Empowering students to improve their neighbourhoods'" width="480" height="360" loading="lazy" decoding="async">
               <span class="vid-shade"></span>
-              <span class="vid-play"><svg width="26" height="26" viewBox="0 0 24 24" fill="#1D1A15" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></span>
+              <span class="vid-play"><svg width="26" height="26" viewBox="0 0 24 24" fill="#22552C" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></span>
               <span class="vid-label">Watch the segment<small>Global News “Making a Difference” · December 2021 · 2:46</small></span>
             </button>
           </div>
@@ -923,7 +932,7 @@ html.js .hero .hero-note{animation:rise-in-sm .65s ease-out .76s backwards}
             <button type="button" class="vid-facade" data-embed="https://www.youtube-nocookie.com/embed/VhGDXRngbuY?rel=0" data-title="CP24 Tonight — panel on youth violence with Swabir Shariff, February 2022" aria-label="Play video: CP24 Tonight panel on youth violence featuring Swabir Shariff">
               <img src="assets/cp24-panel-thumb.webp" alt="Frame from CP24 Tonight, February 2022: Swabir Shariff on a three-way panel discussing youth violence, beneath the CP24 Tonight banner" width="960" height="540" loading="lazy" decoding="async">
               <span class="vid-shade"></span>
-              <span class="vid-play"><svg width="26" height="26" viewBox="0 0 24 24" fill="#1D1A15" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></span>
+              <span class="vid-play"><svg width="26" height="26" viewBox="0 0 24 24" fill="#22552C" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></span>
               <span class="vid-label">Watch the panel<small>CP24 Tonight · February 2022</small></span>
             </button>
           </div>
