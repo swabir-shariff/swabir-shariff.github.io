@@ -32,6 +32,7 @@
   --green:#2D6B38; --green-dark:#22552C; --gold:#F5B921; --gold-soft:#F9E7AE; --gold-on-green:#FFD554; --line:#DED4BC;
   --cream:#F5F1E6; --cream2:#D9CFB2;
   --radius:14px; --shadow:0 18px 45px rgba(27,68,35,.14);
+  --ease:cubic-bezier(.22,.61,.36,1); --dur-fast:.15s; --dur-med:.25s;
 }
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
@@ -59,7 +60,7 @@ h1,h2,h3{font-family:"Playfair Display",Georgia,serif;line-height:1.08;margin:0}
 .nav-social svg{width:16px;height:16px;fill:currentColor;display:block}
 .nav-social:hover{color:var(--gold);border-color:var(--gold)}
 .nav-links a:hover{color:#fff}
-.btn{display:inline-flex;align-items:center;gap:9px;text-decoration:none;font-weight:700;font-size:15px;padding:12px 20px;border-radius:999px;border:1.5px solid transparent;cursor:pointer;transition:transform .15s ease, background .15s ease}
+.btn{display:inline-flex;align-items:center;gap:9px;text-decoration:none;font-weight:700;font-size:15px;padding:12px 20px;border-radius:999px;border:1.5px solid transparent;cursor:pointer;transition:transform var(--dur-fast) var(--ease), background var(--dur-fast) var(--ease)}
 .btn:active{transform:scale(.98)}
 .btn-gold{background:var(--green);color:var(--cream)}
 .btn-gold:hover{background:var(--green-dark)}
@@ -119,14 +120,13 @@ h1,h2,h3{font-family:"Playfair Display",Georgia,serif;line-height:1.08;margin:0}
 
 
 .proof{background:var(--green);color:var(--cream);border-top:1px solid var(--green-dark);border-bottom:1px solid var(--green-dark);position:relative}
-.proof-in{display:grid;grid-template-columns:repeat(3,1fr);gap:0}
+.proof-in{display:grid;grid-template-columns:repeat(4,1fr);gap:0}
 .proof div{padding:24px 20px;border-left:1px solid rgba(245,241,230,.28)}
 .proof div:first-child{border-left:0;padding-left:0}
 .proof-label{margin:0;padding:20px 0 0;font-size:12.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--gold-on-green);font-weight:700}
-.proof b{font-family:"Playfair Display",serif;font-size:27px;color:var(--cream);display:block;line-height:1.1}
-.proof-in>div:nth-child(3) b{font-size:20.5px;line-height:1.3}
+.proof b{font-family:"Playfair Display",serif;font-size:27px;color:var(--cream);display:block;line-height:1.1;font-variant-numeric:tabular-nums}
 .proof span{font-size:13.5px;color:var(--cream)}
-@media(max-width:820px){ .proof-in{grid-template-columns:1fr 1fr} .proof div{padding:18px 14px} .proof div:first-child{padding-left:14px} .proof div:nth-child(3){grid-column:1/-1;border-left:0} }
+@media(max-width:820px){ .proof-in{grid-template-columns:1fr 1fr} .proof div{padding:18px 14px} .proof div:first-child{padding-left:14px} .proof div:nth-child(3){border-left:0} .proof div:nth-child(n+3){border-top:1px solid rgba(245,241,230,.28)} }
 
 
 .press{background:var(--bg);border-bottom:1px solid var(--line)}
@@ -238,7 +238,7 @@ h2{font-size:clamp(32px,4.6vw,46px);font-weight:700}
 .vid-facade{position:absolute;inset:0;width:100%;height:100%;display:block;padding:0;border:0;background:#000;cursor:pointer;font:inherit;text-align:left}
 .vid-facade img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
 .vid-shade{position:absolute;inset:0;background:linear-gradient(to top, rgba(10,9,6,.78), rgba(10,9,6,0) 58%)}
-.vid-play{position:absolute;top:50%;left:50%;transform:translate(-50%,-58%);width:68px;height:68px;border-radius:50%;background:var(--gold);display:flex;align-items:center;justify-content:center;box-shadow:0 10px 28px rgba(0,0,0,.45);transition:transform .15s ease,background .15s ease}
+.vid-play{position:absolute;top:50%;left:50%;transform:translate(-50%,-58%);width:68px;height:68px;border-radius:50%;background:var(--gold);display:flex;align-items:center;justify-content:center;box-shadow:0 10px 28px rgba(0,0,0,.45);transition:transform var(--dur-fast) var(--ease),background var(--dur-fast) var(--ease)}
 .vid-facade:hover .vid-play,.vid-facade:focus-visible .vid-play{transform:translate(-50%,-58%) scale(1.07);background:#FFC93C}
 .vid-play svg{margin-left:4px}
 .vid-label{position:absolute;left:16px;right:16px;bottom:13px;color:#FFFDF6;font-weight:700;font-size:15px;line-height:1.3}
@@ -304,13 +304,6 @@ h2{font-size:clamp(32px,4.6vw,46px);font-weight:700}
 .watch-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;align-items:start}
 @media(max-width:900px){ .watch-grid{grid-template-columns:1fr} }
 .watch-card{margin:0}
-.watch-link{display:flex;flex-direction:column;align-items:flex-start;border:1px solid var(--line);border-radius:var(--radius);background:var(--surface);padding:24px;text-decoration:none;box-shadow:var(--shadow)}
-.watch-badge{width:56px;height:56px;border-radius:50%;background:var(--gold);display:flex;align-items:center;justify-content:center;margin-bottom:18px}
-.watch-badge svg{margin-left:3px}
-.watch-kicker{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--green);font-weight:700}
-.watch-link h3{font-size:21px;margin:8px 0 6px}
-.watch-link p{margin:0;font-size:15px;color:var(--ink2)}
-.watch-go{margin-top:16px;font-weight:700;font-size:14.5px;color:var(--green)}
 
 
 .faq-grid{display:grid;grid-template-columns:1fr 1fr;gap:30px 48px;margin-top:38px}
@@ -355,9 +348,9 @@ section[id],#top{scroll-margin-top:74px}
 .reveal{opacity:1}
 .rv{opacity:1}
 html.js .reveal{opacity:0}
-html.js .reveal.in{opacity:1;animation:rise-in .7s cubic-bezier(.22,.61,.36,1) backwards}
+html.js .reveal.in{opacity:1;animation:rise-in .7s var(--ease) backwards}
 html.js .rv{opacity:0}
-html.js .rv.in{opacity:1;animation:rise-in-sm .6s cubic-bezier(.22,.61,.36,1) backwards}
+html.js .rv.in{opacity:1;animation:rise-in-sm .6s var(--ease) backwards}
 
 html.js .hero .eyebrow{animation:rise-in-sm .65s ease-out .05s backwards}
 html.js .hero h1{animation:rise-in .7s ease-out .16s backwards}
@@ -374,12 +367,14 @@ html.js .hero .hero-note{animation:rise-in-sm .65s ease-out .76s backwards}
 }
 
 @media (hover:hover) and (pointer:fine){
-  .acc,.offer,.talk,.bring,.direct a{transition:transform .25s ease,box-shadow .25s ease,border-color .25s ease}
-  .acc:hover,.offer:hover,.talk:hover{transform:translateY(-3px);border-color:var(--gold);box-shadow:0 16px 34px rgba(27,68,35,.10)}
+  .acc,.offer,.talk,.bring,.direct a,.tquote,.watch-card{transition:transform var(--dur-med) var(--ease),box-shadow var(--dur-med) var(--ease),border-color var(--dur-med) var(--ease)}
+  .acc:hover,.offer:hover,.talk:hover,.tquote:hover{transform:translateY(-3px);border-color:var(--gold);box-shadow:0 16px 34px rgba(27,68,35,.10)}
   .bring:hover{transform:translateY(-2px)}
   .direct a:hover{transform:translateY(-2px);border-color:var(--gold);box-shadow:0 12px 26px rgba(27,68,35,.08)}
+  .watch-card:hover{transform:translateY(-3px);border-color:var(--gold);box-shadow:0 22px 48px rgba(27,68,35,.18)}
   .btn:hover{transform:translateY(-1px)}
-  .media-row .arr{transition:transform .2s ease}
+  .media-row{transition:background var(--dur-fast) var(--ease)}
+  .media-row .arr{transition:transform .2s var(--ease)}
   .media-row:hover .arr{transform:translateX(4px)}
 }
 /* Print — a clean paper copy: no nav, forms, video or dark bands;
@@ -596,7 +591,8 @@ html.js .hero .hero-note{animation:rise-in-sm .65s ease-out .76s backwards}
       <div class="proof-in">
         <div class="rv"><b>1 of 100</b><span>chosen from thousands of applications across the 56 Commonwealth countries — QECT 100 Young Leaders Awardee 2026</span></div>
         <div class="rv"><b data-countup="10000" data-suffix="+">10,000+</b><span>young people mentored across Toronto since 2020, through The Good Guides</span></div>
-        <div class="rv"><b>Helped direct over a million dollars</b><span>in investment into The Good Guides and other Scarborough youth initiatives.</span></div>
+        <div class="rv"><b data-countup="1000000" data-prefix="$" data-suffix="+" data-format="compact">$1M+</b><span>helped direct into The Good Guides and other Scarborough youth initiatives</span></div>
+        <div class="rv"><b data-countup="5000" data-suffix="+">5,000+</b><span>people reached through talks &amp; keynotes</span></div>
       </div>
     </div>
   </div>
@@ -1171,32 +1167,40 @@ html.js .hero .hero-note{animation:rise-in-sm .65s ease-out .76s backwards}
     setTimeout(sweep, 1800);
   } else { els.forEach(revealEl); }
 
-  // Count-up: the 10,000+ stat counts up once when its band scrolls into
-  // view. The real figure is already in the DOM, so no-JS and reduced-motion
-  // visitors simply see it; the other stats stay static.
-  var counter = document.querySelector('[data-countup]');
-  if (counter && 'IntersectionObserver' in window && !reduceMotion) {
-    var target = parseInt(counter.getAttribute('data-countup'), 10);
-    var suffix = counter.getAttribute('data-suffix') || '';
+  // Count-up: every [data-countup] stat in the proof band counts up once,
+  // with an eased curve, when the band scrolls into view. The real figures
+  // are already in the DOM, so no-JS and reduced-motion visitors simply see
+  // them; on completion each element is set back to its exact authored text.
+  var counters = document.querySelectorAll('[data-countup]');
+  if (counters.length && 'IntersectionObserver' in window && !reduceMotion) {
+    var compactFmt = new Intl.NumberFormat('en-US', {notation: 'compact', maximumFractionDigits: 1});
     var cio = new IntersectionObserver(function(entries){
       entries.forEach(function(e){
-        if (e.isIntersecting) {
-          cio.unobserve(counter);
-          var start = null;
-          var dur = 1400;
-          var frame = function(ts){
-            if (!start) start = ts;
-            var t = Math.min((ts - start) / dur, 1);
-            var eased = 1 - Math.pow(1 - t, 3);
-            counter.textContent = Math.round(target * eased).toLocaleString('en-US') + suffix;
-            if (t < 1) { requestAnimationFrame(frame); }
-            else { counter.textContent = target.toLocaleString('en-US') + suffix; }
-          };
-          requestAnimationFrame(frame);
-        }
+        if (!e.isIntersecting) { return; }
+        var el = e.target;
+        cio.unobserve(el);
+        var target = parseInt(el.getAttribute('data-countup'), 10);
+        var prefix = el.getAttribute('data-prefix') || '';
+        var suffix = el.getAttribute('data-suffix') || '';
+        var compact = el.getAttribute('data-format') === 'compact';
+        var finalText = el.textContent;
+        var start = null;
+        var dur = 1400;
+        var frame = function(ts){
+          if (!start) start = ts;
+          var t = Math.min((ts - start) / dur, 1);
+          var eased = 1 - Math.pow(1 - t, 3);
+          var v = target * eased;
+          el.textContent = compact
+            ? prefix + compactFmt.format(Math.round(v / 1000) * 1000) + suffix
+            : prefix + Math.round(v).toLocaleString('en-US') + suffix;
+          if (t < 1) { requestAnimationFrame(frame); }
+          else { el.textContent = finalText; }
+        };
+        requestAnimationFrame(frame);
       });
     }, {threshold: 0.4});
-    cio.observe(counter);
+    counters.forEach(function(el){ cio.observe(el); });
   }
 
   // Video facades: the still frame and title are always visible; the YouTube
