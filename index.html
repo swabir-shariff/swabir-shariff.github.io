@@ -57,7 +57,7 @@ h1,h2,h3{font-family:var(--font-display);line-height:1.08;margin:0}
 .brand{display:flex;align-items:center;text-decoration:none;justify-self:start}
 .brand b{font-family:var(--font-display);font-weight:700;font-size:20px;letter-spacing:.015em;color:var(--cream);line-height:1;white-space:nowrap}
 .nav-links{display:flex;gap:15px;align-items:center;justify-self:center}
-.nav-links a{text-decoration:none;font-size:14px;font-weight:600;letter-spacing:.05em;white-space:nowrap;color:var(--cream);padding:13px 8px;transition:color var(--dur-hover) ease}
+.nav-links a{text-decoration:none;font-size:14px;font-weight:600;letter-spacing:.05em;white-space:nowrap;color:var(--cream);padding:13px 8px}
 .nav-cta{justify-self:end;white-space:nowrap}
 .nav-actions{display:flex;align-items:center;gap:14px;justify-self:end}
 .nav-social{display:inline-flex;align-items:center;justify-content:center;width:36px;height:36px;border-radius:999px;border:1.5px solid rgba(245,241,230,.5);color:var(--cream);transition:color var(--dur-hover) ease,border-color var(--dur-hover) ease}
@@ -74,7 +74,7 @@ h1,h2,h3{font-family:var(--font-display);line-height:1.08;margin:0}
 .btn-outline-light{border-color:rgba(245,241,230,.65);color:var(--cream);background:transparent}
 .btn-outline-light:hover{border-color:#fff;color:#fff}
 .nav .btn{padding:9px 16px;font-size:14px}
-.nav-toggle{display:none;background:none;border:0;cursor:pointer;padding:8px;color:var(--cream);align-items:center;justify-content:center}
+.nav-toggle{display:none;background:none;border:0;cursor:pointer;padding:8px;color:var(--cream);align-items:center;justify-content:center;font-size:17px}
 .mobile-menu{display:none;background:var(--green);border-top:1px solid rgba(245,241,230,.25);padding:8px 22px 16px}
 .mobile-menu.open{display:block}
 .mobile-menu a{display:block;padding:12px 4px;color:var(--cream);text-decoration:none;font-weight:600;font-size:17px;border-bottom:1px solid rgba(245,241,230,.15)}
@@ -87,16 +87,17 @@ h1,h2,h3{font-family:var(--font-display);line-height:1.08;margin:0}
 
 .hero{background:var(--bg);color:var(--ink);position:relative;overflow:hidden}
 .hero::before{content:"";position:absolute;inset:0;background:radial-gradient(500px 300px at -10% 110%, rgba(45,107,56,.10), transparent 60%)}
-.hero-in{position:relative;display:grid;grid-template-columns:1fr 1fr;gap:var(--space-5);padding-top:64px;padding-bottom:72px;align-items:center}
+.hero-in{position:relative;display:grid;grid-template-columns:1fr 1fr;gap:0;padding:0;align-items:stretch}
+.hero-text{padding:72px var(--space-5) 80px max(22px,calc((100vw - 1120px)/2 + 22px));align-self:center}
 .eyebrow{font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--green);font-weight:700;margin:0 0 18px}
-.hero h1{font-size:clamp(46px,6vw,64px);font-weight:800;color:var(--ink)}
+.hero h1{font-size:clamp(54px,8vw,120px);font-weight:800;color:var(--ink);line-height:1.02}
 .hero h1 em{font-style:italic;color:var(--ink)}
 .roleline{font-size:20px;letter-spacing:.05em;color:var(--ink2);margin:16px 0 0;font-weight:600}
 .pronline{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);font-weight:600;margin:12px 0 0}
 .startline{font-family:var(--font-display);font-size:24px;line-height:1.45;color:var(--ink);margin:26px 0 0;max-width:34ch}
 .hero-sub{font-size:17px;line-height:1.6;color:var(--ink2);margin:20px 0 0;max-width:52ch}
 .hero-ctas{display:flex;gap:var(--gap-card);flex-wrap:wrap;align-items:center;margin:var(--space-4) 0 14px}
-.hero-kit{font-weight:700;font-size:var(--fs-small);color:var(--green);text-decoration:underline;text-underline-offset:4px;transition:color var(--dur-hover) ease}
+.hero-kit{font-weight:700;font-size:var(--fs-small);color:var(--green);text-decoration:underline;text-underline-offset:4px}
 .hero-kit:hover{color:var(--green-dark)}
 .dl-row{margin-top:20px;display:flex;gap:var(--space-3);flex-wrap:wrap}
 .hero-after{padding-top:var(--space-5);padding-bottom:var(--space-1)}
@@ -107,13 +108,15 @@ h1,h2,h3{font-family:var(--font-display);line-height:1.08;margin:0}
 .hero-after-kit{margin:18px 0 0}
 .portrait-col{position:relative}
 .portrait-frame{border:0;border-radius:0;padding:0;background:transparent;box-shadow:none}
+.portrait-frame{height:100%}
 .portrait-frame img{width:100%;height:auto;aspect-ratio:764/955;object-fit:cover;object-position:50% 28%;border-radius:0}
 @media(max-width:900px){
-  .hero-in{display:flex;flex-direction:column;align-items:stretch;padding-top:40px;padding-bottom:56px;gap:0}
+  .hero-in{display:flex;flex-direction:column;align-items:stretch;padding:24px 22px 56px;gap:0}
   .hero-text{display:contents}
   .hero h1{order:1}
-  .portrait-col{order:2;max-width:420px;width:100%;align-self:center;margin:24px auto 0}
-  .hero-in .roleline{order:3;margin-top:22px}
+  .portrait-col{order:2;width:calc(100% + 44px);margin:16px -22px 0}
+  .portrait-frame img{height:auto;max-height:62vh}
+  .hero-in .roleline{order:3;margin-top:16px}
   .hero-ctas{order:4}
 }
 @media(max-width:640px){ .hero .eyebrow{font-size:12px;letter-spacing:.11em;line-height:1.55} }
@@ -258,11 +261,11 @@ h2{font-size:clamp(32px,4.6vw,46px);font-weight:700}
 
 
 .philosophy{background:var(--surface);text-align:center}
-.philosophy .big{font-family:var(--font-display);font-size:clamp(56px,8vw,104px);font-weight:600;line-height:1.25;max-width:22ch;margin:18px auto 0}
+.philosophy .big{font-family:var(--font-display);font-size:clamp(56px,8vw,104px);font-weight:600;line-height:1.12;max-width:22ch;margin:18px auto 0}
 .philosophy .big em{color:var(--ink);font-style:italic}
 .philosophy p.sub{color:var(--ink2);max-width:56ch;margin:22px auto 0}
 .photo-band{line-height:0}
-.photo-band img{width:100%;height:min(60vh,540px);object-fit:cover}
+.photo-band img{width:100%;height:clamp(320px,70vh,680px);object-fit:cover;object-position:50% 32%}
 
 
 .media-list{margin-top:var(--space-2);border-top:1px solid var(--line);display:grid;grid-template-columns:1fr 1fr;column-gap:var(--space-5)}
@@ -313,14 +316,11 @@ section[id],#top{scroll-margin-top:74px}
 
 
 @media (hover:hover) and (pointer:fine){
-  .acc,.direct a{transition:transform var(--dur-med) var(--ease),box-shadow var(--dur-med) var(--ease),border-color var(--dur-med) var(--ease)}
-  .offer,.talk,.bring,.tquote{transition:border-color var(--dur-med) var(--ease)}
+  .direct a{transition:box-shadow var(--dur-med) var(--ease),border-color var(--dur-med) var(--ease)}
   .acc:hover{border-color:var(--green)}
   .direct a:hover{border-color:var(--green);box-shadow:0 12px 26px rgba(27,68,35,.08)}
   .btn:hover{transform:translateY(-1px)}
   .media-row{transition:background var(--dur-fast) var(--ease)}
-  .media-row .arr{transition:transform var(--dur-hover) var(--ease)}
-  .media-row:hover .arr{transform:translateX(4px)}
 }
 /* Wave 2 — small-screen rhythm, green-ground focus, stages columns,
    wave-1 classes (accolade media + organizer bios) in the token system */
@@ -473,7 +473,7 @@ section[id],#top{scroll-margin-top:74px}
 
 
 <div class="hero" id="top">
-  <div class="wrap hero-in">
+  <div class="hero-in">
     <div class="hero-text">
       <h1>Swabir<br><em>Shariff</em></h1>
       <p class="roleline">Leadership Advisor and Speaker</p>
@@ -483,17 +483,9 @@ section[id],#top{scroll-margin-top:74px}
     </div>
     <div class="portrait-col">
       <div class="portrait-frame">
-        <img src="assets/spotlight-candid.webp" srcset="assets/spotlight-candid-726.webp 726w, assets/spotlight-candid.webp 1290w" sizes="(max-width: 900px) 420px, 540px" alt="Swabir Shariff at the One Young World Summit, 2025" width="1290" height="1613">
+        <img src="assets/spotlight-candid.webp" srcset="assets/spotlight-candid-726.webp 726w, assets/spotlight-candid.webp 1290w" sizes="(max-width: 900px) 100vw, 50vw" alt="Swabir Shariff at the One Young World Summit, 2025" width="1290" height="1613">
       </div>
     </div>
-  </div>
-  <div class="wrap hero-after">
-    <p class="eyebrow">Founder &amp; Executive Director, The Good Guides · Leadership advisor and speaker</p>
-    <p class="pronline">Pronounced Swa-beer Sha-reef</p>
-    <p class="roleline">Toronto · Scarborough · On the ground since 2020</p>
-    <p class="startline">“Changing the <strong>starting line</strong> for young people — not cheering them on from it.”</p>
-    <p class="hero-sub">I advise and speak where decisions get made — in boardrooms, at policy tables, and on conference stages.</p>
-    <p class="hero-after-kit"><a class="hero-kit" href="assets/Swabir-Shariff-Speaker-One-Sheet.pdf" download="Swabir-Shariff-Speaker-One-Sheet.pdf" data-goatcounter-click="download-speaker-one-sheet-hero">Download the speaker one-sheet (PDF)</a></p>
   </div>
   <div class="proof">
     <div class="wrap">
@@ -522,6 +514,14 @@ section[id],#top{scroll-margin-top:74px}
   </div>
 </div>
 
+  <div class="wrap hero-after">
+    <p class="eyebrow">Founder &amp; Executive Director, The Good Guides · Leadership advisor and speaker</p>
+    <p class="pronline">Pronounced Swa-beer Sha-reef</p>
+    <p class="roleline">Toronto · Scarborough · On the ground since 2020</p>
+    <p class="startline">“Changing the <strong>starting line</strong> for young people — not cheering them on from it.”</p>
+    <p class="hero-sub">I advise and speak where decisions get made — in boardrooms, at policy tables, and on conference stages.</p>
+    <p class="hero-after-kit"><a class="hero-kit" href="assets/Swabir-Shariff-Speaker-One-Sheet.pdf" download="Swabir-Shariff-Speaker-One-Sheet.pdf" data-goatcounter-click="download-speaker-one-sheet-hero">Download the speaker one-sheet (PDF)</a></p>
+  </div>
 
 <section id="about">
   <div class="wrap">
