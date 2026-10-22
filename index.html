@@ -7,8 +7,9 @@
 <meta name="theme-color" content="#2D6B38">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <meta name="description" content="Leadership Advisor and Speaker, and founder of The Good Guides — Swabir Shariff is a QECT 100 Young Leaders Awardee 2026, now accepting engagements for 2027.">
-<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%232D6B38'/%3E%3Ctext x='32' y='43' font-family='Georgia,serif' font-size='27' font-weight='700' fill='%23F5B921' text-anchor='middle'%3ESS%3C/text%3E%3C/svg%3E">
-<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+<link rel="icon" href="assets/icons-v2/favicon.ico" sizes="any">
+<link rel="icon" type="image/svg+xml" href="assets/icons-v2/favicon.svg">
+<link rel="apple-touch-icon" href="assets/icons-v2/apple-touch-icon.png">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Swabir Shariff — Leadership Advisor &amp; Speaker">
 <meta property="og:description" content="Leadership Advisor and Speaker, and founder of The Good Guides — Swabir Shariff is a QECT 100 Young Leaders Awardee 2026, now accepting engagements for 2027.">
@@ -305,6 +306,16 @@ h2{font-size:clamp(32px,4.6vw,46px);font-weight:700}
 .enquiry-panel .ep-h{margin:0 0 10px;font-size:24px}
 .enquiry-panel .ep-lede{margin:0 0 20px;color:var(--ink2);font-size:17px;line-height:1.65}
 .enquiry-panel .ep-btn{width:100%;justify-content:center}
+.enquiry-form{display:grid;gap:var(--space-2);margin:0 0 4px}
+.enquiry-form[hidden]{display:none}
+.ef-row{display:grid;grid-template-columns:1fr 1fr;gap:var(--space-2)}
+@media(max-width:640px){.ef-row{grid-template-columns:1fr}}
+.enquiry-form label{display:block;font-weight:600;font-size:17px;margin:0 0 6px}
+.enquiry-form input,.enquiry-form select,.enquiry-form textarea{width:100%;padding:12px 14px;border:1.5px solid var(--line);border-radius:var(--radius-btn);background:var(--surface);color:var(--ink);font:inherit;font-size:17px}
+.enquiry-form textarea{resize:vertical}
+.enquiry-form input:focus,.enquiry-form select:focus,.enquiry-form textarea:focus{border-color:var(--green)}
+.ef-submit{width:100%;justify-content:center}
+.ef-hp{position:absolute;left:-9999px;top:-9999px;height:0;width:0;overflow:hidden}
 
 footer{background:var(--green);color:var(--cream);padding:44px 0}
 .foot{display:flex;gap:var(--space-3);flex-wrap:wrap;align-items:center;justify-content:space-between}
@@ -891,11 +902,55 @@ section[id],#top{scroll-margin-top:74px}
       <div class="enquiry-panel">
         <h3 class="ep-h">Send an enquiry</h3>
         <p class="ep-lede">One short form, straight to my inbox — no email app needed. Tell me what you're planning: the audience, the date you're working to, and what you'd like me to bring to it.</p>
-        <a class="btn btn-primary ep-btn" href="https://docs.google.com/forms/d/e/1FAIpQLSdiCrA7REi6l-mytfo14O28CBNuIsEWtvlv127SMLz1WY9mZw/viewform" target="_blank" rel="noopener" data-goatcounter-click="enquiry-contact-panel">Send an Enquiry
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-        </a>
+        <form id="enquiry-form" class="enquiry-form" action="https://formsubmit.co/swabir.shariff@thegoodguides.org" method="POST">
+          <div class="ef-row">
+            <div class="ef-field">
+              <label for="ef-name">Your name</label>
+              <input id="ef-name" type="text" name="name" required>
+            </div>
+            <div class="ef-field">
+              <label for="ef-organization">Organization</label>
+              <input id="ef-organization" type="text" name="organization">
+            </div>
+          </div>
+          <div class="ef-row">
+            <div class="ef-field">
+              <label for="ef-email">Email</label>
+              <input id="ef-email" type="email" name="email" required>
+            </div>
+            <div class="ef-field">
+              <label for="ef-enquiry-type">Enquiry type</label>
+              <select id="ef-enquiry-type" name="enquiry_type">
+                <option>Speaking</option>
+                <option>Advisory &amp; Consulting</option>
+                <option>Media request</option>
+                <option>Other</option>
+              </select>
+            </div>
+          </div>
+          <div class="ef-field">
+            <label for="ef-event-date">Event date (optional)</label>
+            <input id="ef-event-date" type="date" name="event_date">
+          </div>
+          <div class="ef-field">
+            <label for="ef-message">Message</label>
+            <textarea id="ef-message" name="message" rows="5" required></textarea>
+          </div>
+          <input type="hidden" name="_subject" value="Website enquiry">
+          <input type="hidden" name="_template" value="table">
+          <input type="hidden" name="_captcha" value="false">
+          <div class="ef-hp" aria-hidden="true">
+            <input type="text" name="_honey" tabindex="-1" autocomplete="off">
+          </div>
+          <button type="submit" class="btn btn-primary ef-submit" data-goatcounter-click="enquiry-form-submit">Send enquiry</button>
+          <p id="enquiry-error" class="form-note" role="alert" hidden>That didn't send — please try again, or write to me directly at swabir.shariff@thegoodguides.org.</p>
+        </form>
+        <div id="enquiry-success" tabindex="-1" hidden>
+          <h4>Thank you — your enquiry is on its way.</h4>
+          <p>I read every enquiry personally and reply within two business days. If it's urgent, you can also reach me at swabir.shariff@thegoodguides.org.</p>
+        </div>
         <p class="form-note">Virtual and shorter-format engagements are also available — mention the format in your enquiry.</p>
-        <p class="form-note">The form opens in a new tab and takes about two minutes. Prefer direct email? Write to swabir.shariff@thegoodguides.org.</p>
+        <p class="form-note">The form takes about two minutes. Prefer direct email? Write to swabir.shariff@thegoodguides.org.</p>
         <p class="form-note">Advisory and speaking engagements are contracted with me personally, independent of The Good Guides. To avoid any conflict of interest, personal advisory engagements are not undertaken with The Good Guides' funders or partners.</p>
       </div>
 
@@ -949,7 +1004,66 @@ section[id],#top{scroll-margin-top:74px}
     });
   });
 
-  // Enquiries run through the linked form in the Contact section (no on-page submit).
+  // Enquiries run through the on-page form in the Contact section: it posts
+  // to FormSubmit via AJAX and swaps in the success block in place; without
+  // JavaScript the form falls back to its native FormSubmit action.
+  var enquiryForm = document.getElementById('enquiry-form');
+  if (enquiryForm) {
+    enquiryForm.addEventListener('submit', function(e){
+      e.preventDefault();
+      var success = document.getElementById('enquiry-success');
+      var error = document.getElementById('enquiry-error');
+      var button = enquiryForm.querySelector('.ef-submit');
+      var honey = enquiryForm.querySelector('[name="_honey"]');
+      function showSuccess(){
+        enquiryForm.hidden = true;
+        if (success) {
+          success.hidden = false;
+          success.focus();
+        }
+      }
+      if (honey && honey.value) {
+        showSuccess();
+        return;
+      }
+      if (error) error.hidden = true;
+      var originalText = button ? button.textContent : '';
+      if (button) {
+        button.disabled = true;
+        button.textContent = 'Sending\u2026';
+      }
+      var get = function(n){
+        var el = enquiryForm.querySelector('[name="' + n + '"]');
+        return el ? el.value : '';
+      };
+      var payload = {
+        name: get('name'),
+        organization: get('organization'),
+        email: get('email'),
+        enquiry_type: get('enquiry_type'),
+        event_date: get('event_date'),
+        message: get('message'),
+        _subject: 'Website enquiry \u2014 ' + get('enquiry_type') + ' \u2014 ' + get('name'),
+        _template: 'table',
+        _captcha: 'false',
+        _honey: honey ? honey.value : ''
+      };
+      fetch('https://formsubmit.co/ajax/swabir.shariff@thegoodguides.org', {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json', 'Accept': 'application/json'},
+        body: JSON.stringify(payload)
+      }).then(function(res){
+        if (!res.ok) throw new Error('Enquiry send failed');
+        showSuccess();
+      }).catch(function(){
+        if (error) error.hidden = false;
+        if (button) {
+          button.disabled = false;
+          button.textContent = originalText;
+        }
+      });
+    });
+  }
 })();
 </script>
 
