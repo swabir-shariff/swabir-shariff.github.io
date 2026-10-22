@@ -186,7 +186,7 @@ h2{font-size:clamp(32px,4.6vw,46px);font-weight:700}
 .acc.feature p{color:var(--cream2)} .acc.feature h3{color:#fff} .acc.feature .yr{color:var(--gold-on-green)}
 .acc.feature .acc-photo figcaption{color:var(--cream2)}
 .acc.feature .acc-photo{text-align:center}
-.acc.feature .acc-photo img{width:auto;max-width:100%;max-height:380px}
+.acc.feature .acc-photo img{width:auto;max-width:100%;max-height:250px}
 @media(max-width:600px){ .acc.feature{grid-column:span 1} }
 
 
@@ -343,14 +343,14 @@ footer{background:var(--green);color:var(--cream);padding:44px 0}
 section[id],#top{scroll-margin-top:74px}
 
 
-@keyframes rise-in{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
-@keyframes rise-in-sm{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+@keyframes rise-in{from{opacity:.35;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+@keyframes rise-in-sm{from{opacity:.35;transform:translateY(7px)}to{opacity:1;transform:translateY(0)}}
 .reveal{opacity:1}
 .rv{opacity:1}
 html.js .reveal{opacity:0}
-html.js .reveal.in{opacity:1;animation:rise-in .7s var(--ease) backwards}
+html.js .reveal.in{opacity:1;animation:rise-in .38s var(--ease) backwards}
 html.js .rv{opacity:0}
-html.js .rv.in{opacity:1;animation:rise-in-sm .6s var(--ease) backwards}
+html.js .rv.in{opacity:1;animation:rise-in-sm .32s var(--ease) backwards}
 
 html.js .hero .eyebrow{animation:rise-in-sm .65s ease-out .05s backwards}
 html.js .hero h1{animation:rise-in .7s ease-out .16s backwards}
@@ -1127,7 +1127,7 @@ html.js .hero .hero-note{animation:rise-in-sm .65s ease-out .76s backwards}
   function revealEl(el){
     if (el.classList.contains('in')) return;
     if (!reduceMotion && el.classList.contains('rv')) {
-      el.style.animationDelay = (staggerIndex(el) * 75) + 'ms';
+      el.style.animationDelay = (Math.min(staggerIndex(el), 3) * 60) + 'ms';
     }
     el.classList.add('in');
     revealedCount++;
@@ -1137,7 +1137,7 @@ html.js .hero .hero-note{animation:rise-in-sm .65s ease-out .76s backwards}
       entries.forEach(function(e){
         if (e.isIntersecting) { revealEl(e.target); io.unobserve(e.target); }
       });
-    }, {threshold: 0, rootMargin: '0px 0px -8% 0px'});
+    }, {threshold: 0, rootMargin: '0px 0px 12% 0px'});
     els.forEach(function(el){ io.observe(el); });
     // Safety sweep: anything already at or above the view — however the
     // visitor got there, including jump-scrolls that skip intersection
@@ -1152,6 +1152,7 @@ html.js .hero .hero-note{animation:rise-in-sm .65s ease-out .76s backwards}
       if (revealedCount >= els.length) {
         window.removeEventListener('scroll', onScroll);
         window.removeEventListener('resize', sweep);
+        clearInterval(sweepTimer);
       }
     };
     var ticking = false;
@@ -1163,8 +1164,13 @@ html.js .hero .hero-note{animation:rise-in-sm .65s ease-out .76s backwards}
     };
     window.addEventListener('scroll', onScroll, {passive: true});
     window.addEventListener('resize', sweep);
+    window.addEventListener('load', sweep);
     setTimeout(sweep, 600);
     setTimeout(sweep, 1800);
+    // Completion guarantee: keep sweeping on a timer until everything
+    // has revealed, so a fast scroll or a skipped intersection callback
+    // can never leave content sitting below full opacity.
+    var sweepTimer = setInterval(sweep, 700);
   } else { els.forEach(revealEl); }
 
   // Count-up: every [data-countup] stat in the proof band counts up once,
