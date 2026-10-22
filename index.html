@@ -125,7 +125,7 @@ h1,h2,h3{font-family:var(--font-display);line-height:1.08;margin:0}
 .proof div:first-child{border-left:0;padding-left:0}
 .proof-label{margin:0;padding:20px 0 0;font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--gold-on-green);font-weight:700}
 .proof b{font-family:var(--font-display);font-size:24px;color:var(--cream);display:block;line-height:1.1;font-variant-numeric:tabular-nums}
-.proof span{font-size:14px;color:var(--cream)}
+.proof span{font-size:var(--fs-small);color:var(--cream)}
 @media(max-width:900px){ .proof-in{grid-template-columns:1fr 1fr} .proof div{padding:18px 14px} .proof div:first-child{padding-left:14px} .proof div:nth-child(3){border-left:0} .proof div:nth-child(n+3){border-top:1px solid rgba(245,241,230,.28)} }
 
 
@@ -136,8 +136,8 @@ h1,h2,h3{font-family:var(--font-display);line-height:1.08;margin:0}
 @media(max-width:900px){ .tquotes{grid-template-columns:1fr} }
 .tquote{border:1px solid var(--line);border-radius:var(--radius);background:var(--bg);padding:var(--card-pad);margin:0;display:flex;flex-direction:column}
 .tquote .qmark{font-family:var(--font-display);font-size:24px;line-height:.55;color:var(--green-dark);display:block;margin-bottom:16px}
-.tquote blockquote{margin:0 0 18px;font-family:var(--font-display);font-size:20px;line-height:1.5;color:var(--ink)}
-.tquote figcaption{margin-top:auto;padding-top:14px;border-top:1px solid var(--line);font-size:14px;color:var(--ink2)}
+.tquote blockquote{margin:0 0 18px;font-family:var(--font-display);font-size:20px;line-height:1.6;color:var(--ink)}
+.tquote figcaption{margin-top:auto;padding-top:14px;border-top:1px solid var(--line);font-size:16px;color:var(--ink2)}
 .tquote figcaption b{display:block;color:var(--ink);font-size:var(--fs-small)}
 .tquote blockquote p{margin:0 0 12px}
 .tquote blockquote p:last-child{margin-bottom:0}
@@ -151,7 +151,7 @@ h2{font-size:clamp(32px,4.6vw,46px);font-weight:700}
 .two p{margin:0 0 16px;color:var(--ink2)}
 .two p strong{color:var(--ink)}
 .pull{border-top:1px solid var(--line);padding-top:18px}
-.pull p{font-family:var(--font-display);font-size:20px;color:var(--ink);line-height:1.55}
+.pull p{font-family:var(--font-display);font-size:20px;color:var(--ink);line-height:1.6}
 
 
 .accolades{background:var(--bg)}
@@ -167,10 +167,10 @@ h2{font-size:clamp(32px,4.6vw,46px);font-weight:700}
 .hon-name{font-family:var(--font-display);font-size:20px;font-weight:700;color:var(--ink)}
 .hon-inst{color:var(--ink2)}
 .hon-date{margin-left:auto;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--green);font-weight:700}
-.honours-list p{margin:4px 0 0;color:var(--ink2);font-size:var(--fs-small)}
+.honours-list p{margin:4px 0 0;color:var(--ink2);font-size:var(--fs-small);max-width:585px}
 .honours-list a{font-size:14px;font-weight:700;color:var(--green);text-decoration:none;display:inline-block;margin-top:8px}
 .honours-list a:hover{text-decoration:underline}
-.press-fold-h{font-size:24px;margin:var(--space-5) 0 0}
+.press-fold-h{font-size:24px;margin:var(--space-2) 0 0}
 .accolades .testimonials{background:transparent;padding:var(--space-5) 0 0}
 
 
@@ -189,25 +189,23 @@ h2{font-size:clamp(32px,4.6vw,46px);font-weight:700}
 .contact-photo{margin:0 auto;width:100%;max-width:300px;border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;background:var(--surface);box-shadow:var(--shadow)}
 .contact-photo img{width:100%;height:auto;aspect-ratio:751/800;object-fit:cover;object-position:50% 25%}
 .typical{margin-top:var(--space-5);border:1px solid var(--line);border-radius:var(--radius);background:var(--surface);padding:var(--card-pad)}
-.typical h2{font-size:24px;margin:0 0 6px}
+.typical h3{font-size:24px;margin:0 0 6px}
 .typical .sub{margin:0;color:var(--ink2);font-size:var(--fs-small)}
 .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:var(--space-3);margin-top:var(--space-3)}
 @media(max-width:900px){ .steps{grid-template-columns:1fr 1fr} }
 @media(max-width:640px){ .steps{grid-template-columns:1fr} }
 .step{border-top:1px solid var(--line);padding-top:12px}
 .step b{font-family:var(--font-display);font-size:17px;display:block;margin-bottom:4px}
-.step p{margin:0;font-size:14px;color:var(--ink2)}
-.process{margin-top:var(--space-3);border-top:1px dashed var(--line);padding-top:16px;font-size:var(--fs-small);color:var(--ink2)}
+.step p{margin:0;font-size:var(--fs-small);color:var(--ink2)}
+.process{margin-top:var(--space-3);border-top:1px dashed var(--line);padding-top:16px;font-size:var(--fs-small);color:var(--ink2);max-width:570px}
 .process b{color:var(--ink)}
 .talk-aud{margin-top:16px;font-size:var(--fs-small);color:var(--ink2)}
 .talk-aud b{color:var(--ink)}
+.talks > .talk-aud{max-width:560px}
 .stages-grid{margin-top:var(--space-4)}
 .stages-video{margin:0;border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;background:var(--surface);box-shadow:var(--shadow)}
 .stages-video .vid-frame{position:relative;width:100%;aspect-ratio:16/9;background:#000}
 .stages-video iframe{position:absolute;inset:0;width:100%;height:100%;border:0;display:block}
-.stages-video figcaption{padding:12px 16px;font-size:14px;color:var(--ink2)}
-.stages-video figcaption a{color:var(--green);font-weight:700;text-decoration:none;white-space:nowrap}
-.stages-video figcaption a:hover{text-decoration:underline}
 .vid-facade{position:absolute;inset:0;width:100%;height:100%;display:block;padding:0;border:0;background:#000;cursor:pointer;font:inherit;text-align:left}
 .vid-facade img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
 .vid-shade{position:absolute;inset:0;background:linear-gradient(to top, rgba(10,9,6,.78), rgba(10,9,6,0) 58%)}
@@ -224,6 +222,13 @@ h2{font-size:clamp(32px,4.6vw,46px);font-weight:700}
 .stage-list p{margin:3px 0 0;font-size:var(--fs-small);color:var(--ink2)}
 .engagements{margin-top:0;border-top:1px solid var(--line);padding-top:18px}
 .engagements h3{font-size:20px;line-height:1.25}
+.appearances{margin-top:var(--space-5);border-top:1px solid var(--line);padding-top:var(--space-4)}
+.appearances-h{font-size:24px;margin:0 0 var(--space-3)}
+.one-sheet-line{margin:var(--space-4) 0 0}
+#media .kit-band .btn{font-size:16px;white-space:nowrap}
+@media(max-width:640px){ #media .kit-band .btn{white-space:normal} }
+#media{padding-top:var(--space-4);padding-bottom:var(--space-4)}
+#media .kit-band{margin-top:var(--space-2)}
 .eng-list{list-style:none;margin:8px 0 0;padding:0}
 .eng-list li{padding:11px 0 11px 22px;border-bottom:1px solid var(--line);font-size:var(--fs-small);color:var(--ink2);position:relative}
 .eng-list li::before{content:"";position:absolute;left:2px;top:19px;width:6px;height:6px;background:var(--green);border-radius:0}
@@ -260,27 +265,21 @@ h2{font-size:clamp(32px,4.6vw,46px);font-weight:700}
 .photo-band img{width:100%;height:min(60vh,540px);object-fit:cover}
 
 
-.media-list{margin-top:var(--space-4);border-top:1px solid var(--line)}
-.media-row{display:grid;grid-template-columns:150px 1fr auto;gap:var(--space-3);align-items:baseline;padding:20px 4px;border-bottom:1px solid var(--line);text-decoration:none}
+.media-list{margin-top:var(--space-2);border-top:1px solid var(--line);display:grid;grid-template-columns:1fr 1fr;column-gap:var(--space-5)}
+@media(max-width:900px){ .media-list{grid-template-columns:1fr} }
+.media-row{display:grid;grid-template-columns:92px 1fr auto;gap:var(--space-2);align-items:baseline;padding:7px 4px;border-bottom:1px solid var(--line);text-decoration:none}
 .media-row:hover{background:var(--surface)}
 .media-row .when{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--green);font-weight:700}
 .media-row h3{font-size:20px}
 .media-row p{margin:4px 0 0;font-size:var(--fs-small);color:var(--ink2)}
-.media-row .arr{font-family:var(--font-display);color:var(--green);font-size:24px}
+.media-row .arr{font-family:var(--font-display);color:var(--green);font-size:24px;line-height:1}
 @media(max-width:640px){ .media-row{grid-template-columns:1fr} .media-row .arr{display:none} }
-.kit-band{margin-top:var(--space-4);background:var(--surface);color:var(--ink);border:1px solid var(--line);border-radius:var(--radius);padding:var(--card-pad);display:flex;gap:var(--space-3);align-items:stretch;flex-wrap:wrap}
+.kit-band{margin-top:var(--space-4);background:var(--surface);color:var(--ink);border:1px solid var(--line);border-radius:var(--radius);padding:var(--card-pad);display:flex;gap:var(--space-2);align-items:stretch;flex-wrap:wrap}
 .kit-band h3{color:var(--ink);font-size:24px}
-.kit-band p{margin:6px 0 0;color:var(--ink2);font-size:var(--fs-small);max-width:52ch}
+.kit-band p{margin:6px 0 0;color:var(--ink2);font-size:var(--fs-small);max-width:560px}
 .kit-band .sp{flex:1 1 100%;min-width:240px}
 .kit-band .btn{flex:1 1 0;justify-content:center;text-align:center}
 @media(max-width:640px){ .kit-band .btn{flex:1 1 100%} }
-
-
-.watch{margin-top:var(--space-4)}
-.watch-h{font-size:24px;margin:0 0 18px}
-.watch-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:var(--gap-card);align-items:stretch}
-@media(max-width:900px){ .watch-grid{grid-template-columns:1fr} }
-.watch-card{margin:0}
 
 
 .faq-grid{display:grid;grid-template-columns:1fr 1fr;gap:var(--space-4) var(--space-5);margin-top:var(--space-4)}
@@ -296,29 +295,28 @@ h2{font-size:clamp(32px,4.6vw,46px);font-weight:700}
 .direct{display:flex;flex-direction:column;gap:14px}
 .direct a,.direct .row{display:flex;gap:14px;align-items:flex-start;background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:18px;text-decoration:none}
 .direct b{display:block;font-size:var(--fs-small)}
-.direct span{font-size:14px;color:var(--ink2)}
+.direct span{font-size:16px;color:var(--ink2)}
 .direct svg{flex:none;margin-top:2px}
-.form-note{font-size:14px;color:var(--muted);margin:12px 0 0}
+.form-note{font-size:17px;color:var(--ink2);margin:12px 0 0}
 .enquiry-panel{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:var(--card-pad)}
 .enquiry-panel .ep-h{margin:0 0 10px;font-size:24px}
-.enquiry-panel .ep-lede{margin:0 0 20px;color:var(--ink2);font-size:17px;line-height:1.55}
+.enquiry-panel .ep-lede{margin:0 0 20px;color:var(--ink2);font-size:17px;line-height:1.65}
 .enquiry-panel .ep-btn{width:100%;justify-content:center}
 
 footer{background:var(--green);color:var(--cream);padding:44px 0}
 .foot{display:flex;gap:var(--space-3);flex-wrap:wrap;align-items:center;justify-content:space-between}
 .foot a{color:var(--gold-on-green);text-decoration:none;font-weight:600}
 .foot a:hover{text-decoration:underline}
-footer small{display:block;margin-top:14px;font-size:14px;color:#E9E3CF;max-width:70ch}
+footer small{display:block;margin-top:14px;font-size:17px;color:#E9E3CF;max-width:550px}
 
 section[id],#top{scroll-margin-top:74px}
 
 
 @media (hover:hover) and (pointer:fine){
-  .acc,.direct a,.watch-card{transition:transform var(--dur-med) var(--ease),box-shadow var(--dur-med) var(--ease),border-color var(--dur-med) var(--ease)}
+  .acc,.direct a{transition:transform var(--dur-med) var(--ease),box-shadow var(--dur-med) var(--ease),border-color var(--dur-med) var(--ease)}
   .offer,.talk,.bring,.tquote{transition:border-color var(--dur-med) var(--ease)}
   .acc:hover{border-color:var(--green)}
   .direct a:hover{border-color:var(--green);box-shadow:0 12px 26px rgba(27,68,35,.08)}
-  .watch-card:hover{border-color:var(--green);box-shadow:0 22px 48px rgba(27,68,35,.18)}
   .btn:hover{transform:translateY(-1px)}
   .media-row{transition:background var(--dur-fast) var(--ease)}
   .media-row .arr{transition:transform var(--dur-hover) var(--ease)}
@@ -339,15 +337,7 @@ section[id],#top{scroll-margin-top:74px}
   .acc-feat{grid-template-columns:1fr;gap:var(--space-3)}
   .acc-feat-media{margin:calc(var(--card-pad) * -1) calc(var(--card-pad) * -1) 0;aspect-ratio:16/9;border-radius:var(--radius) var(--radius) 0 0}
 }
-.acc .acc-body{font-size:14px;font-weight:600;color:var(--green-dark);margin:0 0 var(--space-1)}
-.organizer-bios{margin-top:var(--space-3);background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:var(--card-pad)}
-.organizer-bios h3{font-size:24px;margin:0}
-.organizer-bio-note{font-size:var(--fs-small);color:var(--ink2);margin:6px 0 0}
-.organizer-bio{margin-top:var(--space-3);padding-top:var(--space-3);border-top:1px solid var(--line)}
-.organizer-bio-label{font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--green);font-weight:700;margin:0 0 var(--space-1)}
-#bio-short,#bio-long{margin:0 0 var(--space-2);color:var(--ink)}
-.copy-bio-btn{font-family:var(--font-body);font-size:14px;font-weight:700;padding:8px 16px;border-radius:999px;border:1.5px solid var(--green);background:transparent;color:var(--ink);cursor:pointer;transition:border-color var(--dur-fast) var(--ease),color var(--dur-fast) var(--ease)}
-.copy-bio-btn:hover{border-color:var(--green-dark);color:var(--green-dark)}
+.acc .acc-body{font-size:16px;font-weight:600;color:var(--green-dark);margin:0 0 var(--space-1)}
 .foot-brand{font-family:var(--font-display);font-size:20px;color:var(--cream)}
 .two .after-pull{margin-top:var(--space-3)}
 /* Print — a clean paper copy: no nav, video or dark bands;
@@ -357,7 +347,7 @@ section[id],#top{scroll-margin-top:74px}
   *{-webkit-print-color-adjust:economy;print-color-adjust:economy;box-shadow:none !important;text-shadow:none !important}
   html,body{background:#fff !important;color:#000 !important}
   header.nav,.mobile-menu,.skip-link,.speak-band,.photo-band,
-  .vid-frame,.watch,.hero-ctas,.dl-row,.enquiry-panel,.btn,
+  .vid-frame,.hero-ctas,.dl-row,.enquiry-panel,.btn,
   footer .foot span:last-child{display:none !important}
   section,.hero,.philosophy,.accolades,.contact,.proof{padding:12pt 0 !important;background:#fff !important}
   .wrap{max-width:none !important}
@@ -453,8 +443,8 @@ section[id],#top{scroll-margin-top:74px}
     <a class="brand" href="#top" aria-label="Swabir Shariff home"><b>Swabir Shariff</b></a>
     <nav class="nav-links" aria-label="Primary">
       <a href="#about">About</a>
-      <a href="#accolades">Accolades</a>
       <a href="#services">Services</a>
+      <a href="#accolades">Accolades</a>
       <a href="#talks">Talks</a>
       <a href="#media">Media</a>
       <a href="#contact">Contact</a>
@@ -471,8 +461,8 @@ section[id],#top{scroll-margin-top:74px}
   </div>
   <nav class="mobile-menu" id="mobileMenu" aria-label="Sections">
     <a href="#about">About</a>
-    <a href="#accolades">Accolades</a>
     <a href="#services">Services</a>
+    <a href="#accolades">Accolades</a>
     <a href="#talks">Talks</a>
     <a href="#media">Media</a>
     <a href="#contact">Contact</a>
@@ -580,6 +570,74 @@ section[id],#top{scroll-margin-top:74px}
 </section>
 
 
+<section id="services">
+  <div class="wrap">
+    <h2>Advisory &amp; speaking</h2>
+    <p class="lede">Leadership, offered in three forms — advisory, briefings and keynotes — grounded in a record of building an institution and changing how systems serve people. The youth work is the evidence base; the subject is how organizations earn trust, allocate resources and lead change.</p>
+    <div class="offers-grid">
+      <article class="offer">
+        <span class="num">No. 1</span>
+        <h3>Advisory &amp; Consulting</h3>
+        <p>Ground-level judgment for institutions setting strategy — on youth, mentoring and violence prevention, and on the harder question underneath them: how an organization earns the trust of the people it serves. Program design, allocation and governance, tested against what actually happens in communities like Scarborough. The record behind it: 10,000+ young people mentored across Toronto since 2020, through The Good Guides.</p>
+        <ul>
+          <li>Youth engagement that reaches — and retains</li>
+          <li>Program design review &amp; strategy</li>
+          <li>Mentoring model development</li>
+          <li>Institution-building for grassroots organizations</li>
+          <li>Co-op &amp; placement pathways</li>
+        </ul>
+        <p class="outcome"><b>The outcome</b>Youth programming young people actually show up to — designed with the community it serves, not prescribed to it.</p>
+        <a class="btn btn-primary offer-cta" href="https://docs.google.com/forms/d/e/1FAIpQLSdiCrA7REi6l-mytfo14O28CBNuIsEWtvlv127SMLz1WY9mZw/viewform?usp=pp_url&amp;entry.1698656318=Advisory&amp;entry.532234969=Advisory%20%26%20Consulting" target="_blank" rel="noopener" data-goatcounter-click="enquiry-offer-advisory">Start the conversation →</a>
+      </article>
+      <article class="offer">
+        <span class="num">No. 2</span>
+        <h3>Keynotes &amp; Talks</h3>
+        <p>For conferences, institutions and leadership gatherings that want a speaker with a record — not a résumé of talks about other people's work. The keynotes are the three signature talks set out below. They sit within a speaking record that has reached 5,000+ people through talks &amp; keynotes.</p>
+        <p class="also">Also drawn on in panels and briefings:</p>
+        <ul>
+          <li>Leadership from lived experience</li>
+          <li>Building an institution from nothing</li>
+          <li>Changing where young people start</li>
+          <li>Youth-violence prevention from the ground up</li>
+          <li>Youth-led, not youth-decorated</li>
+          <li>Panels &amp; fireside conversations</li>
+        </ul>
+        <p class="outcome"><b>The outcome</b>An audience that leaves with a working model for leading change — in a system, an organization, a community — not just a story about one.</p>
+        <a class="btn btn-primary offer-cta" href="https://docs.google.com/forms/d/e/1FAIpQLSdiCrA7REi6l-mytfo14O28CBNuIsEWtvlv127SMLz1WY9mZw/viewform?usp=pp_url&amp;entry.1698656318=Speaking&amp;entry.532234969=Keynotes%20%26%20Talks" target="_blank" rel="noopener" data-goatcounter-click="enquiry-offer-keynotes">Start the conversation →</a>
+      </article>
+      <article class="offer">
+        <span class="num">No. 3</span>
+        <h3>Leadership Briefings</h3>
+        <p>Workshop, panel and fireside formats for leadership teams — practical, honest, and built around your mandate and your community, not a template. They are grounded in work that helped direct over a million dollars into The Good Guides and other Scarborough youth initiatives.</p>
+        <ul>
+          <li>What frontline leadership teaches</li>
+          <li>Mentoring models that young people trust</li>
+          <li>Reaching the young people services miss</li>
+          <li>Building youth leadership into delivery</li>
+          <li>Violence-prevention program design</li>
+        </ul>
+        <p class="outcome"><b>The outcome</b>A leadership team aligned on how trust is earned — with practical moves drawn from what actually works in Scarborough's neighbourhoods.</p>
+        <a class="btn btn-primary offer-cta" href="https://docs.google.com/forms/d/e/1FAIpQLSdiCrA7REi6l-mytfo14O28CBNuIsEWtvlv127SMLz1WY9mZw/viewform?usp=pp_url&amp;entry.1698656318=Leadership%20Briefings&amp;entry.532234969=Leadership%20Briefings" target="_blank" rel="noopener" data-goatcounter-click="enquiry-offer-briefings">Start the conversation →</a>
+      </article>
+    </div>
+
+
+    <p class="one-sheet-line"><a class="hero-kit" href="one-sheet.html" data-goatcounter-click="view-speaker-one-sheet-services">Speaker one-sheet — the one-page version</a></p>
+    <div class="typical" id="typical">
+      <h3>A typical engagement</h3>
+      <p class="sub">Advisory engagements run 8–12 weeks, in four stages:</p>
+      <div class="steps">
+        <div class="step"><b>1 · Discovery &amp; program assessment</b><p>Site visits, youth and staff interviews, and your data — who shows up, who doesn't, and why.</p></div>
+        <div class="step"><b>2 · Redesign strategy</b><p>A written, board-ready plan: staffing, scheduling and program-model changes, in plain language.</p></div>
+        <div class="step"><b>3 · Implementation support</b><p>Two working sessions a month during implementation — problems solved as they surface.</p></div>
+        <div class="step"><b>4 · 90-day results review</b><p>A review against the targets set at the start: what moved, what didn't, what comes next.</p></div>
+      </div>
+      <p class="process"><b>How it starts:</b> Enquiry → an introductory conversation → a written proposal that sets out the scope and timeline.</p>
+    </div>
+  </div>
+</section>
+
+
 <section class="accolades" id="accolades">
   <div class="wrap">
     <h2>Honours and recognition</h2>
@@ -645,79 +703,6 @@ section[id],#top{scroll-margin-top:74px}
 
 
 
-<section id="services">
-  <div class="wrap">
-    <h2>Advisory &amp; speaking</h2>
-    <p class="lede">Leadership, offered in three forms — advisory, briefings and keynotes — grounded in a record of building an institution and changing how systems serve people. The youth work is the evidence base; the subject is how organizations earn trust, allocate resources and lead change.</p>
-    <div class="offers-grid">
-      <article class="offer">
-        <span class="num">No. 1</span>
-        <h3>Advisory &amp; Consulting</h3>
-        <p>Ground-level judgment for institutions setting strategy — on youth, mentoring and violence prevention, and on the harder question underneath them: how an organization earns the trust of the people it serves. Program design, allocation and governance, tested against what actually happens in communities like Scarborough. The record behind it: 10,000+ young people mentored across Toronto since 2020, through The Good Guides.</p>
-        <ul>
-          <li>Youth engagement that reaches — and retains</li>
-          <li>Program design review &amp; strategy</li>
-          <li>Mentoring model development</li>
-          <li>Institution-building for grassroots organizations</li>
-          <li>Co-op &amp; placement pathways</li>
-        </ul>
-        <p class="outcome"><b>The outcome</b>Youth programming young people actually show up to — designed with the community it serves, not prescribed to it.</p>
-        <a class="btn btn-primary offer-cta" href="https://docs.google.com/forms/d/e/1FAIpQLSdiCrA7REi6l-mytfo14O28CBNuIsEWtvlv127SMLz1WY9mZw/viewform?usp=pp_url&amp;entry.1698656318=Advisory&amp;entry.532234969=Advisory%20%26%20Consulting" target="_blank" rel="noopener" data-goatcounter-click="enquiry-offer-advisory">Start the conversation →</a>
-      </article>
-      <article class="offer">
-        <span class="num">No. 2</span>
-        <h3>Keynotes &amp; Talks</h3>
-        <p>For conferences, institutions and leadership gatherings that want a speaker with a record — not a résumé of talks about other people's work. The keynotes are the three signature talks set out below. They sit within a speaking record that has reached 5,000+ people through talks &amp; keynotes.</p>
-        <p class="also">Also drawn on in panels and briefings:</p>
-        <ul>
-          <li>Leadership from lived experience</li>
-          <li>Building an institution from nothing</li>
-          <li>Changing where young people start</li>
-          <li>Youth-violence prevention from the ground up</li>
-          <li>Youth-led, not youth-decorated</li>
-          <li>Panels &amp; fireside conversations</li>
-        </ul>
-        <p class="outcome"><b>The outcome</b>An audience that leaves with a working model for leading change — in a system, an organization, a community — not just a story about one.</p>
-        <a class="btn btn-primary offer-cta" href="https://docs.google.com/forms/d/e/1FAIpQLSdiCrA7REi6l-mytfo14O28CBNuIsEWtvlv127SMLz1WY9mZw/viewform?usp=pp_url&amp;entry.1698656318=Speaking&amp;entry.532234969=Keynotes%20%26%20Talks" target="_blank" rel="noopener" data-goatcounter-click="enquiry-offer-keynotes">Start the conversation →</a>
-      </article>
-      <article class="offer">
-        <span class="num">No. 3</span>
-        <h3>Leadership Briefings</h3>
-        <p>Workshop, panel and fireside formats for leadership teams — practical, honest, and built around your mandate and your community, not a template. They are grounded in work that helped direct over a million dollars into The Good Guides and other Scarborough youth initiatives.</p>
-        <ul>
-          <li>What frontline leadership teaches</li>
-          <li>Mentoring models that young people trust</li>
-          <li>Reaching the young people services miss</li>
-          <li>Building youth leadership into delivery</li>
-          <li>Violence-prevention program design</li>
-        </ul>
-        <p class="outcome"><b>The outcome</b>A leadership team aligned on how trust is earned — with practical moves drawn from what actually works in Scarborough's neighbourhoods.</p>
-        <a class="btn btn-primary offer-cta" href="https://docs.google.com/forms/d/e/1FAIpQLSdiCrA7REi6l-mytfo14O28CBNuIsEWtvlv127SMLz1WY9mZw/viewform?usp=pp_url&amp;entry.1698656318=Leadership%20Briefings&amp;entry.532234969=Leadership%20Briefings" target="_blank" rel="noopener" data-goatcounter-click="enquiry-offer-briefings">Start the conversation →</a>
-      </article>
-    </div>
-
-
-  </div>
-</section>
-
-
-<section>
-  <div class="wrap">
-    <div class="typical">
-      <h2>A typical engagement</h2>
-      <p class="sub">Advisory engagements typically run 8–12 weeks. Four stages, in order:</p>
-      <div class="steps">
-        <div class="step"><b>1 · Discovery &amp; program assessment</b><p>Site visits, youth and staff interviews, and a hard look at your data — who shows up, who doesn't, and why.</p></div>
-        <div class="step"><b>2 · Redesign strategy</b><p>A written plan: staffing, scheduling and program-model changes, in plain language your board can act on.</p></div>
-        <div class="step"><b>3 · Implementation support</b><p>Two working sessions a month while your team puts the changes in place — problems solved as they surface.</p></div>
-        <div class="step"><b>4 · 90-day results review</b><p>A review against the targets we set together at the start: what moved, what didn't, what comes next.</p></div>
-      </div>
-      <p class="process"><b>How it starts:</b> Enquiry → an introductory conversation → a written proposal that sets out the scope and timeline.</p>
-    </div>
-  </div>
-</section>
-
-
 <section id="talks">
   <div class="wrap">
     <div class="talks">
@@ -747,29 +732,25 @@ section[id],#top{scroll-margin-top:74px}
       </div>
       <p class="talk-aud">Each talk is delivered as a keynote, a fireside conversation or a panel — in the room or virtual.</p>
     </div>
-  </div>
-</section>
-
-
-<section id="stages">
-  <div class="wrap">
-    <h2>Selected appearances</h2>
-    <div class="stages-grid">
-      <div>
-        <ul class="stage-list">
-          <li><span class="when">October 2026</span><b>Presentation at Asprey, London</b><p>QECT 100 Young Leaders Awardee 2026.</p></li>
-          <li><span class="when">February 2022</span><b>Panel guest on CP24 Tonight</b><p>A panel discussion on youth violence, speaking as executive director of The Good Guides.</p></li>
-          <li><span class="when">December 2021</span><b>Interviewed on Global News</b><p>Featured in the “Making a Difference” segment, interviewed by Susan Hay.</p></li>
-        </ul>
-        <div class="engagements">
-          <h3>Selected speaking engagements, 2023–2025</h3>
-          <ul class="eng-list">
-            <li>Keynote — Toronto Police Service College</li>
-            <li>Keynote — OPTrust</li>
-            <li>Panels — post-secondary institutions</li>
-            <li>Talks and panels — organizational events and private businesses</li>
-            <li>Talks for high schools and elementary schools across Toronto</li>
+    <div class="appearances" id="stages">
+      <h3 class="appearances-h">Selected appearances</h3>
+      <div class="stages-grid">
+        <div>
+          <ul class="stage-list">
+            <li><span class="when">October 2026</span><b>Presentation at Asprey, London</b><p>QECT 100 Young Leaders Awardee 2026.</p></li>
+            <li><span class="when">February 2022</span><b>Panel guest on CP24 Tonight</b><p>A panel on youth violence, as executive director of The Good Guides.</p></li>
+            <li><span class="when">December 2021</span><b>Interviewed on Global News</b><p>Featured in the “Making a Difference” segment, interviewed by Susan Hay.</p></li>
           </ul>
+          <div class="engagements">
+            <h3>Selected speaking engagements, 2023–2025</h3>
+            <ul class="eng-list">
+              <li>Keynote — Toronto Police Service College</li>
+              <li>Keynote — OPTrust</li>
+              <li>Panels — post-secondary institutions</li>
+              <li>Talks and panels — organizational events and private businesses</li>
+              <li>Talks for high schools and elementary schools across Toronto</li>
+            </ul>
+          </div>
         </div>
       </div>
     </div>
@@ -792,34 +773,15 @@ section[id],#top{scroll-margin-top:74px}
 <section id="media">
   <div class="wrap">
     <h2>Media</h2>
-    <div class="watch">
-      <h3 class="watch-h">See me speak</h3>
-      <div class="watch-grid">
-        <figure class="stages-video watch-card">
-          <div class="vid-frame">
-            <button type="button" class="vid-facade" data-embed="https://www.youtube-nocookie.com/embed/4_5MYASU6OM?rel=0" data-title="The Good Guides x Making A Difference — Global News segment with Swabir Shariff, interviewed by Susan Hay, 2021" aria-label="Play video: Global News 'Making a Difference' segment featuring Swabir Shariff">
-              <img src="assets/making-a-difference-thumb.webp" alt="Frame from the Global News 'Making a Difference' segment: Swabir Shariff seated in the studio, with the on-screen banner 'Empowering students to improve their neighbourhoods'" width="1290" height="726" loading="lazy" decoding="async">
-              <span class="vid-shade"></span>
-              <span class="vid-play"><svg width="26" height="26" viewBox="0 0 24 24" fill="#F5F1E6" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></span>
-              <span class="vid-label">Watch the segment</span>
-            </button>
-          </div>
-          <figcaption><a href="https://www.youtube.com/watch?v=4_5MYASU6OM" target="_blank" rel="noopener">Watch on YouTube</a> · Global News “Making a Difference,” interviewed by Susan Hay, December 2021 · 2:46</figcaption>
-        </figure>
-        <figure class="stages-video watch-card">
-          <div class="vid-frame">
-            <button type="button" class="vid-facade" data-embed="https://www.youtube-nocookie.com/embed/VhGDXRngbuY?rel=0" data-title="CP24 Tonight — panel on youth violence with Swabir Shariff, February 2022" aria-label="Play video: CP24 Tonight panel on youth violence featuring Swabir Shariff">
-              <img src="assets/cp24-panel-thumb.webp" alt="Frame from CP24 Tonight, February 2022: Swabir Shariff on a three-way panel discussing youth violence, beneath the CP24 Tonight banner" width="960" height="540" loading="lazy" decoding="async">
-              <span class="vid-shade"></span>
-              <span class="vid-play"><svg width="26" height="26" viewBox="0 0 24 24" fill="#F5F1E6" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></span>
-              <span class="vid-label">Watch the panel</span>
-            </button>
-          </div>
-          <figcaption><a href="https://www.youtube.com/watch?v=VhGDXRngbuY" target="_blank" rel="noopener">Watch on YouTube</a> · Panel guest on CP24 Tonight discussing youth violence, February 2022, speaking as executive director of The Good Guides</figcaption>
-        </figure>
+    <div class="kit-band">
+      <div class="sp">
+        <h3>The media kit — everything a booker needs.</h3>
+        <p>Verified biography, accolades and contact details in one PDF. For programmes, introductions and speaker listings, the full biographies are in the Media Kit and Biography downloads.</p>
       </div>
+      <a class="btn btn-outline" href="assets/Swabir-Shariff-Media-Kit.pdf" download="Swabir-Shariff-Media-Kit.pdf" data-goatcounter-click="download-media-kit">Download Media Kit (PDF)</a>
+      <a class="btn btn-outline" href="assets/Swabir-Shariff-Speaker-One-Sheet.pdf" download="Swabir-Shariff-Speaker-One-Sheet.pdf" data-goatcounter-click="download-speaker-one-sheet">Download Speaker One-Sheet (PDF)</a>
+      <a class="btn btn-outline" href="assets/Swabir-Shariff-Biography.pdf" download="Swabir-Shariff-Biography.pdf" data-goatcounter-click="download-biography">Download Biography (PDF)</a>
     </div>
-
     <h3 class="press-fold-h">As featured in</h3>
     <div class="media-list">
       <a class="media-row" href="https://www.youtube.com/watch?v=4_5MYASU6OM" target="_blank" rel="noopener">
@@ -839,48 +801,24 @@ section[id],#top{scroll-margin-top:74px}
       </a>
       <a class="media-row" href="https://www.oneyoungworld.com/ambassador-spotlight-september-2026" target="_blank" rel="noopener">
         <span class="when">Sep 2026</span>
-        <div><h3>One Young World — Ambassador Spotlight</h3><p>Profile feature on the founder of The Good Guides: mentorship, violence prevention, sports and co-op placements for ages 11–18.</p></div>
+        <div><h3>One Young World — Ambassador Spotlight</h3></div>
         <span class="arr">→</span>
       </a>
       <a class="media-row" href="https://scarboroughwalkoffame.com/rising-star-inductees-2022/" target="_blank" rel="noopener">
         <span class="when">Apr 10, 2024</span>
-        <div><h3>Scarborough Walk of Fame — Rising Star inductee</h3><p>Official inductee profile: founder of The Good Guides, the youth-led mentoring organization he built in Scarborough from 2020.</p></div>
+        <div><h3>Scarborough Walk of Fame — Rising Star inductee</h3></div>
         <span class="arr">→</span>
       </a>
       <a class="media-row" href="https://www.toronto.ca/news/recipients-of-torontos-2-7-million-youth-violence-prevention-grant-announced/" target="_blank" rel="noopener">
         <span class="when">Jun 27, 2023</span>
-        <div><h3>City of Toronto — Youth Violence Prevention Grant recipients</h3><p>City news release naming The Good Guides among the funded organizations.</p></div>
+        <div><h3>City of Toronto — Youth Violence Prevention Grant recipients</h3></div>
         <span class="arr">→</span>
       </a>
       <a class="media-row" href="https://www.toronto.com/news/open-door-for-scarborough-youth-lets-good-guide-ambassadors-choose-how-they-want-to-help/article_d54b8927-e4e8-5ce3-aa45-68c9a3ec216b.html" target="_blank" rel="noopener">
         <span class="when">Nov 16, 2021</span>
-        <div><h3>Scarborough Mirror — “‘Open door’ for Scarborough youth lets Good Guide Ambassadors choose how they want to help”</h3><p>Profile by Mike Adler, November 2021 — inside the Good Guide Ambassadors' open door, where young people choose how they want to help.</p></div>
+        <div><h3>Scarborough Mirror — “‘Open door’ for Scarborough youth lets Good Guide Ambassadors choose how they want to help”</h3></div>
         <span class="arr">→</span>
       </a>
-    </div>
-
-    <div class="kit-band">
-      <div class="sp">
-        <h3>The media kit — everything a booker needs.</h3>
-        <p>Verified biography, accolades and contact details in one PDF. My full biography is there too, for programme committees and speaker bureaus.</p>
-      </div>
-      <a class="btn btn-outline" href="assets/Swabir-Shariff-Media-Kit.pdf" download="Swabir-Shariff-Media-Kit.pdf" data-goatcounter-click="download-media-kit">Download Media Kit (PDF)</a>
-      <a class="btn btn-outline" href="assets/Swabir-Shariff-Speaker-One-Sheet.pdf" download="Swabir-Shariff-Speaker-One-Sheet.pdf" data-goatcounter-click="download-speaker-one-sheet">Download Speaker One-Sheet (PDF)</a>
-      <a class="btn btn-outline" href="assets/Swabir-Shariff-Biography.pdf" download="Swabir-Shariff-Biography.pdf" data-goatcounter-click="download-biography">Download Biography (PDF)</a>
-    </div>
-    <div class="organizer-bios">
-      <h3>For organizers</h3>
-      <p class="organizer-bio-note">Copy-ready biographies for programmes, introductions and speaker listings.</p>
-      <div class="organizer-bio">
-        <p class="organizer-bio-label">Short bio — 50 words</p>
-        <p id="bio-short">Swabir Shariff is a Leadership Advisor &amp; Speaker based in Toronto, Canada, and Founder &amp; Executive Director of The Good Guides. A QECT 100 Young Leaders Awardee 2026 and Scarborough Walk of Fame Rising Star 2024, he has mentored 10,000+ young people since 2020 and reached 5,000+ people through talks.</p>
-        <button type="button" class="copy-bio-btn" data-copy-target="bio-short">Copy short bio</button>
-      </div>
-      <div class="organizer-bio">
-        <p class="organizer-bio-label">Long bio — 141 words</p>
-        <p id="bio-long">Swabir Shariff is a Leadership Advisor &amp; Speaker based in Toronto, Canada, and the Founder &amp; Executive Director of The Good Guides, the youth-mentoring organization he founded in 2020. Through The Good Guides, he has mentored 10,000+ young people across Toronto since 2020, building a youth-led model of mentorship, leadership and violence prevention led by people young people can see themselves in. In 2026 he was named a QECT 100 Young Leaders Awardee, selected through a highly competitive process from thousands of applications across the 56 Commonwealth countries. In 2024 he was inducted into the Scarborough Walk of Fame as a Rising Star. As a speaker, he has reached 5,000+ people through talks and keynotes, advising and speaking where decisions are made — in boardrooms, at policy tables and on conference stages. Organizers book him for keynotes, briefings and advisory work.</p>
-        <button type="button" class="copy-bio-btn" data-copy-target="bio-long">Copy long bio</button>
-      </div>
     </div>
   </div>
 </section>
@@ -971,7 +909,7 @@ section[id],#top{scroll-margin-top:74px}
   <div class="wrap">
     <div class="foot">
       <span class="foot-brand">Swabir Shariff</span>
-      <span><a href="#about">About</a> &nbsp;·&nbsp; <a href="#bring">What I Bring</a> &nbsp;·&nbsp; <a href="#accolades">Accolades</a> &nbsp;·&nbsp; <a href="#services">Advisory &amp; Speaking</a> &nbsp;·&nbsp; <a href="#talks">Talks</a> &nbsp;·&nbsp; <a href="#testimonials">Testimonials</a> &nbsp;·&nbsp; <a href="#media">Media</a> &nbsp;·&nbsp; <a href="#faq">FAQ</a> &nbsp;·&nbsp; <a href="https://www.linkedin.com/in/swabir" target="_blank" rel="noopener">LinkedIn</a></span>
+      <span><a href="#about">About</a> &nbsp;·&nbsp; <a href="#bring">What I Bring</a> &nbsp;·&nbsp; <a href="#services">Advisory &amp; Speaking</a> &nbsp;·&nbsp; <a href="#accolades">Accolades</a> &nbsp;·&nbsp; <a href="#talks">Talks</a> &nbsp;·&nbsp; <a href="#testimonials">Testimonials</a> &nbsp;·&nbsp; <a href="#media">Media</a> &nbsp;·&nbsp; <a href="#faq">FAQ</a> &nbsp;·&nbsp; <a href="https://www.linkedin.com/in/swabir" target="_blank" rel="noopener">LinkedIn</a></span>
     </div>
     <small>© 2026 Swabir Shariff · Toronto, Canada. Every accolade listed is on the public record and can be shown on request.</small>
   </div>
@@ -1008,19 +946,6 @@ section[id],#top{scroll-margin-top:74px}
       f.setAttribute('referrerpolicy', 'strict-origin-when-cross-origin');
       f.setAttribute('allowfullscreen', '');
       btn.replaceWith(f);
-    });
-  });
-
-  // Copy-ready organizer bios: copy the bio text to the clipboard.
-  document.querySelectorAll('.copy-bio-btn').forEach(function(btn){
-    btn.addEventListener('click', function(){
-      var el = document.getElementById(btn.getAttribute('data-copy-target'));
-      if (!el || !navigator.clipboard) return;
-      navigator.clipboard.writeText(el.textContent.trim()).then(function(){
-        var orig = btn.textContent;
-        btn.textContent = 'Copied';
-        setTimeout(function(){ btn.textContent = orig; }, 1600);
-      });
     });
   });
 
