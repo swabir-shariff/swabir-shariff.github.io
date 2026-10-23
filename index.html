@@ -83,7 +83,7 @@ h1,h2,h3{font-family:var(--font-display);line-height:1.08;margin:0}
 .mobile-menu a.mm-cta{color:var(--gold-on-green)}
 @media(min-width:901px){ .mobile-menu{display:none!important} }
 @media(max-width:900px){ .nav-links{display:none} .nav-toggle{display:inline-flex} .nav-in{grid-template-columns:1fr auto auto} }
-@media(max-width:480px){ .nav-in{gap:12px} .brand b{font-size:17px} .nav .btn{padding:8px 13px;font-size:14px} .nav .btn.nav-cta{padding:8px 12px;font-size:14px} .nav-actions{gap:10px} .nav-social{width:32px;height:32px} }
+@media(max-width:480px){ .nav-in{gap:8px} .brand b{font-size:15px} .nav .btn{padding:8px 13px;font-size:14px} .nav .btn.nav-cta{padding:8px 10px;font-size:14px} .nav-actions{gap:8px} .nav-social{display:none} }
 
 
 .hero{background:var(--bg);color:var(--ink);position:relative;overflow:hidden}
@@ -265,8 +265,6 @@ h2{font-size:clamp(32px,4.6vw,46px);font-weight:700}
 .philosophy .big{font-family:var(--font-display);font-size:clamp(56px,8vw,104px);font-weight:600;line-height:1.12;max-width:22ch;margin:18px auto 0}
 .philosophy .big em{color:var(--ink);font-style:italic}
 .philosophy p.sub{color:var(--ink2);max-width:56ch;margin:22px auto 0}
-.photo-band{line-height:0}
-.photo-band img{width:100%;height:clamp(320px,70vh,680px);object-fit:cover;object-position:50% 32%}
 
 
 .media-list{margin-top:var(--space-2);border-top:1px solid var(--line);display:grid;grid-template-columns:1fr 1fr;column-gap:var(--space-5)}
@@ -295,7 +293,7 @@ h2{font-size:clamp(32px,4.6vw,46px);font-weight:700}
 
 .contact{background:var(--surface2)}
 .contact-grid{display:grid;grid-template-columns:.85fr 1.15fr;gap:var(--space-5);margin-top:var(--space-4);align-items:start}
-@media(max-width:900px){ .contact-grid{grid-template-columns:1fr} }
+@media(max-width:900px){ .contact-grid{grid-template-columns:minmax(0,1fr)} .contact-grid>*{min-width:0} .direct a>span span,.direct .row>span span{overflow-wrap:anywhere} .form-note{overflow-wrap:anywhere} }
 .direct{display:flex;flex-direction:column;gap:14px}
 .direct a,.direct .row{display:flex;gap:14px;align-items:flex-start;background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:18px;text-decoration:none}
 .direct b{display:block;font-size:var(--fs-small)}
@@ -357,7 +355,7 @@ section[id],#top{scroll-margin-top:74px}
   @page{margin:18mm 16mm}
   *{-webkit-print-color-adjust:economy;print-color-adjust:economy;box-shadow:none !important;text-shadow:none !important}
   html,body{background:#fff !important;color:#000 !important}
-  header.nav,.mobile-menu,.skip-link,.speak-band,.photo-band,
+  header.nav,.mobile-menu,.skip-link,.speak-band,
   .vid-frame,.hero-ctas,.dl-row,.enquiry-panel,.btn,
   footer .foot span:last-child{display:none !important}
   section,.hero,.philosophy,.accolades,.contact,.proof{padding:12pt 0 !important;background:#fff !important}
@@ -384,8 +382,7 @@ section[id],#top{scroll-margin-top:74px}
     "url": "https://www.thegoodguides.org"
   },
   "sameAs": [
-    "https://www.linkedin.com/in/swabir",
-    "https://www.thegoodguides.org"
+    "https://www.linkedin.com/in/swabir"
   ]
 }
 </script>
@@ -439,7 +436,7 @@ section[id],#top{scroll-margin-top:74px}
       "name": "How quickly will we hear back?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Fast. If you're working to a deadline, name it in the enquiry and I'll match it where I can."
+        "text": "Within two business days. If you're working to a deadline, name it in the enquiry and I'll match it where I can."
       }
     }
   ]
@@ -467,7 +464,7 @@ section[id],#top{scroll-margin-top:74px}
       <a class="nav-social" href="https://www.linkedin.com/in/swabir" target="_blank" rel="noopener" aria-label="Swabir Shariff on LinkedIn">
         <svg viewBox="0 0 448 512" aria-hidden="true"><path d="M100.28 448H7.4V148.9h92.88zM53.79 108.1C24.09 108.1 0 83.5 0 53.8a53.79 53.79 0 0 1 107.58 0c0 29.7-24.1 54.3-53.79 54.3zM447.9 448h-92.68V302.4c0-34.7-.7-79.2-48.29-79.2-48.29 0-55.69 37.7-55.69 76.7V448h-92.78V148.9h89.08v40.8h1.3c12.4-23.5 42.69-48.3 87.88-48.3 94 0 111.28 61.9 111.28 142.3V448z"/></svg>
       </a>
-      <a href="https://docs.google.com/forms/d/e/1FAIpQLSdiCrA7REi6l-mytfo14O28CBNuIsEWtvlv127SMLz1WY9mZw/viewform" target="_blank" rel="noopener" class="btn btn-outline-light nav-cta" data-goatcounter-click="enquiry-nav">Enquiries</a>
+      <a href="#contact" class="btn btn-outline-light nav-cta" data-goatcounter-click="enquiry-nav">Enquiries</a>
     </div>
   </div>
   <nav class="mobile-menu" id="mobileMenu" aria-label="Sections">
@@ -477,7 +474,7 @@ section[id],#top{scroll-margin-top:74px}
     <a href="#talks">Talks</a>
     <a href="#media">Media</a>
     <a href="#contact">Contact</a>
-    <a href="https://docs.google.com/forms/d/e/1FAIpQLSdiCrA7REi6l-mytfo14O28CBNuIsEWtvlv127SMLz1WY9mZw/viewform" target="_blank" rel="noopener" class="mm-cta" data-goatcounter-click="enquiry-nav-mobile">Advisory &amp; Speaking Enquiries</a>
+    <a href="#contact" class="mm-cta" data-goatcounter-click="enquiry-nav-mobile">Advisory &amp; Speaking Enquiries</a>
   </nav>
 </header>
 <main id="main">
@@ -489,12 +486,12 @@ section[id],#top{scroll-margin-top:74px}
       <h1>Swabir<br><em>Shariff</em></h1>
       <p class="roleline">Leadership Advisor and Speaker</p>
       <div class="hero-ctas">
-        <a class="btn btn-primary" href="https://docs.google.com/forms/d/e/1FAIpQLSdiCrA7REi6l-mytfo14O28CBNuIsEWtvlv127SMLz1WY9mZw/viewform" target="_blank" rel="noopener" data-goatcounter-click="enquiry-hero">Start the conversation →</a>
+        <a class="btn btn-primary" href="#contact" data-goatcounter-click="enquiry-hero">Start the conversation →</a>
       </div>
     </div>
     <div class="portrait-col">
       <div class="portrait-frame">
-        <img src="assets/spotlight-candid.webp" srcset="assets/spotlight-candid-726.webp 726w, assets/spotlight-candid.webp 1290w" sizes="(max-width: 900px) 100vw, 50vw" alt="Swabir Shariff at the One Young World Summit, 2025" width="1290" height="1613">
+        <img fetchpriority="high" src="assets/spotlight-candid.webp" srcset="assets/spotlight-candid-726.webp 726w, assets/spotlight-candid.webp 1290w" sizes="(max-width: 900px) 100vw, 50vw" alt="Swabir Shariff at the One Young World Summit, 2025" width="1290" height="1613">
       </div>
     </div>
   </div>
@@ -504,7 +501,7 @@ section[id],#top{scroll-margin-top:74px}
       <div class="proof-in">
         <div><b>1 of 100</b><span>chosen from thousands of applications across the 56 Commonwealth countries — QECT 100 Young Leaders Awardee 2026</span></div>
         <div><b>10,000+</b><span>young people mentored across Toronto since 2020, through The Good Guides</span></div>
-        <div><b>$1M+</b><span>helped direct into The Good Guides and other Scarborough youth initiatives</span></div>
+        <div><b>Helped direct over a million dollars</b><span>into The Good Guides and other Scarborough youth initiatives</span></div>
         <div><b>5,000+</b><span>people reached through talks &amp; keynotes</span></div>
       </div>
     </div>
@@ -598,12 +595,12 @@ section[id],#top{scroll-margin-top:74px}
           <li>Co-op &amp; placement pathways</li>
         </ul>
         <p class="outcome"><b>The outcome</b>Youth programming young people actually show up to — designed with the community it serves, not prescribed to it.</p>
-        <a class="btn btn-primary offer-cta" href="https://docs.google.com/forms/d/e/1FAIpQLSdiCrA7REi6l-mytfo14O28CBNuIsEWtvlv127SMLz1WY9mZw/viewform?usp=pp_url&amp;entry.1698656318=Advisory&amp;entry.532234969=Advisory%20%26%20Consulting" target="_blank" rel="noopener" data-goatcounter-click="enquiry-offer-advisory">Start the conversation →</a>
+        <a class="btn btn-primary offer-cta" href="#contact" data-enquiry-intent="Advisory &amp; Consulting" data-goatcounter-click="enquiry-offer-advisory">Start the conversation →</a>
       </article>
       <article class="offer">
         <span class="num">No. 2</span>
         <h3>Keynotes &amp; Talks</h3>
-        <p>For conferences, institutions and leadership gatherings that want a speaker with a record — not a résumé of talks about other people's work. The keynotes are the three signature talks set out below. They sit within a speaking record that has reached 5,000+ people through talks &amp; keynotes.</p>
+        <p>For conferences, institutions and leadership gatherings that want a speaker with a record — not a catalogue of talks about other people's work. The keynotes are the three signature talks set out below. They sit within a speaking record that has reached 5,000+ people through talks &amp; keynotes.</p>
         <p class="also">Also drawn on in panels and briefings:</p>
         <ul>
           <li>Leadership from lived experience</li>
@@ -614,7 +611,7 @@ section[id],#top{scroll-margin-top:74px}
           <li>Panels &amp; fireside conversations</li>
         </ul>
         <p class="outcome"><b>The outcome</b>An audience that leaves with a working model for leading change — in a system, an organization, a community — not just a story about one.</p>
-        <a class="btn btn-primary offer-cta" href="https://docs.google.com/forms/d/e/1FAIpQLSdiCrA7REi6l-mytfo14O28CBNuIsEWtvlv127SMLz1WY9mZw/viewform?usp=pp_url&amp;entry.1698656318=Speaking&amp;entry.532234969=Keynotes%20%26%20Talks" target="_blank" rel="noopener" data-goatcounter-click="enquiry-offer-keynotes">Start the conversation →</a>
+        <a class="btn btn-primary offer-cta" href="#contact" data-enquiry-intent="Speaking" data-goatcounter-click="enquiry-offer-keynotes">Start the conversation →</a>
       </article>
       <article class="offer">
         <span class="num">No. 3</span>
@@ -628,7 +625,7 @@ section[id],#top{scroll-margin-top:74px}
           <li>Violence-prevention program design</li>
         </ul>
         <p class="outcome"><b>The outcome</b>A leadership team aligned on how trust is earned — with practical moves drawn from what actually works in Scarborough's neighbourhoods.</p>
-        <a class="btn btn-primary offer-cta" href="https://docs.google.com/forms/d/e/1FAIpQLSdiCrA7REi6l-mytfo14O28CBNuIsEWtvlv127SMLz1WY9mZw/viewform?usp=pp_url&amp;entry.1698656318=Leadership%20Briefings&amp;entry.532234969=Leadership%20Briefings" target="_blank" rel="noopener" data-goatcounter-click="enquiry-offer-briefings">Start the conversation →</a>
+        <a class="btn btn-primary offer-cta" href="#contact" data-enquiry-intent="Leadership Briefings" data-goatcounter-click="enquiry-offer-briefings">Start the conversation →</a>
       </article>
     </div>
 
@@ -644,6 +641,29 @@ section[id],#top{scroll-margin-top:74px}
         <div class="step"><b>4 · 90-day results review</b><p>A review against the targets set at the start: what moved, what didn't, what comes next.</p></div>
       </div>
       <p class="process"><b>How it starts:</b> Enquiry → an introductory conversation → a written proposal that sets out the scope and timeline.</p>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="testimonials" id="testimonials">
+  <div class="wrap">
+    <h2>Testimonials</h2>
+    <div class="tquotes">
+      <figure class="tquote">
+        <span class="qmark" aria-hidden="true">&ldquo;</span>
+        <blockquote>
+          <p>&ldquo;I wanted to send a huge thank you for coming to the FUEL event last week — and for hosting a roundtable. We have had great feedback about the event and I was so happy that you were a part of it.&rdquo;</p>
+        </blockquote>
+        <figcaption><b>Erica Procter</b>Founder &amp; Executive Director, FUEL (Fuel Change) — July 2023</figcaption>
+      </figure>
+      <figure class="tquote">
+        <span class="qmark" aria-hidden="true">&ldquo;</span>
+        <blockquote>
+          <p>&ldquo;It was so great to see you yesterday, and thank you so much again for coming in to work with the class!&rdquo;</p>
+        </blockquote>
+        <figcaption><b>Laura Mercieca</b>Teacher, Toronto District School Board — May 2022</figcaption>
+      </figure>
     </div>
   </div>
 </section>
@@ -687,28 +707,6 @@ section[id],#top{scroll-margin-top:74px}
         <a href="https://resources.charityvillage.com/charityvillage-connects-celebrating-the-2021-charityvillage-award-winners/" target="_blank" rel="noopener">Award winners listing →</a>
       </li>
     </ul>
-<!-- TESTIMONIALS -->
-<section class="testimonials" id="testimonials">
-  <div class="wrap">
-    <h2>Testimonials</h2>
-    <div class="tquotes">
-      <figure class="tquote">
-        <span class="qmark" aria-hidden="true">&ldquo;</span>
-        <blockquote>
-          <p>&ldquo;I wanted to send a huge thank you for coming to the FUEL event last week — and for hosting a roundtable. We have had great feedback about the event and I was so happy that you were a part of it.&rdquo;</p>
-        </blockquote>
-        <figcaption><b>Erica Procter</b>Founder &amp; Executive Director, FUEL (Fuel Change) — July 2023</figcaption>
-      </figure>
-      <figure class="tquote">
-        <span class="qmark" aria-hidden="true">&ldquo;</span>
-        <blockquote>
-          <p>&ldquo;It was so great to see you yesterday, and thank you so much again for coming in to work with the class!&rdquo;</p>
-        </blockquote>
-        <figcaption><b>Laura Mercieca</b>Teacher, Toronto District School Board — May 2022</figcaption>
-      </figure>
-    </div>
-  </div>
-</section>
   </div>
 </section>
 
@@ -724,21 +722,21 @@ section[id],#top{scroll-margin-top:74px}
           <h3>“Keys to the Whole House”</h3>
           <p>My signature talk on giving young people real authority over the work they are part of — and the trust that follows when you do. Audiences leave with a working model for sharing decision-making with the people a program serves. It is the philosophy that built The Good Guides, founded in 2020.</p>
           <p class="talk-aud"><b>Best for:</b> youth-serving organizations, funders and public institutions redesigning programs with the communities they serve.</p>
-          <a class="btn btn-primary talk-cta" href="https://docs.google.com/forms/d/e/1FAIpQLSdiCrA7REi6l-mytfo14O28CBNuIsEWtvlv127SMLz1WY9mZw/viewform?usp=pp_url&amp;entry.1698656318=Speaking&amp;entry.532234969=Keys%20to%20the%20Whole%20House" target="_blank" rel="noopener" data-goatcounter-click="enquiry-talk-keys-to-the-whole-house">Start the conversation →</a>
+          <a class="btn btn-primary talk-cta" href="#contact" data-enquiry-intent="Speaking" data-enquiry-topic="Keys to the Whole House" data-goatcounter-click="enquiry-talk-keys-to-the-whole-house">Start the conversation →</a>
         </article>
         <article class="talk">
           <span class="tlabel">Signature Talk · 02</span>
           <h3>“Change the Starting Line”</h3>
           <p>The answer to youth violence — and to every system that leaves people behind — is redesigning where people start, not asking more effort from the people the start failed. Audiences leave with a framework for finding the starting lines inside their own systems, and the first moves to change them. It is drawn from Scarborough work that has mentored 10,000+ young people across Toronto since 2020.</p>
           <p class="talk-aud"><b>Best for:</b> conferences, education and civic audiences taking on entrenched outcomes.</p>
-          <a class="btn btn-primary talk-cta" href="https://docs.google.com/forms/d/e/1FAIpQLSdiCrA7REi6l-mytfo14O28CBNuIsEWtvlv127SMLz1WY9mZw/viewform?usp=pp_url&amp;entry.1698656318=Speaking&amp;entry.532234969=Change%20the%20Starting%20Line" target="_blank" rel="noopener" data-goatcounter-click="enquiry-talk-change-the-starting-line">Start the conversation →</a>
+          <a class="btn btn-primary talk-cta" href="#contact" data-enquiry-intent="Speaking" data-enquiry-topic="Change the Starting Line" data-goatcounter-click="enquiry-talk-change-the-starting-line">Start the conversation →</a>
         </article>
         <article class="talk">
           <span class="tlabel">Signature Talk · 03</span>
           <h3>“Every Piece of the Whole”</h3>
           <p>Drawn from the oldest idea in my philosophy: every one of us is a working part of a whole none of us can see in full. Audiences leave seeing their own people differently — every person in the room as a working part of the result, and leadership as the work of letting each piece land. The speaker behind it is a QECT 100 Young Leaders Awardee 2026, selected from thousands of applications across the 56 Commonwealth countries.</p>
           <p class="talk-aud"><b>Best for:</b> leadership teams, non-profit boards, and corporate and community partners building cultures where people carry real ownership.</p>
-          <a class="btn btn-primary talk-cta" href="https://docs.google.com/forms/d/e/1FAIpQLSdiCrA7REi6l-mytfo14O28CBNuIsEWtvlv127SMLz1WY9mZw/viewform?usp=pp_url&amp;entry.1698656318=Speaking&amp;entry.532234969=Every%20Piece%20of%20the%20Whole" target="_blank" rel="noopener" data-goatcounter-click="enquiry-talk-every-piece-of-the-whole">Start the conversation →</a>
+          <a class="btn btn-primary talk-cta" href="#contact" data-enquiry-intent="Speaking" data-enquiry-topic="Every Piece of the Whole" data-goatcounter-click="enquiry-talk-every-piece-of-the-whole">Start the conversation →</a>
         </article>
       </div>
       <p class="talk-aud">Each talk is delivered as a keynote, a fireside conversation or a panel — in the room or virtual.</p>
@@ -777,10 +775,6 @@ section[id],#top{scroll-margin-top:74px}
   </div>
 </section>
 
-<div class="photo-band">
-  <img src="assets/walk-of-fame-band.webp" alt="Swabir Shariff on stage at the Scarborough Walk of Fame induction, April 2024" width="1290" height="724" loading="lazy" decoding="async">
-</div>
-
 <section id="media">
   <div class="wrap">
     <h2>Media</h2>
@@ -803,21 +797,6 @@ section[id],#top{scroll-margin-top:74px}
       <a class="media-row" href="https://www.youtube.com/watch?v=VhGDXRngbuY" target="_blank" rel="noopener">
         <span class="when">Feb 2022</span>
         <div><h3>CP24</h3></div>
-        <span class="arr">→</span>
-      </a>
-      <a class="media-row" href="https://resources.charityvillage.com/charityvillage-connects-celebrating-the-2021-charityvillage-award-winners/" target="_blank" rel="noopener">
-        <span class="when">2021</span>
-        <div><h3>CharityVillage</h3></div>
-        <span class="arr">→</span>
-      </a>
-      <a class="media-row" href="https://www.oneyoungworld.com/ambassador-spotlight-september-2026" target="_blank" rel="noopener">
-        <span class="when">Sep 2026</span>
-        <div><h3>One Young World — Ambassador Spotlight</h3></div>
-        <span class="arr">→</span>
-      </a>
-      <a class="media-row" href="https://scarboroughwalkoffame.com/rising-star-inductees-2022/" target="_blank" rel="noopener">
-        <span class="when">Apr 10, 2024</span>
-        <div><h3>Scarborough Walk of Fame — Rising Star inductee</h3></div>
         <span class="arr">→</span>
       </a>
       <a class="media-row" href="https://www.toronto.ca/news/recipients-of-torontos-2-7-million-youth-violence-prevention-grant-announced/" target="_blank" rel="noopener">
@@ -862,7 +841,7 @@ section[id],#top{scroll-margin-top:74px}
       </div>
       <div class="faq">
         <h3>How quickly will we hear back?</h3>
-        <p>Fast. If you're working to a deadline, name it in the enquiry and I'll match it where I can.</p>
+        <p>Within two business days. If you're working to a deadline, name it in the enquiry and I'll match it where I can.</p>
       </div>
     </div>
   </div>
@@ -906,23 +885,24 @@ section[id],#top{scroll-margin-top:74px}
           <div class="ef-row">
             <div class="ef-field">
               <label for="ef-name">Your name</label>
-              <input id="ef-name" type="text" name="name" required>
+              <input id="ef-name" type="text" name="name" autocomplete="name" required>
             </div>
             <div class="ef-field">
               <label for="ef-organization">Organization</label>
-              <input id="ef-organization" type="text" name="organization">
+              <input id="ef-organization" type="text" name="organization" autocomplete="organization">
             </div>
           </div>
           <div class="ef-row">
             <div class="ef-field">
               <label for="ef-email">Email</label>
-              <input id="ef-email" type="email" name="email" required>
+              <input id="ef-email" type="email" name="email" autocomplete="email" required>
             </div>
             <div class="ef-field">
               <label for="ef-enquiry-type">Enquiry type</label>
               <select id="ef-enquiry-type" name="enquiry_type">
                 <option>Speaking</option>
                 <option>Advisory &amp; Consulting</option>
+                <option>Leadership Briefings</option>
                 <option>Media request</option>
                 <option>Other</option>
               </select>
@@ -944,6 +924,7 @@ section[id],#top{scroll-margin-top:74px}
           </div>
           <button type="submit" class="btn btn-primary ef-submit" data-goatcounter-click="enquiry-form-submit">Send enquiry</button>
           <p id="enquiry-error" class="form-note" role="alert" hidden>That didn't send — please try again, or write to me directly at swabir.shariff@thegoodguides.org.</p>
+          <p class="form-note">This form is processed by FormSubmit and delivered straight to my inbox — your details are used only to reply to your enquiry.</p>
         </form>
         <div id="enquiry-success" tabindex="-1" hidden>
           <h4>Thank you — your enquiry is on its way.</h4>
@@ -1003,6 +984,50 @@ section[id],#top{scroll-margin-top:74px}
       btn.replaceWith(f);
     });
   });
+
+  // Enquiry intent: CTAs across the page carry the visitor's intent in
+  // data attributes (S-01); apply it to the form's enquiry-type select.
+  // Talk CTAs also seed the message with the talk title, which the select
+  // cannot express. Direct links may carry ?intent=...&topic=... as well.
+  var enquiryType = document.getElementById('ef-enquiry-type');
+  var enquiryMessage = document.getElementById('ef-message');
+  function applyEnquiryIntent(intent, topic){
+    if (intent && enquiryType) {
+      for (var i = 0; i < enquiryType.options.length; i++) {
+        if (enquiryType.options[i].text === intent || enquiryType.options[i].value === intent) {
+          enquiryType.selectedIndex = i;
+          break;
+        }
+      }
+    }
+    if (topic && enquiryMessage && !enquiryMessage.value) {
+      enquiryMessage.value = 'Enquiry topic: ' + topic + '\n\n';
+    }
+  }
+  document.querySelectorAll('[data-enquiry-intent], [data-enquiry-topic]').forEach(function(a){
+    a.addEventListener('click', function(){
+      applyEnquiryIntent(a.getAttribute('data-enquiry-intent'), a.getAttribute('data-enquiry-topic'));
+    });
+  });
+  (function(){
+    var params = new URLSearchParams(window.location.search);
+    var intent = params.get('intent') || params.get('type');
+    var topic = params.get('topic');
+    if (!intent && !topic && window.location.hash.indexOf('?') !== -1) {
+      var hp = new URLSearchParams(window.location.hash.slice(window.location.hash.indexOf('?') + 1));
+      intent = hp.get('intent') || hp.get('type');
+      topic = hp.get('topic');
+    }
+    if (intent || topic) applyEnquiryIntent(intent, topic);
+  })();
+
+  // Event date: past dates are not accepted (S-08).
+  var eventDate = document.getElementById('ef-event-date');
+  if (eventDate) {
+    var now = new Date();
+    var pad = function(n){ return (n < 10 ? '0' : '') + n; };
+    eventDate.min = now.getFullYear() + '-' + pad(now.getMonth() + 1) + '-' + pad(now.getDate());
+  }
 
   // Enquiries run through the on-page form in the Contact section: it posts
   // to FormSubmit via AJAX and swaps in the success block in place; without
