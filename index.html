@@ -300,6 +300,7 @@ h2{font-size:var(--fs-h2);font-weight:700}
 
 
 .contact{background:var(--surface2)}
+.contact-cta{margin:24px 0 0}
 .contact-grid{display:grid;grid-template-columns:.85fr 1.15fr;gap:var(--space-4) var(--space-5);margin-top:var(--space-4);align-items:start}
 @media(max-width:900px){ .contact-grid{grid-template-columns:minmax(0,1fr)} .contact-grid>*{min-width:0} .direct a>span span,.direct .row>span span{overflow-wrap:normal;word-break:normal} .form-note{overflow-wrap:anywhere} }
 .direct{display:flex;flex-direction:column;gap:16px}
@@ -440,7 +441,7 @@ section[id],#top{scroll-margin-top:74px}
       "name": "How far ahead should we book?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "I am now accepting engagements for 2027. Earlier dates are worth an enquiry — if the calendar allows it, I will say so, and if it doesn't, I will say that too."
+        "text": "I am now accepting engagements for 2027. Earlier dates are worth an enquiry — I will give you a straight answer on availability."
       }
     },
     {
@@ -448,7 +449,7 @@ section[id],#top{scroll-margin-top:74px}
       "name": "Can we record or stream the talk?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Ask on the enquiry. Recording and streaming are agreed in the written proposal, so the terms are clear before the day."
+        "text": "Ask in your enquiry. Recording and streaming terms are agreed in the written proposal, so they are clear before the day."
       }
     },
     {
@@ -456,7 +457,7 @@ section[id],#top{scroll-margin-top:74px}
       "name": "What does an advisory engagement look like?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "The full shape of it is set out under “A typical engagement” on this page: four stages, from discovery and program assessment through to a 90-day results review. It starts the same way as a booking — enquiry, conversation, written proposal."
+        "text": "Four stages over 8–12 weeks — from discovery and program assessment to a 90-day results review. See “A typical engagement” above."
       }
     },
     {
@@ -464,7 +465,7 @@ section[id],#top{scroll-margin-top:74px}
       "name": "How quickly will we hear back?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Within two business days. If you're working to a deadline, name it in the enquiry and I'll match it where I can."
+        "text": "Within two business days. If you are working to a deadline, name it in the enquiry and I will match it where I can."
       }
     }
   ]
@@ -561,6 +562,7 @@ section[id],#top{scroll-margin-top:74px}
 
 <section id="about">
   <div class="wrap">
+    <p class="eyebrow">On the record · Background</p>
     <h2>About</h2>
     <div class="two two-intro">
       <div>
@@ -606,6 +608,7 @@ section[id],#top{scroll-margin-top:74px}
 
 <section id="services">
   <div class="wrap">
+    <p class="eyebrow">On the record · The work</p>
     <h2>Advisory &amp; speaking</h2>
     <p class="lede">Advisory, briefings and keynotes for organizations that need to earn young people's trust.</p>
     <div class="offers-grid">
@@ -619,7 +622,6 @@ section[id],#top{scroll-margin-top:74px}
           <li>Mentoring model design — structure, standards and a visible progression from participant to leader to mentor</li>
           <li>Institution-building for grassroots organizations — governance, delivery and accountability</li>
         </ul>
-        <a class="btn btn-primary offer-cta" href="#contact" data-enquiry-intent="Advisory &amp; Consulting" data-goatcounter-click="enquiry-offer-advisory">Start the conversation →</a>
       </article>
       <article class="offer">
         <span class="num">No. 2</span>
@@ -632,7 +634,6 @@ section[id],#top{scroll-margin-top:74px}
           <li>Youth-violence prevention from the ground up — what front-line, school-based delivery teaches</li>
           <li>Panels and fireside conversations for conferences and leadership audiences</li>
         </ul>
-        <a class="btn btn-primary offer-cta" href="#contact" data-enquiry-intent="Speaking" data-goatcounter-click="enquiry-offer-keynotes">Start the conversation →</a>
       </article>
       <article class="offer">
         <span class="num">No. 3</span>
@@ -644,7 +645,6 @@ section[id],#top{scroll-margin-top:74px}
           <li>Youth-led delivery in practice — young people in real delivery and leadership roles</li>
           <li>Violence-prevention program design grounded in school-based delivery in Scarborough</li>
         </ul>
-        <a class="btn btn-primary offer-cta" href="#contact" data-enquiry-intent="Leadership Briefings" data-goatcounter-click="enquiry-offer-briefings">Start the conversation →</a>
       </article>
     </div>
 
@@ -666,6 +666,7 @@ section[id],#top{scroll-margin-top:74px}
 <!-- TESTIMONIALS -->
 <section class="testimonials" id="testimonials">
   <div class="wrap">
+    <p class="eyebrow">On the record · In their words</p>
     <h2>Testimonials</h2>
     <div class="tquotes">
       <figure class="tquote">
@@ -682,6 +683,7 @@ section[id],#top{scroll-margin-top:74px}
 
 <section class="accolades" id="accolades">
   <div class="wrap">
+    <p class="eyebrow">On the record · The honours</p>
     <h2>Honours and recognition</h2>
     <div class="acc-feature">
       <article class="acc acc-feat">
@@ -725,6 +727,7 @@ section[id],#top{scroll-margin-top:74px}
 <section id="talks">
   <div class="wrap">
     <div class="talks">
+      <p class="eyebrow">On the record · On stage</p>
       <h2>Signature talks</h2>
       <div class="philosophy philosophy-in-talks">
         <p class="eyebrow">The philosophy</p>
@@ -737,21 +740,18 @@ section[id],#top{scroll-margin-top:74px}
           <h3>“Keys to the Whole House”</h3>
           <p>How giving young people real authority over their work builds the trust institutions struggle to earn — a working model for shared decision-making, drawn from The Good Guides.</p>
           <p class="talk-aud"><b>Best for:</b> youth-serving organizations, funders, public institutions.</p>
-          <a class="btn btn-primary talk-cta" href="#contact" data-enquiry-intent="Speaking" data-enquiry-topic="Keys to the Whole House" data-goatcounter-click="enquiry-talk-keys-to-the-whole-house">Start the conversation →</a>
         </article>
         <article class="talk">
           <span class="tlabel">Signature Talk · 02</span>
           <h3>“Change the Starting Line”</h3>
           <p>Redesign where people start, rather than demanding more effort from the people the starting line failed. A talk for leaders ready to find their own starting lines — and change them.</p>
           <p class="talk-aud"><b>Best for:</b> conferences, education leaders and civic audiences.</p>
-          <a class="btn btn-primary talk-cta" href="#contact" data-enquiry-intent="Speaking" data-enquiry-topic="Change the Starting Line" data-goatcounter-click="enquiry-talk-change-the-starting-line">Start the conversation →</a>
         </article>
         <article class="talk">
           <span class="tlabel">Signature Talk · 03</span>
           <h3>“Every Piece of the Whole”</h3>
           <p>Every person is a productive piece of a whole none of us can see in full.</p>
           <p class="talk-aud"><b>Best for:</b> leadership teams and boards.</p>
-          <a class="btn btn-primary talk-cta" href="#contact" data-enquiry-intent="Speaking" data-enquiry-topic="Every Piece of the Whole" data-goatcounter-click="enquiry-talk-every-piece-of-the-whole">Start the conversation →</a>
         </article>
       </div>
     </div>
@@ -782,6 +782,7 @@ section[id],#top{scroll-margin-top:74px}
 
 <section id="media">
   <div class="wrap">
+    <p class="eyebrow">On the record · Coverage</p>
     <h2>Media</h2>
     <div class="kit-band">
       <div class="sp">
@@ -821,15 +822,16 @@ section[id],#top{scroll-margin-top:74px}
 
 <section id="faq">
   <div class="wrap">
+    <p class="eyebrow">On the record · Answers</p>
     <h2>Questions</h2>
     <div class="faq-grid">
       <div class="faq">
         <h3>What are your fees?</h3>
-        <p>Fees are enquiry-only and never posted. They depend on scope, format and audience, and are set out plainly in the written proposal before anything is agreed.</p>
+        <p>Fees are enquiry-only. They are never posted, and they depend on the scope of the engagement — the format, the audience, and what is being asked of me. The written proposal sets the fee out plainly before anything is agreed, so there are no surprises on either side.</p>
       </div>
       <div class="faq">
         <h3>How does booking work?</h3>
-        <p>Enquiry, introductory conversation, then a written proposal setting out scope and timeline. Nothing is confirmed until the proposal is agreed by both of us.</p>
+        <p>It starts with an enquiry, then an introductory conversation, then a written proposal that sets out the scope and the timeline. Nothing is confirmed until the proposal is agreed — by both of us.</p>
       </div>
       <div class="faq">
         <h3>How far ahead should we book?</h3>
@@ -854,8 +856,10 @@ section[id],#top{scroll-margin-top:74px}
 
 <section class="contact" id="contact">
   <div class="wrap">
+    <p class="eyebrow">On the record · The next step</p>
     <h2>Contact &amp; enquiries</h2>
     <p class="lede">Send one enquiry — for advisory, speaking or briefings — and I will reply personally within two business days.</p>
+    <p class="contact-cta"><a class="btn btn-primary" href="#enquiry-form" data-goatcounter-click="enquiry-contact">Start the conversation →</a></p>
     <div class="contact-grid">
       <div class="direct">
         <figure class="contact-photo">
