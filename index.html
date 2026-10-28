@@ -29,9 +29,11 @@
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
 <style>
 /* ============================================================
-   DE-ESSAY LAYOUT SYSTEM — Oct 23 (designer wave, layout only)
-   Full <style> replacement. No HTML, copy, href or JS changes.
-   Tokens + mapping: see DESIGN-SPEC.md in this work folder.
+   REDESIGN — Oct 28, 2026 (preview build, per BUILD-BRIEF.md)
+   Design tokens: cream #F5F1E6, deep green #2D6B38, gold
+   #F5B921 (rules/accents and button ground ONLY — never text
+   on cream: computed 1.57:1). Contrast pairs recorded in
+   work/BUILD-NOTES.md.
    ============================================================ */
 :root{
   color-scheme: light;
@@ -41,10 +43,9 @@
   --radius:14px; --radius-btn:4px; --shadow:0 18px 45px rgba(27,68,35,.14);
   --ease:cubic-bezier(.22,.61,.36,1); --dur-fast:.15s; --dur-med:.25s;
   --font-display:"Playfair Display",Georgia,serif; --font-body:"Source Sans 3",system-ui,sans-serif;
-  --space-1:8px; --space-2:16px; --space-3:24px; --space-4:40px; --space-5:64px; --space-6:96px;
+  --space-1:8px; --space-2:16px; --space-3:24px; --space-4:40px; --space-5:64px;
   --content-max:1120px; --gutter:24px;
-  --fs-display:clamp(56px,7vw,96px); --fs-h2:36px; --fs-lead:22px; --fs-body:17px; --fs-small:14px;
-  --dur-hover:.2s;
+  --fs-display:clamp(2.5rem,5.2vw,4.25rem); --fs-h2:clamp(1.9rem,3.4vw,2.5rem); --fs-lead:1.375rem; --fs-body:1.0625rem; --fs-small:.875rem;
   --gap-card:24px; --card-pad:32px; --section-pad:64px;
 }
 *{box-sizing:border-box}
@@ -52,27 +53,41 @@ html{scroll-behavior:smooth}
 @media (prefers-reduced-motion: reduce){ html{scroll-behavior:auto} *{animation:none!important;transition:none!important} }
 body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--font-body);font-size:var(--fs-body);line-height:1.65;-webkit-font-smoothing:antialiased}
 a{color:inherit}
-.skip-link{position:absolute;left:16px;top:-70px;z-index:100;background:var(--green);color:var(--cream);padding:8px 16px;border-radius:999px;font-weight:700;text-decoration:none;transition:top var(--dur-hover) ease}
+.skip-link{position:absolute;left:16px;top:-70px;z-index:100;background:var(--green);color:var(--cream);padding:8px 16px;border-radius:999px;font-weight:700;text-decoration:none;transition:top var(--dur-med) ease}
 .skip-link:focus{top:12px}
 :focus-visible{outline:none;box-shadow:0 0 0 2px #fff,0 0 0 5px var(--green-dark)}
 img{max-width:100%;display:block}
 .wrap{max-width:var(--content-max);margin:0 auto;padding:0 var(--gutter)}
-h1,h2,h3{font-family:var(--font-display);line-height:1.08;margin:0}
+h1,h2,h3{font-family:var(--font-display);line-height:1.12;margin:0}
+section{padding:var(--section-pad) 0}
+section[id],#top{scroll-margin-top:74px}
+h2{font-size:var(--fs-h2);font-weight:700}
+.lede{font-size:var(--fs-lead);color:var(--ink2);max-width:62ch;margin:16px 0 0}
+.eyebrow{font-size:.75rem;letter-spacing:.1em;text-transform:uppercase;color:var(--green);font-weight:700;margin:0 0 12px}
+.gold-rule{width:56px;height:3px;background:var(--gold);border:0;margin:0 0 20px}
+
+/* Scroll reveal — transform/opacity only; content is fully visible
+   without JS (the .js class is added by script) and under
+   prefers-reduced-motion. */
+.js .reveal{opacity:0;transform:translateY(14px);transition:opacity .55s var(--ease),transform .55s var(--ease)}
+.js .reveal.in{opacity:1;transform:none}
+@media (prefers-reduced-motion: reduce){ .js .reveal{opacity:1;transform:none;transition:none} }
 
 
+/* ---------- Nav ---------- */
 .nav{position:sticky;top:0;z-index:50;background:color-mix(in srgb, var(--green) 96%, transparent);color:var(--cream);border-bottom:1px solid rgba(245,241,230,.35)}
 .nav-in{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:var(--space-3);padding-top:8px;padding-bottom:8px}
-.brand{display:flex;align-items:center;text-decoration:none;justify-self:start}
+.brand{display:flex;align-items:center;text-decoration:none;justify-self:start;min-height:44px}
 .brand b{font-family:var(--font-display);font-weight:700;font-size:var(--fs-lead);letter-spacing:.015em;color:var(--cream);line-height:1;white-space:nowrap}
-.nav-links{display:flex;gap:24px;align-items:center;justify-self:center}
-.nav-links a{text-decoration:none;font-size:var(--fs-small);font-weight:600;letter-spacing:.05em;white-space:nowrap;color:var(--cream);padding:12px 8px}
+.nav-links{display:flex;gap:20px;align-items:center;justify-self:center}
+.nav-links a{text-decoration:none;font-size:var(--fs-small);font-weight:600;letter-spacing:.05em;white-space:nowrap;color:var(--cream);padding:12px 6px}
+.nav-links a:hover{color:#fff}
 .nav-cta{justify-self:end;white-space:nowrap}
 .nav-actions{display:flex;align-items:center;gap:14px;justify-self:end}
-.nav-social{display:inline-flex;align-items:center;justify-content:center;width:36px;height:36px;border-radius:999px;border:1.5px solid rgba(245,241,230,.5);color:var(--cream);transition:color var(--dur-hover) ease,border-color var(--dur-hover) ease}
+.nav-social{display:inline-flex;align-items:center;justify-content:center;width:44px;height:44px;border-radius:999px;border:1.5px solid rgba(245,241,230,.5);color:var(--cream);transition:color var(--dur-med) ease,border-color var(--dur-med) ease}
 .nav-social svg{width:16px;height:16px;fill:currentColor;display:block}
 .nav-social:hover{color:#fff;border-color:#fff}
-.nav-links a:hover{color:#fff}
-.btn{display:inline-flex;align-items:center;gap:8px;text-decoration:none;font-weight:700;font-size:var(--fs-body);line-height:1.35;padding:16px 24px;border-radius:var(--radius-btn);border:1.5px solid transparent;cursor:pointer;transition:transform var(--dur-fast) var(--ease), background var(--dur-fast) var(--ease)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;text-decoration:none;font-weight:700;font-size:var(--fs-body);line-height:1.35;padding:16px 24px;border-radius:var(--radius-btn);border:1.5px solid transparent;cursor:pointer;min-height:44px;transition:transform var(--dur-fast) var(--ease), background var(--dur-fast) var(--ease)}
 .btn:active{transform:scale(.98)}
 .btn-primary{background:var(--gold);color:var(--ink)}
 .btn-primary:hover{background:#FFD34D}
@@ -82,135 +97,61 @@ h1,h2,h3{font-family:var(--font-display);line-height:1.08;margin:0}
 .btn-outline-light{border-color:rgba(245,241,230,.65);color:var(--cream);background:transparent}
 .btn-outline-light:hover{border-color:#fff;color:#fff}
 .nav .btn{padding:12px 16px;font-size:var(--fs-small)}
-.nav-toggle{display:none;background:none;border:0;cursor:pointer;padding:8px;color:var(--cream);align-items:center;justify-content:center;font-size:var(--fs-body)}
+.nav-toggle{display:none;background:none;border:0;cursor:pointer;padding:10px;color:var(--cream);align-items:center;justify-content:center;min-width:44px;min-height:44px}
 .mobile-menu{display:none;background:var(--green);border-top:1px solid rgba(245,241,230,.25);padding:8px 22px 16px}
 .mobile-menu.open{display:block}
-.mobile-menu a{display:block;padding:16px 8px;color:var(--cream);text-decoration:none;font-weight:600;font-size:var(--fs-body);border-bottom:1px solid rgba(245,241,230,.15)}
+.mobile-menu a{display:block;padding:14px 8px;color:var(--cream);text-decoration:none;font-weight:600;font-size:var(--fs-body);border-bottom:1px solid rgba(245,241,230,.15);min-height:44px}
 .mobile-menu a:last-child{border-bottom:0}
 .mobile-menu a.mm-cta{color:var(--gold-on-green)}
 @media(min-width:901px){ .mobile-menu{display:none!important} }
 @media(max-width:900px){ .nav-links{display:none} .nav-toggle{display:inline-flex} .nav-in{grid-template-columns:1fr auto auto} }
-@media(max-width:480px){ .nav-in{gap:8px} .brand b{font-size:var(--fs-small)} .nav .btn{padding:12px 13px;font-size:var(--fs-small)} .nav .btn.nav-cta{padding:12px 10px;font-size:var(--fs-small)} .nav-actions{gap:8px} .nav-social{display:none} }
+@media(max-width:560px){ .nav-in{gap:8px} .brand b{font-size:var(--fs-small)} .nav .btn{padding:12px 10px;font-size:.8rem} .nav-actions{gap:8px} .nav-social{display:none} }
+.nav :focus-visible,.mobile-menu :focus-visible,footer :focus-visible,.proof :focus-visible,.cta-band :focus-visible{box-shadow:0 0 0 2px var(--green-dark),0 0 0 5px #fff}
 
-
+/* ---------- Hero ---------- */
 .hero{background:var(--bg);color:var(--ink);position:relative;overflow:hidden}
 .hero::before{content:"";position:absolute;inset:0;background:radial-gradient(500px 300px at -10% 110%, rgba(45,107,56,.10), transparent 60%)}
-.hero-in{position:relative;display:grid;grid-template-columns:1fr 1fr;gap:0;padding:0;align-items:stretch}
-.hero-text{padding:var(--space-6) var(--space-5) var(--space-6) max(var(--gutter),calc((100vw - var(--content-max))/2 + var(--gutter)));align-self:center}
-.eyebrow{font-size:var(--fs-small);letter-spacing:.16em;text-transform:uppercase;color:var(--green);font-weight:700;margin:0 0 16px}
-.hero h1{font-size:var(--fs-display);font-weight:800;color:var(--ink);line-height:1.02}
-.hero h1 em{font-style:italic;color:var(--ink)}
-.roleline{font-size:var(--fs-lead);letter-spacing:.05em;color:var(--ink2);margin:16px 0 0;font-weight:600}
-.pronline{font-size:var(--fs-small);letter-spacing:.14em;text-transform:uppercase;color:var(--muted);font-weight:600;margin:16px 0 0}
-.startline{font-family:var(--font-display);font-size:var(--fs-lead);line-height:1.45;color:var(--ink);margin:24px 0 0;max-width:34ch}
-.hero-sub{font-size:var(--fs-body);line-height:1.6;color:var(--ink2);margin:24px 0 0;max-width:52ch}
-.hero-ctas{display:flex;gap:var(--gap-card);flex-wrap:wrap;align-items:center;margin:var(--space-4) 0 16px}
-.hero-after{padding-top:var(--space-5);padding-bottom:var(--space-3)}
-.hero-after .eyebrow{margin-bottom:10px}
-.hero-after .pronline{margin-top:0}
-.hero-after .roleline{margin-top:10px}
-.hero-after .startline{margin-top:20px}
+.hero-in{position:relative;display:grid;grid-template-columns:1.05fr .95fr;gap:var(--space-5);max-width:var(--content-max);margin:0 auto;padding:56px var(--gutter) 64px;align-items:center}
+.hero-label{font-size:.8125rem;letter-spacing:.08em;text-transform:uppercase;color:var(--green);font-weight:700;margin:0 0 20px}
+.hero-name{font-family:var(--font-display);font-size:clamp(2.6rem,6vw,4.5rem);font-weight:800;line-height:1.02;margin:0;color:var(--ink)}
+.hero-name em{font-style:italic}
+.pron-note{font-size:var(--fs-small);color:var(--muted);margin:10px 0 0;font-weight:600}
+.hero h1{font-size:clamp(1.65rem,3vw,2.35rem);font-weight:700;line-height:1.22;margin:26px 0 0;max-width:32ch;text-wrap:balance}
+.hero h1 .hl{display:block}
+.startline{font-family:var(--font-display);font-style:italic;font-size:clamp(1.3rem,2.6vw,1.85rem);line-height:1.4;color:var(--ink);margin:26px 0 0;text-wrap:balance;max-width:34ch}
+.startline .sl{display:block}
+.hero-sub{font-size:var(--fs-body);line-height:1.6;color:var(--ink2);margin:20px 0 0;max-width:52ch}
+.hero-ctas{display:flex;gap:var(--gap-card);flex-wrap:wrap;align-items:center;margin:32px 0 0}
+.hero-role{font-size:var(--fs-body);color:var(--ink2);margin:14px 0 0}
 .portrait-col{position:relative}
-.portrait-frame{border:0;border-radius:0;padding:0;background:transparent;box-shadow:none}
-.portrait-frame{height:100%}
-.portrait-frame img{width:100%;height:auto;aspect-ratio:764/955;object-fit:cover;object-position:50% 28%;border-radius:0}
+.portrait-frame{border:0;border-radius:var(--radius);padding:0;background:transparent;box-shadow:var(--shadow);overflow:hidden}
+.portrait-frame img{width:100%;height:auto;aspect-ratio:764/955;object-fit:cover;object-position:50% 28%}
 @media(max-width:900px){
-  .hero-in{display:flex;flex-direction:column;align-items:stretch;padding:24px var(--gutter) 64px;gap:0}
-  .hero-text{display:contents}
-  .hero h1{order:1}
-  .portrait-col{order:2;width:calc(100% + 48px);margin:16px -24px 0}
-  .portrait-frame img{height:auto;max-height:62vh}
-  .hero-in .roleline{order:3;margin-top:16px}
-  .hero-ctas{order:4}
+  .hero-in{display:flex;flex-direction:column;align-items:stretch;padding:40px var(--gutter) 48px;gap:28px}
+  .portrait-col{order:2}
+  .portrait-frame img{max-height:62vh}
 }
-@media(max-width:640px){ .hero .eyebrow{font-size:var(--fs-small);letter-spacing:.11em;line-height:1.55} }
+@media(max-width:480px){ .startline{font-size:1.28rem} .hero-name{font-size:2.45rem} }
 
-
+/* ---------- Stat band (proof) ---------- */
 .proof{background:var(--green);color:var(--cream);border-top:1px solid var(--green-dark);border-bottom:1px solid var(--green-dark);position:relative}
-.proof-in{display:grid;grid-template-columns:repeat(4,1fr);gap:0}
-.proof div{padding:24px;border-left:1px solid rgba(245,241,230,.28)}
-.proof div:first-child{border-left:0;padding-left:0}
-.proof-label{margin:0;padding:24px 0 0;font-size:var(--fs-small);letter-spacing:.16em;text-transform:uppercase;color:var(--gold-on-green);font-weight:700}
-.proof b{font-family:var(--font-display);font-size:var(--fs-lead);color:var(--cream);display:block;line-height:1.1;font-variant-numeric:tabular-nums}
+.proof-in{display:grid;grid-template-columns:repeat(4,1fr);gap:0;padding:8px 0}
+.proof-in>div{padding:20px 24px;border-left:1px solid rgba(245,241,230,.28)}
+.proof-in>div:first-child{border-left:0;padding-left:0}
+.proof b{font-family:var(--font-display);font-size:var(--fs-lead);color:var(--cream);display:block;line-height:1.15;font-variant-numeric:tabular-nums}
 .proof span{font-size:var(--fs-body);color:var(--cream)}
-@media(max-width:900px){ .proof-in{grid-template-columns:1fr 1fr} .proof div{padding:16px} .proof div:first-child{padding-left:16px} .proof div:nth-child(3){border-left:0} .proof div:nth-child(n+3){border-top:1px solid rgba(245,241,230,.28)} }
+@media(max-width:900px){ .proof-in{grid-template-columns:1fr 1fr} .proof-in>div{padding:16px} .proof-in>div:first-child{padding-left:16px} .proof-in>div:nth-child(3){border-left:0} .proof-in>div:nth-child(n+3){border-top:1px solid rgba(245,241,230,.28)} }
 
+/* ---------- Credibility strip ---------- */
+.cred{padding:40px 0;border-bottom:1px solid var(--line)}
+.cred h2{font-size:var(--fs-lead);text-align:center}
+.cred-names{list-style:none;display:flex;flex-wrap:wrap;justify-content:center;gap:14px 34px;margin:24px 0 0;padding:0}
+.cred-names li{font-family:var(--font-display);font-size:1.15rem;font-weight:700;color:var(--ink2);white-space:nowrap}
+.cred-names li::before{content:"";display:inline-block;width:7px;height:7px;background:var(--gold);margin-right:12px;vertical-align:middle}
 
-
-
-.testimonials{background:var(--surface)}
-.tquotes{display:grid;grid-template-columns:repeat(2,1fr);gap:var(--gap-card);margin-top:var(--space-4);align-items:stretch}
-@media(max-width:900px){ .tquotes{grid-template-columns:1fr} }
-.tquote{border:1px solid var(--line);border-radius:var(--radius);background:var(--bg);padding:var(--card-pad);margin:0;display:flex;flex-direction:column}
-.tquote .qmark{font-family:var(--font-display);font-size:var(--fs-lead);line-height:.55;color:var(--green-dark);display:block;margin-bottom:16px}
-.tquote blockquote{margin:0 0 16px;font-family:var(--font-display);font-size:var(--fs-lead);line-height:1.6;color:var(--ink)}
-.tquote figcaption{margin-top:auto;padding-top:16px;border-top:1px solid var(--line);font-size:var(--fs-body);color:var(--ink2)}
-.tquote figcaption b{display:block;color:var(--ink);font-size:var(--fs-body)}
-.tquote blockquote p{margin:0 0 12px}
-.tquote blockquote p:last-child{margin-bottom:0}
-.tquotes .tquote:only-child{grid-column:1/-1;max-width:720px;width:100%;justify-self:center}
-
-
-section{padding:var(--section-pad) 0}
-h2{font-size:var(--fs-h2);font-weight:700}
-.lede{font-size:var(--fs-lead);color:var(--ink2);max-width:62ch;margin:16px 0 0}
-.two{display:grid;grid-template-columns:1fr 1fr;gap:var(--space-4) var(--space-5);margin-top:var(--space-4)}
-@media(max-width:900px){ .two{grid-template-columns:1fr} }
-.two p{margin:0 0 16px;color:var(--ink2)}
-.two p strong{color:var(--ink)}
-.pull{border-top:1px solid var(--line);padding-top:24px}
-.pull p{font-family:var(--font-display);font-size:var(--fs-lead);color:var(--ink);line-height:1.6}
-
-
-.accolades{background:var(--bg)}
-.acc{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:var(--card-pad);display:flex;flex-direction:column}
-.acc .yr{font-family:var(--font-display);font-size:var(--fs-lead);color:var(--green);line-height:1}
-.acc h3{font-size:var(--fs-lead);margin:16px 0 8px}
-.acc p{margin:0;font-size:var(--fs-body);color:var(--ink2)}
-.acc a{font-size:var(--fs-small);font-weight:700;color:var(--green);text-decoration:none;display:block;margin-top:auto;padding-top:16px;border-top:1px solid var(--line)}
-.acc a:hover{text-decoration:underline}
-.honours-list{list-style:none;margin:var(--space-4) 0 0;padding:0;border-top:1px solid var(--line)}
-.honours-list li{padding:var(--space-3) 0;border-bottom:1px solid var(--line)}
-.hon-line{display:flex;gap:12px;flex-wrap:wrap;align-items:baseline}
-.hon-name{font-family:var(--font-display);font-size:var(--fs-lead);font-weight:700;color:var(--ink)}
-.hon-inst{color:var(--ink2)}
-.hon-date{margin-left:auto;font-size:var(--fs-small);letter-spacing:.14em;text-transform:uppercase;color:var(--green);font-weight:700}
-.honours-list p{margin:8px 0 0;color:var(--ink2);font-size:var(--fs-body);max-width:585px}
-.honours-list a{font-size:var(--fs-small);font-weight:700;color:var(--green);text-decoration:none;display:inline-block;margin-top:8px}
-.honours-list a:hover{text-decoration:underline}
-.press-fold-h{font-size:var(--fs-lead);margin:var(--space-4) 0 0}
-.accolades .testimonials{background:transparent;padding:var(--space-5) 0 0}
-
-
-
-.offers-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--gap-card);margin-top:var(--space-4);align-items:start}
-@media(max-width:900px){ .offers-grid{grid-template-columns:1fr} }
-.offer{border:1px solid var(--line);border-radius:var(--radius);background:var(--surface);padding:var(--card-pad);display:flex;flex-direction:column}
-.offer .num{font-family:var(--font-display);font-style:italic;color:var(--green);font-size:var(--fs-lead)}
-.offer h3{font-size:var(--fs-lead);margin:16px 0 8px}
-.offer p{color:var(--ink2);font-size:var(--fs-body);margin:0 0 16px}
-.offer ul{margin:0 0 20px;padding:0;list-style:none}
-.offer li{font-size:var(--fs-body);color:var(--ink2);padding:8px 0 8px 24px;position:relative;border-bottom:1px dashed var(--line)}
-.offer li::before{content:"";position:absolute;left:2px;top:19px;width:6px;height:6px;background:var(--green);border-radius:0}
-.speak-band{padding:var(--space-4) 0 var(--space-5)}
-.speak-band .stages-video{max-width:645px;margin:0 auto}
-.contact-photo{margin:0 auto;width:100%;max-width:300px;border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;background:var(--surface);box-shadow:var(--shadow)}
-.contact-photo img{width:100%;height:auto;aspect-ratio:751/800;object-fit:cover;object-position:50% 25%}
-.typical{margin-top:var(--space-5);border:1px solid var(--line);border-radius:var(--radius);background:var(--surface);padding:var(--card-pad)}
-.typical h3{font-size:var(--fs-lead);margin:0 0 8px}
-.typical .sub{margin:0;color:var(--ink2);font-size:var(--fs-body)}
-.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:var(--space-3);margin-top:var(--space-3)}
-@media(max-width:900px){ .steps{grid-template-columns:1fr 1fr} }
-@media(max-width:640px){ .steps{grid-template-columns:1fr} }
-.step{border-top:1px solid var(--line);padding-top:16px}
-.step b{font-family:var(--font-display);font-size:var(--fs-body);display:block;margin-bottom:8px}
-.step p{margin:0;font-size:var(--fs-body);color:var(--ink2)}
-.process{margin-top:var(--space-4);border-top:1px dashed var(--line);padding-top:24px;font-size:var(--fs-body);color:var(--ink2);max-width:570px}
-.process b{color:var(--ink)}
-.talk-aud{margin-top:16px;font-size:var(--fs-body);color:var(--ink2)}
-.talk-aud b{color:var(--ink)}
-.talks > .talk-aud{max-width:560px}
-.stages-grid{margin-top:var(--space-4)}
+/* ---------- Reel ---------- */
+.reel-grid{display:grid;grid-template-columns:1.5fr 1fr;gap:var(--gap-card);margin-top:var(--space-4);align-items:stretch}
+@media(max-width:900px){ .reel-grid{grid-template-columns:1fr} }
 .stages-video{margin:0;border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;background:var(--surface);box-shadow:var(--shadow)}
 .stages-video .vid-frame{position:relative;width:100%;aspect-ratio:16/9;background:#000}
 .stages-video iframe{position:absolute;inset:0;width:100%;height:100%;border:0;display:block}
@@ -222,98 +163,174 @@ h2{font-size:var(--fs-h2);font-weight:700}
 .vid-play svg{margin-left:4px}
 .vid-label{position:absolute;left:16px;right:16px;bottom:13px;color:#FFFDF6;font-weight:700;font-size:var(--fs-body);line-height:1.3}
 .vid-label small{display:block;font-weight:600;font-size:var(--fs-small);color:var(--gold-soft);margin-top:2px}
+.reel-note{margin:14px 0 0;color:var(--ink2);font-size:var(--fs-body)}
+.reel-slot{align-self:center;margin:0;color:var(--ink2);font-size:var(--fs-body)}
+
+/* ---------- CTA band ---------- */
+.cta-band{background:var(--green);color:var(--cream);padding:44px 0}
+.cta-band-in{display:flex;gap:var(--space-3);align-items:center;justify-content:space-between;flex-wrap:wrap}
+.cta-band p{font-family:var(--font-display);font-size:var(--fs-lead);margin:0;max-width:34ch;line-height:1.35}
+.cta-band .btn{flex:none}
+
+/* ---------- Offers / services ---------- */
+.offers-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--gap-card);margin-top:var(--space-4);align-items:start}
+@media(max-width:900px){ .offers-grid{grid-template-columns:1fr} }
+.offer{border:1px solid var(--line);border-radius:var(--radius);background:var(--surface);padding:var(--card-pad);display:flex;flex-direction:column}
+.offer .num{font-family:var(--font-display);font-style:italic;color:var(--green);font-size:var(--fs-lead)}
+.offer h3{font-size:var(--fs-lead);margin:16px 0 8px}
+.offer p{color:var(--ink2);font-size:var(--fs-body);margin:0 0 16px}
+.offer ul{margin:0 0 20px;padding:0;list-style:none}
+.offer li{font-size:var(--fs-body);color:var(--ink2);padding:8px 0 8px 24px;position:relative;border-bottom:1px dashed var(--line)}
+.offer li::before{content:"";position:absolute;left:2px;top:19px;width:6px;height:6px;background:var(--green)}
+.offer p.also{font-weight:700;color:var(--ink);margin:0 0 6px;font-size:var(--fs-body)}
+.typical{margin-top:var(--space-5);border:1px solid var(--line);border-radius:var(--radius);background:var(--surface);padding:var(--card-pad)}
+.typical h3{font-size:var(--fs-lead);margin:0 0 8px}
+.typical .sub{margin:0;color:var(--ink2);font-size:var(--fs-body)}
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:var(--space-3);margin-top:var(--space-3)}
+@media(max-width:900px){ .steps{grid-template-columns:1fr 1fr} }
+@media(max-width:640px){ .steps{grid-template-columns:1fr} }
+.step{border-top:3px solid var(--gold);padding-top:16px}
+.step b{font-family:var(--font-display);font-size:var(--fs-body);display:block;margin-bottom:8px}
+.step p{margin:0;font-size:var(--fs-body);color:var(--ink2)}
+
+/* ---------- Talks ---------- */
+.philosophy{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);text-align:center;padding:var(--space-4) var(--space-3);margin-top:var(--space-4)}
+.philosophy .big{font-family:var(--font-display);font-size:clamp(1.5rem,3vw,2.1rem);font-weight:600;line-height:1.4;max-width:44ch;margin:0 auto}
+.talks-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--gap-card);margin-top:24px;align-items:start}
+@media(max-width:900px){ .talks-grid{grid-template-columns:1fr} }
+.talks-note{margin:20px 0 0;color:var(--ink2);font-size:var(--fs-body)}
+.talk{background:var(--surface);color:var(--ink);border:1px solid var(--line);border-radius:var(--radius);padding:var(--card-pad);display:flex;flex-direction:column}
+.talk .tlabel{font-size:.75rem;letter-spacing:.1em;text-transform:uppercase;color:var(--green);font-weight:700}
+.talk h3{font-size:var(--fs-lead);font-style:italic;margin:14px 0 8px;color:var(--ink)}
+.talk p{margin:0;font-size:var(--fs-body);color:var(--ink2)}
+.talk-aud{margin-top:16px;font-size:var(--fs-body);color:var(--ink2)}
+.talk-aud b{color:var(--ink)}
+.talk-details{margin-top:20px;border-top:1px solid var(--line);padding-top:16px;width:100%}
+.talk-details h4{font-size:.75rem;letter-spacing:.1em;text-transform:uppercase;color:var(--green);font-weight:700;margin:0 0 12px;font-family:var(--font-body)}
+.talk-details dl{margin:0;display:grid;gap:12px}
+.talk-details dt{font-weight:700;font-size:var(--fs-small);color:var(--ink)}
+.talk-details dd{margin:2px 0 0;font-size:var(--fs-body);color:var(--ink2)}
+.talk-details ul{margin:2px 0 0;padding-left:20px;color:var(--ink2);font-size:var(--fs-body)}
+.talk-details li{margin:4px 0}
+.appearances{margin-top:var(--space-5);border-top:1px solid var(--line);padding-top:var(--space-4)}
+.appearances-h{font-size:var(--fs-lead);margin:0 0 var(--space-3);font-family:var(--font-display);font-weight:700}
+.stages-cols{display:grid;grid-template-columns:1fr 1fr;gap:var(--space-5);align-items:start}
+@media(max-width:900px){ .stages-cols{grid-template-columns:1fr} }
 .stage-list{list-style:none;margin:0;padding:0}
-.stage-list li{padding:24px 0;border-bottom:1px solid var(--line)}
+.stage-list li{padding:20px 0;border-bottom:1px solid var(--line)}
 .stage-list li:first-child{padding-top:0}
-.stage-list .when{font-size:var(--fs-small);letter-spacing:.14em;text-transform:uppercase;color:var(--green);font-weight:700;display:block;margin-bottom:8px}
+.stage-list .when{font-size:var(--fs-small);letter-spacing:.1em;text-transform:uppercase;color:var(--green);font-weight:700;display:block;margin-bottom:8px}
 .stage-list b{font-family:var(--font-display);font-size:var(--fs-lead);display:block}
 .stage-list p{margin:8px 0 0;font-size:var(--fs-body);color:var(--ink2)}
-.engagements{margin-top:0;border-top:1px solid var(--line);padding-top:24px}
-.engagements h3{font-size:var(--fs-lead);line-height:1.25}
-.appearances{margin-top:var(--space-5);border-top:1px solid var(--line);padding-top:var(--space-4)}
-.appearances-h{font-size:var(--fs-lead);margin:0 0 var(--space-3)}
-#media .kit-band .btn{font-size:var(--fs-body);white-space:nowrap}
-@media(max-width:640px){ #media .kit-band .btn{white-space:normal} }
-#media .kit-band{margin-top:var(--space-4)}
+.engagements h3{font-size:var(--fs-lead);line-height:1.25;font-family:var(--font-display)}
 .eng-list{list-style:none;margin:8px 0 0;padding:0}
-.eng-list li{padding:16px 0 16px 24px;border-bottom:1px solid var(--line);font-size:var(--fs-body);color:var(--ink2);position:relative}
-.eng-list li::before{content:"";position:absolute;left:2px;top:27px;width:6px;height:6px;background:var(--green);border-radius:0}
-.offer p.also{font-weight:700;color:var(--ink);margin:0 0 6px;font-size:var(--fs-body)}
-.offer .outcome{font-family:var(--font-display);font-style:italic;font-size:var(--fs-body);color:var(--ink);border-top:1px dashed var(--line);padding-top:16px;margin:0 0 16px}
-.offer .outcome b{font-family:var(--font-body);font-style:normal;font-size:var(--fs-small);letter-spacing:.14em;text-transform:uppercase;color:var(--green);display:block;margin-bottom:8px}
-.offer .offer-cta{margin-top:auto;align-self:flex-start}
-.talk .talk-cta{margin-top:0;align-self:flex-start}
-.talk .talk-aud{margin-bottom:var(--space-3)}
+.eng-list li{padding:14px 0 14px 24px;border-bottom:1px solid var(--line);font-size:var(--fs-body);color:var(--ink2);position:relative}
+.eng-list li::before{content:"";position:absolute;left:2px;top:25px;width:6px;height:6px;background:var(--green)}
 
+/* ---------- Testimonials ---------- */
+.testimonials{background:var(--surface)}
+.tquotes{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--gap-card);margin-top:var(--space-4);align-items:stretch}
+@media(max-width:900px){ .tquotes{grid-template-columns:1fr} }
+.tquotes:has(> :only-child){grid-template-columns:1fr}
+.tquote{border:1px solid var(--line);border-radius:var(--radius);background:var(--bg);padding:var(--card-pad);margin:0;display:flex;flex-direction:column}
+.tquote .qmark{font-family:var(--font-display);font-size:var(--fs-lead);line-height:.55;color:var(--green-dark);display:block;margin-bottom:16px}
+.tquote blockquote{margin:0 0 16px;font-family:var(--font-display);font-size:1.15rem;line-height:1.6;color:var(--ink)}
+.tquote blockquote p{margin:0}
+.tquote figcaption{margin-top:auto;padding-top:16px;border-top:1px solid var(--line);font-size:var(--fs-body);color:var(--ink2)}
+.tquote figcaption b{display:block;color:var(--ink);font-size:var(--fs-body)}
 
-.bring-grid{display:grid;grid-template-columns:1fr 1fr;gap:var(--space-4) var(--space-5);margin-top:var(--space-4)}
-@media(max-width:900px){ .bring-grid{grid-template-columns:1fr} }
-.bring{border-top:1px solid var(--line);padding-top:24px}
-.bring h3{font-size:var(--fs-lead);margin:0 0 8px}
+/* ---------- Honours ---------- */
+.acc-feature{margin-top:var(--space-4)}
+.acc{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:var(--card-pad);display:flex;flex-direction:column}
+.acc-feat{display:grid;grid-template-columns:2fr 3fr;gap:var(--space-4);align-items:stretch}
+.acc-feat-media{margin:calc(var(--card-pad) * -1) 0 calc(var(--card-pad) * -1) calc(var(--card-pad) * -1);overflow:hidden;border-radius:var(--radius) 0 0 var(--radius)}
+.acc-feat-media img{width:100%;height:100%;object-fit:cover}
+.acc-feat-body{display:flex;flex-direction:column;justify-content:center}
+.acc-feat-body .yr{font-family:var(--font-display);font-size:var(--fs-lead);color:var(--green);line-height:1}
+.acc-feat-body h3{font-size:var(--fs-lead);margin:16px 0 8px}
+.acc-feat-body p{margin:0;font-size:var(--fs-body);color:var(--ink2)}
+.acc-feat-body .acc-body{font-size:var(--fs-body);font-weight:600;color:var(--green-dark);margin:0 0 var(--space-1)}
+@media(max-width:900px){
+  .acc-feat{grid-template-columns:1fr;gap:var(--space-3)}
+  .acc-feat-media{margin:calc(var(--card-pad) * -1) calc(var(--card-pad) * -1) 0;aspect-ratio:16/9;border-radius:var(--radius) var(--radius) 0 0}
+}
+.honours-list{list-style:none;margin:var(--space-4) 0 0;padding:0;border-top:1px solid var(--line)}
+.honours-list li{padding:var(--space-3) 0;border-bottom:1px solid var(--line)}
+.hon-line{display:flex;gap:12px;flex-wrap:wrap;align-items:baseline}
+.hon-name{font-family:var(--font-display);font-size:var(--fs-lead);font-weight:700;color:var(--ink)}
+.hon-inst{color:var(--ink2)}
+.hon-date{margin-left:auto;font-size:var(--fs-small);letter-spacing:.1em;text-transform:uppercase;color:var(--green);font-weight:700}
+.honours-list p{margin:8px 0 0;color:var(--ink2);font-size:var(--fs-body);max-width:585px}
+.honours-list a{font-size:var(--fs-small);font-weight:700;color:var(--green);text-decoration:none;display:inline-block;margin-top:8px;padding:6px 0}
+.honours-list a:hover{text-decoration:underline}
+.image-band{margin-top:var(--space-5)}
+.image-band figure{margin:0;border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow)}
+.image-band img{width:100%;height:auto}
+.image-band figcaption{font-size:var(--fs-small);color:var(--muted);margin-top:10px}
+
+/* ---------- About ---------- */
+.about-grid{display:grid;grid-template-columns:280px 1fr;gap:var(--space-5);margin-top:var(--space-4);align-items:start}
+@media(max-width:900px){ .about-grid{grid-template-columns:1fr} }
+.about-photo{border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;background:var(--surface);box-shadow:var(--shadow);margin:0}
+.about-photo img{width:100%;height:auto;aspect-ratio:751/800;object-fit:cover;object-position:50% 25%}
+.about-copy p{margin:0 0 18px;color:var(--ink2);font-size:var(--fs-lead);line-height:1.6}
+.about-copy p strong{color:var(--ink)}
+.bring-row{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--space-3);margin-top:var(--space-4)}
+@media(max-width:900px){ .bring-row{grid-template-columns:1fr} }
+.bring{border-top:3px solid var(--gold);padding-top:16px}
+.bring h3{font-size:1.15rem;margin:0 0 8px}
 .bring p{margin:0;color:var(--ink2);font-size:var(--fs-body)}
-.bring p strong{color:var(--ink)}
 
-
-.talks{margin-top:0}
-.talks-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--gap-card);margin-top:24px}
-@media(max-width:900px){ .talks-grid{grid-template-columns:1fr} }
-.talk{background:var(--surface);color:var(--ink);border:1px solid var(--line);border-radius:var(--radius);padding:var(--card-pad);display:flex;flex-direction:column;justify-content:space-between}
-.talk .tlabel{font-size:var(--fs-small);letter-spacing:.16em;text-transform:uppercase;color:var(--green);font-weight:700}
-.talk h3{font-size:var(--fs-lead);font-style:italic;margin:16px 0 8px;color:var(--ink)}
-.talk p{margin:0;font-size:var(--fs-body);color:var(--ink2)}
-
-
-.philosophy{background:var(--surface);text-align:center}
-.philosophy .big{font-family:var(--font-display);font-size:var(--fs-display);font-weight:600;line-height:1.12;max-width:22ch;margin:24px auto 0}
-.philosophy .big em{color:var(--ink);font-style:italic}
-.philosophy p.sub{color:var(--ink2);max-width:56ch;margin:24px auto 0}
-.philosophy-in-talks{padding:var(--space-4) var(--space-3);border-radius:var(--radius);margin-top:var(--space-3)}
-
-
-.media-list{margin-top:var(--space-3);border-top:1px solid var(--line);display:grid;grid-template-columns:1fr 1fr;column-gap:var(--space-5)}
-@media(max-width:900px){ .media-list{grid-template-columns:1fr} }
-.media-row{display:grid;grid-template-columns:96px 1fr auto;gap:var(--space-2);align-items:baseline;padding:16px 8px;border-bottom:1px solid var(--line);text-decoration:none}
-.media-row:hover{background:var(--surface)}
-.media-row .when{font-size:var(--fs-small);letter-spacing:.12em;text-transform:uppercase;color:var(--green);font-weight:700}
-.media-row h3{font-size:var(--fs-lead)}
-.media-row p{margin:8px 0 0;font-size:var(--fs-body);color:var(--ink2)}
-.media-row .arr{font-family:var(--font-display);color:var(--green);font-size:var(--fs-lead);line-height:1}
-@media(max-width:640px){ .media-row{grid-template-columns:1fr} .media-row .arr{display:none} }
+/* ---------- Media ---------- */
 .kit-band{margin-top:var(--space-4);background:var(--surface);color:var(--ink);border:1px solid var(--line);border-radius:var(--radius);padding:var(--card-pad);display:flex;gap:var(--space-2);align-items:stretch;flex-wrap:wrap}
 .kit-band h3{color:var(--ink);font-size:var(--fs-lead)}
 .kit-band p{margin:8px 0 0;color:var(--ink2);font-size:var(--fs-body);max-width:560px}
 .kit-band .sp{flex:1 1 100%;min-width:240px}
-.kit-band .btn{flex:1 1 0;justify-content:center;text-align:center}
-@media(max-width:640px){ .kit-band .btn{flex:1 1 100%} }
+.kit-band .btn{flex:1 1 0;justify-content:center;text-align:center;font-size:var(--fs-body);white-space:nowrap}
+@media(max-width:640px){ .kit-band .btn{flex:1 1 100%;white-space:normal} }
+.press-fold-h{font-size:var(--fs-lead);margin:var(--space-4) 0 0;font-family:var(--font-display);font-weight:700}
+.media-list{margin-top:var(--space-3);border-top:1px solid var(--line);display:grid;grid-template-columns:1fr 1fr;column-gap:var(--space-5)}
+@media(max-width:900px){ .media-list{grid-template-columns:1fr} }
+.media-row{display:grid;grid-template-columns:110px 1fr auto;gap:var(--space-2);align-items:baseline;padding:16px 8px;border-bottom:1px solid var(--line);text-decoration:none;min-height:44px}
+.media-row:hover{background:var(--surface)}
+.media-row .when{font-size:var(--fs-small);letter-spacing:.1em;text-transform:uppercase;color:var(--green);font-weight:700}
+.media-row h3{font-size:var(--fs-lead)}
+.media-row .arr{font-family:var(--font-display);color:var(--green);font-size:var(--fs-lead);line-height:1}
+@media(max-width:640px){ .media-row{grid-template-columns:1fr} .media-row .arr{display:none} }
 
+/* ---------- FAQ ---------- */
+.faq-list{margin:var(--space-4) 0 0;display:grid;grid-template-columns:1fr 1fr;gap:0 var(--space-5)}
+@media(max-width:900px){ .faq-list{grid-template-columns:1fr} }
+.faq{border-top:1px solid var(--line);padding:24px 0}
+.faq dt{font-family:var(--font-display);font-size:var(--fs-lead);font-weight:700;color:var(--ink)}
+.faq dd{margin:8px 0 0;color:var(--ink2);font-size:var(--fs-body)}
 
-.faq-grid{display:grid;grid-template-columns:1fr 1fr;gap:var(--space-4) var(--space-5);margin-top:var(--space-4)}
-@media(max-width:900px){ .faq-grid{grid-template-columns:1fr} }
-.faq{border-top:1px solid var(--line);padding-top:24px}
-.faq h3{font-size:var(--fs-lead);margin:0 0 8px}
-.faq p{margin:0;color:var(--ink2);font-size:var(--fs-body)}
-
-
+/* ---------- Contact ---------- */
 .contact{background:var(--surface2)}
 .contact-cta{margin:24px 0 0}
 .contact-grid{display:grid;grid-template-columns:.85fr 1.15fr;gap:var(--space-4) var(--space-5);margin-top:var(--space-4);align-items:start}
-@media(max-width:900px){ .contact-grid{grid-template-columns:minmax(0,1fr)} .contact-grid>*{min-width:0} .direct a>span span,.direct .row>span span{overflow-wrap:normal;word-break:normal} .form-note{overflow-wrap:anywhere} }
+@media(max-width:900px){ .contact-grid{grid-template-columns:minmax(0,1fr)} .contact-grid>*{min-width:0} .form-note{overflow-wrap:anywhere} }
 .direct{display:flex;flex-direction:column;gap:16px}
-.direct a,.direct .row{display:flex;gap:14px;align-items:flex-start;background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:24px;text-decoration:none}
+.direct a,.direct .row{display:flex;gap:14px;align-items:flex-start;background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:24px;text-decoration:none;min-height:44px}
 .direct b{display:block;font-size:var(--fs-body)}
 .direct span{font-size:var(--fs-body);color:var(--ink2)}
 .direct svg{flex:none;margin-top:2px}
+@media (hover:hover) and (pointer:fine){
+  .direct a{transition:box-shadow var(--dur-med) var(--ease),border-color var(--dur-med) var(--ease)}
+  .direct a:hover{border-color:var(--green);box-shadow:0 12px 26px rgba(27,68,35,.08)}
+  .btn:hover{transform:translateY(-1px)}
+  .media-row{transition:background var(--dur-fast) var(--ease)}
+}
 .form-note{font-size:var(--fs-body);color:var(--ink2);margin:12px 0 0}
 @media(max-width:480px){
   .direct a,.direct .row{padding:var(--space-2)}
-  .direct a[href^="mailto:"]{flex-wrap:wrap}
-  .direct a[href^="mailto:"]>span{flex:1 1 100%;min-width:0}
-  .direct a[href^="mailto:"]>span span{font-size:var(--fs-small)}
+  .direct a[href^="mailto:"]{flex-wrap:nowrap}
+  .direct a[href^="mailto:"]>span{flex:1 1 auto;min-width:0}
+  .direct a[href^="mailto:"]>span span{font-size:var(--fs-small);overflow-wrap:anywhere}
 }
 .enquiry-panel{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:var(--card-pad)}
-.enquiry-panel .ep-h{margin:0 0 16px;font-size:var(--fs-lead)}
+.enquiry-panel .ep-h{margin:0 0 16px;font-size:var(--fs-lead);font-family:var(--font-display)}
 .enquiry-panel .ep-lede{margin:0 0 24px;color:var(--ink2);font-size:var(--fs-body);line-height:1.65}
-.enquiry-panel .ep-btn{width:100%;justify-content:center}
 .enquiry-form{display:grid;gap:var(--space-2);margin:0 0 4px}
 .enquiry-form[hidden]{display:none}
 .ef-row{display:grid;grid-template-columns:1fr 1fr;gap:var(--space-2)}
@@ -325,70 +342,31 @@ h2{font-size:var(--fs-h2);font-weight:700}
 .ef-submit{width:100%;justify-content:center}
 .ef-hp{position:absolute;left:-9999px;top:-9999px;height:0;width:0;overflow:hidden}
 
+/* ---------- Footer ---------- */
 footer{background:var(--green);color:var(--cream);padding:var(--space-5) 0}
 .foot{display:flex;gap:var(--space-3);flex-wrap:wrap;align-items:center;justify-content:space-between}
-.foot a{color:var(--gold-on-green);text-decoration:none;font-weight:600}
+.foot a{color:var(--gold-on-green);text-decoration:none;font-weight:600;display:inline-block;padding:6px 0}
 .foot a:hover{text-decoration:underline}
-footer small{display:block;margin-top:16px;font-size:var(--fs-body);color:#E9E3CF;max-width:550px}
-
-section[id],#top{scroll-margin-top:74px}
-
-
-@media (hover:hover) and (pointer:fine){
-  .direct a{transition:box-shadow var(--dur-med) var(--ease),border-color var(--dur-med) var(--ease)}
-  .acc:hover{border-color:var(--green)}
-  .direct a:hover{border-color:var(--green);box-shadow:0 12px 26px rgba(27,68,35,.08)}
-  .btn:hover{transform:translateY(-1px)}
-  .media-row{transition:background var(--dur-fast) var(--ease)}
-}
-/* Wave 2 — small-screen rhythm, green-ground focus, stages columns,
-   wave-1 classes (accolade media + organizer bios) in the token system */
-@media(max-width:640px){ :root{--section-pad:40px; --card-pad:24px} }
-.stages-grid>div{display:grid;grid-template-columns:1fr 1fr;gap:var(--space-5);align-items:start}
-@media(max-width:900px){ .stages-grid>div{grid-template-columns:1fr} }
-.nav :focus-visible,.mobile-menu :focus-visible,footer :focus-visible,.proof :focus-visible{box-shadow:0 0 0 2px var(--green-dark),0 0 0 5px #fff}
-.acc-feature{margin-top:var(--space-4)}
-.acc-feat{display:grid;grid-template-columns:2fr 3fr;gap:var(--space-4);align-items:stretch}
-.acc-feat-media{margin:calc(var(--card-pad) * -1) 0 calc(var(--card-pad) * -1) calc(var(--card-pad) * -1);overflow:hidden;border-radius:var(--radius) 0 0 var(--radius)}
-.acc-feat-media img{width:100%;height:100%;object-fit:cover}
-.acc-feat-body{display:flex;flex-direction:column;justify-content:center}
-@media(max-width:900px){
-  .acc-feat{grid-template-columns:1fr;gap:var(--space-3)}
-  .acc-feat-media{margin:calc(var(--card-pad) * -1) calc(var(--card-pad) * -1) 0;aspect-ratio:16/9;border-radius:var(--radius) var(--radius) 0 0}
-}
-.acc .acc-body{font-size:var(--fs-body);font-weight:600;color:var(--green-dark);margin:0 0 var(--space-1)}
 .foot-brand{font-family:var(--font-display);font-size:var(--fs-lead);color:var(--cream)}
-.two .after-pull{margin-top:var(--space-3)}
-/* Spacing fix (Oct 23) — About: intro rebalance + paired columns.
-   Each About column is a self-contained flow (card + its follow-on
-   paragraph), so no column waits on the taller opposite row and no
-   dead band opens under the shorter card. Tokens only; no new values
-   except the 2fr/3fr intro column ratio. */
-.two.two-intro{grid-template-columns:2fr 3fr}
-.about-pair{display:grid;grid-template-columns:1fr 1fr;gap:var(--space-4) var(--space-5);margin-top:var(--space-4)}
-.about-col{display:flex;flex-direction:column;gap:var(--space-3);min-width:0}
-.about-col>p{margin:0;color:var(--ink2)}
-.about-col>p strong{color:var(--ink)}
+footer small{display:block;margin-top:16px;font-size:var(--fs-body);color:#E9E3CF;max-width:550px}
 @media(max-width:900px){
-  .two.two-intro{grid-template-columns:1fr}
-  .about-pair{grid-template-columns:1fr}
+  .honours-list a{min-height:44px;padding-top:11px;padding-bottom:11px}
+  .foot a{min-height:44px;padding-top:9px;padding-bottom:9px}
 }
-/* Print — a clean paper copy: no nav, video or dark bands;
-   every section expanded, black on white. */
+
+@media(max-width:640px){ :root{--section-pad:44px; --card-pad:24px} }
 @media print{
   @page{margin:18mm 16mm}
   *{-webkit-print-color-adjust:economy;print-color-adjust:economy;box-shadow:none !important;text-shadow:none !important}
   html,body{background:#fff !important;color:#000 !important}
-  header.nav,.mobile-menu,.skip-link,.speak-band,
-  .vid-frame,.hero-ctas,.dl-row,.enquiry-panel,.btn,
-  footer .foot span:last-child{display:none !important}
-  section,.hero,.philosophy,.accolades,.contact,.proof{padding:12pt 0 !important;background:#fff !important}
+  header.nav,.mobile-menu,.skip-link,.vid-frame,.hero-ctas,.enquiry-panel,.btn,.cta-band{display:none !important}
+  section,.hero,.contact,.proof,.cred{padding:12pt 0 !important;background:#fff !important}
   .wrap{max-width:none !important}
-  h1,h2,h3,h4,p,li,figcaption,small,.sub,.lede,.big{color:#000 !important}
+  h1,h2,h3,h4,p,li,figcaption,small,dt,dd,.sub,.lede,.big{color:#000 !important}
   a{color:#000 !important;text-decoration:none !important}
-  img{filter:none !important}
   .acc,.bring,.talk,.faq,.step,.kit-band,.typical,.media-row{break-inside:avoid}
   .kit-band,.typical{border:1px solid #bbb !important;background:#fff !important}
+  .js .reveal{opacity:1 !important;transform:none !important}
 }
 </style>
 <script type="application/ld+json">
@@ -474,12 +452,12 @@ section[id],#top{scroll-margin-top:74px}
   <div class="wrap nav-in">
     <a class="brand" href="#top" aria-label="Swabir Shariff home"><b>Swabir Shariff</b></a>
     <nav class="nav-links" aria-label="Primary">
-      <a href="#about">About</a>
       <a href="#services">Services</a>
-      <a href="#accolades">Accolades</a>
       <a href="#talks">Talks</a>
+      <a href="#honours">Honours</a>
+      <a href="#about">About</a>
       <a href="#media">Media</a>
-      <a href="#contact">Contact</a>
+      <a href="#faq">FAQ</a>
     </nav>
     <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="mobileMenu" aria-label="Open section menu">
       <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
@@ -488,30 +466,35 @@ section[id],#top{scroll-margin-top:74px}
       <a class="nav-social" href="https://www.linkedin.com/in/swabir" target="_blank" rel="noopener" aria-label="Swabir Shariff on LinkedIn">
         <svg viewBox="0 0 448 512" aria-hidden="true"><path d="M100.28 448H7.4V148.9h92.88zM53.79 108.1C24.09 108.1 0 83.5 0 53.8a53.79 53.79 0 0 1 107.58 0c0 29.7-24.1 54.3-53.79 54.3zM447.9 448h-92.68V302.4c0-34.7-.7-79.2-48.29-79.2-48.29 0-55.69 37.7-55.69 76.7V448h-92.78V148.9h89.08v40.8h1.3c12.4-23.5 42.69-48.3 87.88-48.3 94 0 111.28 61.9 111.28 142.3V448z"/></svg>
       </a>
-      <a href="#contact" class="btn btn-outline-light nav-cta" data-goatcounter-click="enquiry-nav">Enquiries</a>
+      <a href="#contact" class="btn btn-primary nav-cta" data-goatcounter-click="enquiry-nav">Check availability for 2027</a>
     </div>
   </div>
   <nav class="mobile-menu" id="mobileMenu" aria-label="Sections">
+    <a href="#reel">Speaking reel</a>
+    <a href="#services">Advisory &amp; Speaking</a>
+    <a href="#talks">Signature Talks</a>
+    <a href="#honours">Honours &amp; Recognition</a>
     <a href="#about">About</a>
-    <a href="#services">Services</a>
-    <a href="#accolades">Accolades</a>
-    <a href="#talks">Talks</a>
     <a href="#media">Media</a>
-    <a href="#contact">Contact</a>
-    <a href="#contact" class="mm-cta" data-goatcounter-click="enquiry-nav-mobile">Advisory &amp; Speaking Enquiries</a>
+    <a href="#faq">FAQ</a>
+    <a href="#contact" class="mm-cta" data-goatcounter-click="enquiry-nav-mobile">Check availability for 2027</a>
   </nav>
 </header>
 <main id="main">
 
-
+<!-- 1 · HERO -->
 <div class="hero" id="top">
   <div class="hero-in">
     <div class="hero-text">
-      <h1>Swabir<br><em>Shariff</em></h1>
-      <p class="roleline">Leadership Advisor and Speaker</p>
+      <p class="hero-label">Leadership Advisor &amp; Speaker · Toronto</p>
+      <p class="hero-name">Swabir <em>Shariff</em></p>
+      <p class="pron-note">Pronounced Swa-beer Sha-reef</p>
+      <h1><span class="hl">I advise institutions </span><span class="hl">on youth, mentoring </span><span class="hl">and violence prevention</span></h1>
+      <p class="startline"><span class="sl">Changing the starting line</span><span class="sl">for young people, not cheering</span><span class="sl">them on from it</span></p>
       <div class="hero-ctas">
-        <a class="btn btn-primary" href="#contact" data-goatcounter-click="enquiry-hero">Start the conversation →</a>
+        <a class="btn btn-primary" href="#contact" data-goatcounter-click="enquiry-hero">Check availability for 2027</a>
       </div>
+      <p class="hero-role">Founder &amp; Executive Director, The Good Guides · Toronto · Scarborough · Since 2020</p>
     </div>
     <div class="portrait-col">
       <div class="portrait-frame">
@@ -519,9 +502,8 @@ section[id],#top{scroll-margin-top:74px}
       </div>
     </div>
   </div>
-  <div class="proof">
+  <div class="proof" role="region" aria-label="Key figures">
     <div class="wrap">
-      <p class="proof-label">On the record:</p>
       <div class="proof-in">
         <div><b>1 of 100</b><span>QECT 100 Young Leaders Awardee 2026</span></div>
         <div><b>10,000+</b><span>young people mentored across Toronto since 2020, through The Good Guides</span></div>
@@ -530,79 +512,54 @@ section[id],#top{scroll-margin-top:74px}
       </div>
     </div>
   </div>
-  <div class="speak-band">
-    <div class="wrap">
-      <figure class="stages-video">
-        <div class="vid-frame">
-          <button type="button" class="vid-facade" data-embed="https://www.youtube-nocookie.com/embed/o8S1yIeRFng?start=10299&amp;end=10530&amp;rel=0" data-title="Swabir Shariff — Scarborough Walk of Fame acceptance remarks, April 2024" aria-label="Play video: See me speak — Swabir Shariff's Scarborough Walk of Fame acceptance remarks">
-            <img src="assets/walk-of-fame-stage.webp" alt="Swabir Shariff on stage at the Scarborough Walk of Fame induction, April 2024" width="1290" height="724" loading="lazy" decoding="async">
-            <span class="vid-shade"></span>
-            <span class="vid-play"><svg width="26" height="26" viewBox="0 0 24 24" fill="#F5F1E6" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></span>
-            <span class="vid-label">See me speak<small>Acceptance remarks · Scarborough Walk of Fame</small></span>
-          </button>
-        </div>
-      </figure>
-    </div>
-  </div>
 </div>
 
-  <div class="wrap hero-after">
-    <p class="eyebrow">Founder &amp; Executive Director, The Good Guides</p>
-    <p class="pronline">Pronounced Swa-beer Sha-reef</p>
-    <p class="roleline">Toronto · Scarborough · Since 2020</p>
-    <p class="startline">“Changing the <strong>starting line</strong> for young people — not cheering them on from it.”</p>
-    <p class="hero-sub">I advise institutions on youth, mentoring and violence prevention — and speak where those decisions are made.</p>
+<!-- 2 · CREDIBILITY STRIP -->
+<section class="cred" aria-labelledby="cred-h">
+  <div class="wrap reveal">
+    <h2 id="cred-h">On stages, screens and honour rolls</h2>
+    <ul class="cred-names">
+      <li>Toronto Police Service College</li>
+      <li>OPTrust</li>
+      <li>City of Toronto</li>
+      <li>Global News</li>
+      <li>CP24</li>
+      <li>One Young World</li>
+      <li>QECT</li>
+    </ul>
   </div>
+</section>
 
-<section id="about">
-  <div class="wrap">
-    <p class="eyebrow">On the record · Background</p>
-    <h2>About</h2>
-    <div class="two two-intro">
+<!-- 3 · SPEAKING REEL -->
+<section id="reel" aria-labelledby="reel-h">
+  <div class="wrap reveal">
+    <hr class="gold-rule">
+    <h2 id="reel-h">Speaking reel</h2>
+    <p class="lede">See me speak — acceptance remarks at the Scarborough Walk of Fame induction, April 2024.</p>
+    <div class="reel-grid">
       <div>
-        <p>Born and raised in Scarborough, I grew up in Toronto Community Housing and watched friends — and my own brother — pulled toward the justice system. The services meant to reach them never did: no mentors, no one they could see themselves in, only solutions designed from the outside. That failure is where my work begins.</p>
+        <figure class="stages-video">
+          <div class="vid-frame">
+            <button type="button" class="vid-facade" data-embed="https://www.youtube-nocookie.com/embed/o8S1yIeRFng?start=10299&amp;end=10530&amp;rel=0" data-title="Swabir Shariff — Scarborough Walk of Fame acceptance remarks, April 2024" aria-label="Play video: See me speak — Swabir Shariff's Scarborough Walk of Fame acceptance remarks">
+              <img src="assets/walk-of-fame-stage.webp" alt="Swabir Shariff on stage at the Scarborough Walk of Fame induction, April 2024" width="1290" height="724" loading="lazy" decoding="async">
+              <span class="vid-shade"></span>
+              <span class="vid-play"><svg width="26" height="26" viewBox="0 0 24 24" fill="#F5F1E6" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></span>
+              <span class="vid-label">See me speak<small>Acceptance remarks · Scarborough Walk of Fame</small></span>
+            </button>
+          </div>
+        </figure>
+        <p class="reel-note">The player loads only when you press play — nothing is sent to a third party before then.</p>
       </div>
-      <div>
-        <ul class="eng-list">
-          <li>Through The Good Guides, I lead mentorship, youth leadership and violence-prevention programming for young people aged 11–18, delivered through specific schools and cohorts across Toronto.</li>
-          <li>That work includes school-based violence prevention delivered with community partners and funded by the City of Toronto, alongside sports and co-op placements designed to carry young people into leadership.</li>
-        </ul>
-      </div>
-    </div>
-    <p class="lede">What I bring:</p>
-    <div class="bring-grid">
-      <div class="bring">
-        <h3>Lived experience, built into the design</h3>
-        <p>So the model is built the other way: mentors young people can see themselves in, and young people holding real delivery and leadership roles — a productive piece of the work, not an audience for it.</p>
-      </div>
-      <div class="bring">
-        <h3>An operator, not a theorist</h3>
-        <p>I founded The Good Guides in 2020 and lead it as Executive Director today — accountable for governance, delivery and results. I built it unpaid alongside an executive security career; it has operated on steady funding since 2023.</p>
-      </div>
-    </div>
-    <div class="about-pair">
-      <div class="about-col">
-        <div class="bring">
-          <h3>Executive vantage point</h3>
-          <p>My executive judgment was formed as Director of Security, leading round-the-clock (24/7) operations for a major retail centre — long before I held a founder title.</p>
-        </div>
-      </div>
-      <div class="about-col">
-        <div class="bring">
-          <h3>At the policy table</h3>
-          <p>I helped lead the <strong>City of Toronto Youth Violence Prevention</strong> partnership work in Scarborough and helped lead Scarborough's youth engagement through COVID. I was instrumental in creating Community Connect, a program connecting young people with their neighbourhood officers through certification workshops including CPR, food handling and babysitting.</p>
-        </div>
-        <p>In October 2026, that record was recognized in London, where I was received at St James's Palace as a QECT 100 Young Leaders Awardee 2026.</p>
-      </div>
+      <p class="reel-slot">A 60–90 second showreel will be added here.</p>
     </div>
   </div>
 </section>
 
-
-<section id="services">
-  <div class="wrap">
-    <p class="eyebrow">On the record · The work</p>
-    <h2>Advisory &amp; speaking</h2>
+<!-- 4 · ADVISORY & SPEAKING -->
+<section id="services" aria-labelledby="services-h">
+  <div class="wrap reveal">
+    <hr class="gold-rule">
+    <h2 id="services-h">Advisory &amp; speaking</h2>
     <p class="lede">Advisory, briefings and keynotes for organizations that need to earn young people's trust.</p>
     <div class="offers-grid">
       <article class="offer">
@@ -623,7 +580,7 @@ section[id],#top{scroll-margin-top:74px}
         <p class="also">Also commissioned for:</p>
         <ul>
           <li>Building an institution from nothing — founding and leading The Good Guides since 2020</li>
-          <li>Changing the starting line — redesigning where young people start, rather than demanding more from them</li>
+          <li>Changing the starting line — a keynote (see Signature talks, below)</li>
           <li>Youth-violence prevention from the ground up — what front-line, school-based delivery teaches</li>
           <li>Panels and fireside conversations for conferences and leadership audiences</li>
         </ul>
@@ -641,7 +598,6 @@ section[id],#top{scroll-margin-top:74px}
       </article>
     </div>
 
-
     <div class="typical" id="typical">
       <h3>A typical engagement</h3>
       <p class="sub">Advisory engagements run 8–12 weeks, in four stages:</p>
@@ -652,17 +608,123 @@ section[id],#top{scroll-margin-top:74px}
         <div class="step"><b>4 · 90-day results review</b><p>A direct assessment of what moved, what did not, and what happens next.</p></div>
       </div>
     </div>
+
   </div>
 </section>
 
-<!-- TESTIMONIALS -->
-<section class="testimonials" id="testimonials">
-  <div class="wrap">
-    <p class="eyebrow">On the record · In their words</p>
-    <h2>From a host</h2>
+<div class="cta-band">
+  <div class="wrap cta-band-in">
+    <p>Now accepting engagements for 2027.</p>
+    <a class="btn btn-primary" href="#contact" data-goatcounter-click="enquiry-services">Check availability for 2027</a>
+  </div>
+</div>
+
+<!-- 5 · SIGNATURE TALKS -->
+<section id="talks" aria-labelledby="talks-h">
+  <div class="wrap reveal">
+    <hr class="gold-rule">
+    <h2 id="talks-h">Signature talks</h2>
+    <div class="philosophy">
+      <p class="eyebrow">The philosophy</p>
+      <p class="big">&ldquo;Don&rsquo;t offer young people a seat at the table, or a key to one room — hand them the keys to the whole house: the work is theirs to lead, with mentors who look like them behind them. Everyone is a productive piece of the whole — no guests, no passengers.&rdquo;</p>
+    </div>
+    <div class="talks-grid">
+      <article class="talk">
+        <div>
+          <span class="tlabel">Signature Talk · 01</span>
+          <h3>&ldquo;Keys to the Whole House&rdquo;</h3>
+          <p>How giving young people real authority over their work builds the trust institutions struggle to earn — a working model for shared decision-making, drawn from The Good Guides.</p>
+          <p class="talk-aud"><b>Best for:</b> youth-serving organizations, funders, public institutions.</p>
+        </div>
+        <div class="talk-details">
+          <h4>Buyer details</h4>
+          <dl>
+            <div><dt>Format</dt><dd>Keynote — also available as a fireside conversation or panel; virtual or in-person</dd></div>
+            <div><dt>Key takeaways</dt><dd><ul>
+              <li>Young people need real authority over the work, with real support behind them</li>
+              <li>A practical way to share decision-making with the people a program serves</li>
+              <li>An honest account of what happens to trust when decision-making is shared</li>
+            </ul></dd></div>
+          </dl>
+        </div>
+      </article>
+      <article class="talk">
+        <div>
+          <span class="tlabel">Signature Talk · 02</span>
+          <h3>&ldquo;Change the Starting Line&rdquo;</h3>
+          <p>Redesign where people start, rather than demanding more effort from the people the starting line failed. A talk for leaders ready to find the starting lines inside their own systems — and change them.</p>
+          <p class="talk-aud"><b>Best for:</b> conferences, education leaders and civic audiences.</p>
+        </div>
+        <div class="talk-details">
+          <h4>Buyer details</h4>
+          <dl>
+            <div><dt>Format</dt><dd>Keynote — also available as a fireside conversation or panel; virtual or in-person</dd></div>
+            <div><dt>Key takeaways</dt><dd><ul>
+              <li>A way to spot the starting lines hidden in your own intake, referral and eligibility rules</li>
+              <li>A framework for redesigning where people start inside your own system</li>
+              <li>The first moves to change those starting lines once you have found them</li>
+            </ul></dd></div>
+          </dl>
+        </div>
+      </article>
+      <article class="talk">
+        <div>
+          <span class="tlabel">Signature Talk · 03</span>
+          <h3>&ldquo;Every Piece of the Whole&rdquo;</h3>
+          <p>Every person is a productive piece of a whole none of us can see in full.</p>
+          <p class="talk-aud"><b>Best for:</b> leadership teams and boards.</p>
+        </div>
+        <div class="talk-details">
+          <h4>Buyer details</h4>
+          <dl>
+            <div><dt>Format</dt><dd>Keynote — also available as a fireside conversation or panel; virtual or in-person</dd></div>
+            <div><dt>Key takeaways</dt><dd><ul>
+              <li>A simple test for whether every role in the room carries real work — and what to change when one doesn&rsquo;t</li>
+              <li>How to lead so each person&rsquo;s contribution lands as part of the result</li>
+              <li>What changes when every person in the room carries a working part of the result</li>
+            </ul></dd></div>
+          </dl>
+        </div>
+      </article>
+    </div>
+    <p class="talks-note">Talk lengths and audience sizes are confirmed on enquiry.</p>
+
+    <div class="appearances" id="stages">
+      <h3 class="appearances-h">Selected appearances</h3>
+      <div class="stages-cols">
+        <ul class="stage-list">
+          <li><span class="when">October 2026</span><b>QECT 100 Young Leaders presentation at Asprey, London</b></li>
+          <li><span class="when">February 2022</span><b>Panellist, CP24 Tonight — youth violence in Toronto</b></li>
+          <li><span class="when">December 2021</span><b>Featured on Global News — &ldquo;Making a Difference&rdquo;</b><p>Interviewed by Susan Hay.</p></li>
+        </ul>
+        <div class="engagements">
+          <h3>Selected speaking engagements, 2023–2025</h3>
+          <ul class="eng-list">
+            <li>Keynote — Toronto Police Service College</li>
+            <li>Keynote — OPTrust</li>
+            <li>Panel contributions — post-secondary institutions</li>
+            <li>School talks across Toronto</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="cta-band">
+  <div class="wrap cta-band-in">
+    <p>Bring a signature talk to your audience.</p>
+    <a class="btn btn-primary" href="#contact" data-goatcounter-click="enquiry-talks">Check availability for 2027</a>
+  </div>
+</div>
+
+<!-- 6 · TESTIMONIALS -->
+<section class="testimonials" id="testimonials" aria-labelledby="testimonials-h">
+  <div class="wrap reveal">
+    <hr class="gold-rule">
+    <h2 id="testimonials-h">From a host</h2>
     <div class="tquotes">
       <figure class="tquote">
-        <span class="qmark" aria-hidden="true">&ldquo;</span>
         <blockquote>
           <p>&ldquo;I wanted to send a huge thank you for coming to the FUEL event last week — and for hosting a roundtable. We have had great feedback about the event and I was so happy that you were a part of it.&rdquo;</p>
         </blockquote>
@@ -672,11 +734,11 @@ section[id],#top{scroll-margin-top:74px}
   </div>
 </section>
 
-
-<section class="accolades" id="accolades">
-  <div class="wrap">
-    <p class="eyebrow">On the record · The honours</p>
-    <h2>Honours and recognition</h2>
+<!-- 7 · HONOURS & RECOGNITION -->
+<section id="honours" aria-labelledby="honours-h">
+  <div class="wrap reveal">
+    <hr class="gold-rule">
+    <h2 id="honours-h">Honours and recognition</h2>
     <div class="acc-feature">
       <article class="acc acc-feat">
         <figure class="acc-feat-media">
@@ -711,71 +773,45 @@ section[id],#top{scroll-margin-top:74px}
         <a href="https://resources.charityvillage.com/charityvillage-connects-celebrating-the-2021-charityvillage-award-winners/" target="_blank" rel="noopener">Award winners listing →</a>
       </li>
     </ul>
+    <div class="image-band">
+      <figure>
+        <img src="assets/walk-of-fame-stage.webp" alt="Swabir Shariff on stage at the Scarborough Walk of Fame induction, April 2024" width="1290" height="724" loading="lazy" decoding="async">
+      </figure>
+      <figcaption>On stage at the Scarborough Walk of Fame induction, April 2024.</figcaption>
+    </div>
   </div>
 </section>
 
+<div class="cta-band">
+  <div class="wrap cta-band-in">
+    <p>Recognized at St James's Palace and on the Scarborough Walk of Fame.</p>
+    <a class="btn btn-primary" href="#contact" data-goatcounter-click="enquiry-honours">Check availability for 2027</a>
+  </div>
+</div>
 
-
-<section id="talks">
-  <div class="wrap">
-    <div class="talks">
-      <p class="eyebrow">On the record · On stage</p>
-      <h2>Signature talks</h2>
-      <div class="philosophy philosophy-in-talks">
-        <p class="eyebrow">The philosophy</p>
-        <p class="big">“Keys to the <em>whole house</em>.”</p>
-        <p class="sub">Do not offer young people a seat at the table, or a key to one room — hand them the keys to the whole house. The work is theirs to lead, with mentors who look like them behind them. Everyone is a productive piece of the whole: no guests, no passengers.</p>
-      </div>
-      <div class="talks-grid">
-        <article class="talk">
-          <span class="tlabel">Signature Talk · 01</span>
-          <h3>“Keys to the Whole House”</h3>
-          <p>How giving young people real authority over their work builds the trust institutions struggle to earn — a working model for shared decision-making, drawn from The Good Guides.</p>
-          <p class="talk-aud"><b>Best for:</b> youth-serving organizations, funders, public institutions.</p>
-        </article>
-        <article class="talk">
-          <span class="tlabel">Signature Talk · 02</span>
-          <h3>“Change the Starting Line”</h3>
-          <p>Redesign where people start, rather than demanding more effort from the people the starting line failed. A talk for leaders ready to find their own starting lines — and change them.</p>
-          <p class="talk-aud"><b>Best for:</b> conferences, education leaders and civic audiences.</p>
-        </article>
-        <article class="talk">
-          <span class="tlabel">Signature Talk · 03</span>
-          <h3>“Every Piece of the Whole”</h3>
-          <p>Every person is a productive piece of a whole none of us can see in full.</p>
-          <p class="talk-aud"><b>Best for:</b> leadership teams and boards.</p>
-        </article>
-      </div>
-    </div>
-    <div class="appearances" id="stages">
-      <h3 class="appearances-h">Selected appearances</h3>
-      <div class="stages-grid">
-        <div>
-          <ul class="stage-list">
-            <li><span class="when">October 2026</span><b>QECT 100 Young Leaders presentation at Asprey, London</b></li>
-            <li><span class="when">February 2022</span><b>Panellist, CP24 Tonight — youth violence in Toronto</b></li>
-            <li><span class="when">December 2021</span><b>Featured on Global News — “Making a Difference”</b><p>Interviewed by Susan Hay.</p></li>
-          </ul>
-          <div class="engagements">
-            <h3>Selected speaking engagements, 2023–2025</h3>
-            <ul class="eng-list">
-              <li>Keynote — Toronto Police Service College</li>
-              <li>Keynote — OPTrust</li>
-              <li>Panel contributions — post-secondary institutions</li>
-              <li>School talks across Toronto</li>
-            </ul>
-          </div>
-        </div>
+<!-- 8 · ABOUT -->
+<section id="about" aria-labelledby="about-h">
+  <div class="wrap reveal">
+    <hr class="gold-rule">
+    <h2 id="about-h">About</h2>
+    <div class="about-grid">
+      <figure class="about-photo">
+        <img src="assets/hero-headshot.webp" alt="Head-and-shoulders portrait of Swabir Shariff against a white background, wearing a light grey hoodie" width="751" height="800" loading="lazy" decoding="async">
+      </figure>
+      <div class="about-copy">
+        <p>Born and raised in Scarborough, I grew up in Toronto Community Housing and watched friends — and my own brother — pulled toward the justice system. The services meant to reach them never did: no mentors, no one they could see themselves in, only solutions designed from the outside. That failure is where my work begins.</p>
+        <p>Through The Good Guides — the organization I founded in 2020 and lead as Executive Director today — I lead mentorship, youth leadership and violence-prevention programming for young people aged 11–18, delivered through specific schools and cohorts across Toronto. That work includes school-based violence prevention delivered with community partners and funded by the City of Toronto, alongside sports and co-op placements designed to carry young people into leadership. I am <strong>an operator, not a theorist</strong>: accountable for governance, delivery and results. I built the organization unpaid alongside an executive security career. As Director of Security, I led round-the-clock (24/7) operations for a major retail centre. The Good Guides has operated on steady funding since 2023.</p>
+        <p>I have also sat <strong>at the policy table</strong>: I helped lead the City of Toronto Youth Violence Prevention partnership work in Scarborough and helped lead Scarborough's youth engagement through COVID, and I was instrumental in creating Community Connect, a program connecting young people with their neighbourhood officers through certification workshops including CPR, food handling and babysitting. In October 2026, that record was recognized in London, where I was received at St James's Palace as a QECT 100 Young Leaders Awardee 2026.</p>
       </div>
     </div>
   </div>
 </section>
 
-
-<section id="media">
-  <div class="wrap">
-    <p class="eyebrow">On the record · Coverage</p>
-    <h2>Media</h2>
+<!-- 9 · MEDIA -->
+<section id="media" aria-labelledby="media-h">
+  <div class="wrap reveal">
+    <hr class="gold-rule">
+    <h2 id="media-h">Media</h2>
     <div class="kit-band">
       <div class="sp">
         <h3>The media kit.</h3>
@@ -811,52 +847,48 @@ section[id],#top{scroll-margin-top:74px}
   </div>
 </section>
 
-
-<section id="faq">
-  <div class="wrap">
-    <p class="eyebrow">On the record · Answers</p>
-    <h2>Questions</h2>
-    <div class="faq-grid">
+<!-- 10 · FAQ -->
+<section id="faq" aria-labelledby="faq-h">
+  <div class="wrap reveal">
+    <hr class="gold-rule">
+    <h2 id="faq-h">Questions</h2>
+    <dl class="faq-list">
       <div class="faq">
-        <h3>What are your fees?</h3>
-        <p>Fees are enquiry-only. They are never posted, and they depend on the scope of the engagement — the format, the audience, and what is being asked of me. The written proposal sets the fee out plainly before anything is agreed, so there are no surprises on either side.</p>
+        <dt>What are your fees?</dt>
+        <dd>Fees are enquiry-only. They are never posted, and they depend on the scope of the engagement — the format, the audience, and what is being asked of me. The written proposal sets the fee out plainly before anything is agreed, so there are no surprises on either side.</dd>
       </div>
       <div class="faq">
-        <h3>How does booking work?</h3>
-        <p>It starts with an enquiry, then an introductory conversation, then a written proposal that sets out the scope and the timeline. Nothing is confirmed until the proposal is agreed — by both of us.</p>
+        <dt>How does booking work?</dt>
+        <dd>It starts with an enquiry, then an introductory conversation, then a written proposal that sets out the scope and the timeline. Nothing is confirmed until the proposal is agreed — by both of us.</dd>
       </div>
       <div class="faq">
-        <h3>How far ahead should we book?</h3>
-        <p>I am now accepting engagements for 2027. Earlier dates are worth an enquiry — I will give you a straight answer on availability.</p>
+        <dt>How far ahead should we book?</dt>
+        <dd>I am now accepting engagements for 2027. Earlier dates are worth an enquiry — I will give you a straight answer on availability.</dd>
       </div>
       <div class="faq">
-        <h3>Can we record or stream the talk?</h3>
-        <p>Ask in your enquiry. Recording and streaming terms are agreed in the written proposal, so they are clear before the day.</p>
+        <dt>Can we record or stream the talk?</dt>
+        <dd>Ask in your enquiry. Recording and streaming terms are agreed in the written proposal, so they are clear before the day.</dd>
       </div>
       <div class="faq">
-        <h3>What does an advisory engagement look like?</h3>
-        <p>Four stages over 8–12 weeks — from discovery and program assessment to a 90-day results review. See “A typical engagement” above.</p>
+        <dt>What does an advisory engagement look like?</dt>
+        <dd>Four stages over 8–12 weeks — from discovery and program assessment to a 90-day results review. See “A typical engagement” above.</dd>
       </div>
       <div class="faq">
-        <h3>How quickly will we hear back?</h3>
-        <p>Within two business days. If you are working to a deadline, name it in the enquiry and I will match it where I can.</p>
+        <dt>How quickly will we hear back?</dt>
+        <dd>Within two business days. If you are working to a deadline, name it in the enquiry and I will match it where I can.</dd>
       </div>
-    </div>
+    </dl>
   </div>
 </section>
 
-
-<section class="contact" id="contact">
-  <div class="wrap">
-    <p class="eyebrow">On the record · The next step</p>
-    <h2>Contact &amp; enquiries</h2>
+<!-- 11 · CONTACT -->
+<section class="contact" id="contact" aria-labelledby="contact-h">
+  <div class="wrap reveal">
+    <hr class="gold-rule">
+    <h2 id="contact-h">Contact &amp; enquiries</h2>
     <p class="lede">Send one enquiry — for advisory, speaking or briefings — and I will reply personally within two business days.</p>
-    <p class="contact-cta"><a class="btn btn-primary" href="#enquiry-form" data-goatcounter-click="enquiry-contact">Start the conversation →</a></p>
     <div class="contact-grid">
       <div class="direct">
-        <figure class="contact-photo">
-          <img src="assets/hero-headshot.webp" alt="Head-and-shoulders portrait of Swabir Shariff against a white background, wearing a light grey hoodie" width="751" height="800" loading="lazy" decoding="async">
-        </figure>
         <a href="mailto:swabir.shariff@thegoodguides.org">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2D6B38" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg>
           <span><b>Email — the fastest route</b><span>swabir.shariff@thegoodguides.org</span></span>
@@ -941,7 +973,7 @@ section[id],#top{scroll-margin-top:74px}
   <div class="wrap">
     <div class="foot">
       <span class="foot-brand">Swabir Shariff</span>
-      <span><a href="#about">About</a> &nbsp;·&nbsp; <a href="#services">Advisory &amp; Speaking</a> &nbsp;·&nbsp; <a href="#accolades">Accolades</a> &nbsp;·&nbsp; <a href="#talks">Talks</a> &nbsp;·&nbsp; <a href="#testimonials">From a host</a> &nbsp;·&nbsp; <a href="#media">Media</a> &nbsp;·&nbsp; <a href="#faq">FAQ</a> &nbsp;·&nbsp; <a href="https://www.linkedin.com/in/swabir" target="_blank" rel="noopener">LinkedIn</a></span>
+      <span><a href="#services">Advisory &amp; Speaking</a> &nbsp;·&nbsp; <a href="#talks">Signature Talks</a> &nbsp;·&nbsp; <a href="#testimonials">From a host</a> &nbsp;·&nbsp; <a href="#honours">Honours &amp; Recognition</a> &nbsp;·&nbsp; <a href="#about">About</a> &nbsp;·&nbsp; <a href="#media">Media</a> &nbsp;·&nbsp; <a href="#faq">FAQ</a> &nbsp;·&nbsp; <a href="#contact">Contact</a> &nbsp;·&nbsp; <a href="https://www.linkedin.com/in/swabir" target="_blank" rel="noopener">LinkedIn</a></span>
     </div>
     <small>© 2026 Swabir Shariff · Toronto, Canada.</small>
   </div>
@@ -949,6 +981,31 @@ section[id],#top{scroll-margin-top:74px}
 
 <script>
 (function(){
+  document.documentElement.classList.add('js');
+
+  // The honours section used to live at #accolades; keep old deep links landing there.
+  if (window.location.hash === '#accolades') {
+    var honoursTarget = document.getElementById('honours');
+    if (honoursTarget) {
+      if (window.history && history.replaceState) history.replaceState(null, '', '#honours');
+      honoursTarget.scrollIntoView();
+    }
+  }
+
+  // Scroll reveal — subtle fade/rise, transform/opacity only.
+  // Fully visible without JS and under prefers-reduced-motion.
+  var revealEls = document.querySelectorAll('.reveal');
+  if (revealEls.length && 'IntersectionObserver' in window && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(en){
+        if (en.isIntersecting) { en.target.classList.add('in'); io.unobserve(en.target); }
+      });
+    }, {threshold: 0.08});
+    revealEls.forEach(function(el){ io.observe(el); });
+  } else {
+    revealEls.forEach(function(el){ el.classList.add('in'); });
+  }
+
   // Mobile section menu
   var toggle = document.querySelector('.nav-toggle');
   var menu = document.getElementById('mobileMenu');
