@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="color-scheme" content="light">
+<meta name="theme-color" content="#2D6B38">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<meta name="description" content="Privacy notice for swabir-shariff.github.io — what this website collects, which services process it, and how enquiry details are used.">
+<link rel="icon" href="assets/icons-v2/favicon.ico" sizes="any">
+<link rel="icon" type="image/svg+xml" href="assets/icons-v2/favicon.svg">
+<link rel="apple-touch-icon" href="assets/icons-v2/apple-touch-icon.png">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Privacy — Swabir Shariff">
+<meta property="og:description" content="What this website collects, which services process it, and how enquiry details are used.">
+<meta property="og:url" content="https://swabir-shariff.github.io/privacy.html">
+<link rel="canonical" href="https://swabir-shariff.github.io/privacy.html">
+<title>Privacy — Swabir Shariff</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  color-scheme: light;
+  --bg:#F5F1E6; --surface:#FFFFFF; --surface2:#EFE8D3; --ink:#1D1A15; --ink2:#4C463B; --muted:#6B6353;
+  --green:#2D6B38; --green-dark:#22552C; --gold:#F5B921; --gold-on-green:#FFE873; --line:#DED4BC;
+  --cream:#F5F1E6;
+  --radius:14px; --radius-btn:4px;
+  --font-display:"Playfair Display",Georgia,serif; --font-body:"Source Sans 3",system-ui,sans-serif;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion: reduce){ html{scroll-behavior:auto} *{animation:none!important;transition:none!important} }
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--font-body);font-size:17px;line-height:1.65;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+.skip-link{position:absolute;left:16px;top:-70px;z-index:100;background:var(--green);color:var(--cream);padding:10px 18px;border-radius:999px;font-weight:700;text-decoration:none}
+.skip-link:focus{top:12px}
+:focus-visible{outline:none;box-shadow:0 0 0 2px #fff,0 0 0 5px var(--green-dark)}
+.wrap{max-width:1120px;margin:0 auto;padding:0 22px}
+h1,h2{font-family:var(--font-display);line-height:1.12;margin:0}
+.nav{position:sticky;top:0;z-index:50;background:color-mix(in srgb, var(--green) 96%, transparent);color:var(--cream);border-bottom:1px solid rgba(245,241,230,.35)}
+.nav-in{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:24px;padding-top:8px;padding-bottom:8px}
+.brand{display:flex;align-items:center;text-decoration:none;justify-self:start;min-height:44px}
+.brand b{font-family:var(--font-display);font-weight:700;font-size:20px;letter-spacing:.015em;color:var(--cream);line-height:1;white-space:nowrap}
+.nav-links{display:flex;gap:15px;align-items:center;justify-self:center}
+.nav-links a{text-decoration:none;font-size:14px;font-weight:600;letter-spacing:.05em;white-space:nowrap;color:var(--cream);padding:13px 8px}
+.nav-links a:hover{color:#fff}
+.nav-actions{display:flex;align-items:center;gap:14px;justify-self:end}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;text-decoration:none;font-weight:700;font-size:17px;padding:12px 20px;border-radius:var(--radius-btn);border:1.5px solid transparent;cursor:pointer;min-height:44px}
+.btn-primary{background:var(--gold);color:var(--ink)}
+.btn-primary:hover{background:#FFD34D}
+.nav .btn{padding:9px 16px;font-size:14px}
+.nav :focus-visible,footer :focus-visible{box-shadow:0 0 0 2px var(--green-dark),0 0 0 5px #fff}
+@media(max-width:640px){ .nav-in{gap:12px;grid-template-columns:1fr auto} .brand b{font-size:17px} .nav-links{display:none} .nav .btn{padding:8px 12px;font-size:14px} }
+main{display:block}
+.page-head{padding:56px 0 8px}
+.page-head h1{font-size:clamp(2rem,4vw,2.9rem);font-weight:800}
+.page-head .lede{font-size:1.2rem;color:var(--ink2);max-width:62ch;margin:16px 0 0}
+.doc{max-width:760px;padding:24px 0 64px}
+.doc section{padding:20px 0;border-top:1px solid var(--line)}
+.doc h2{font-size:1.35rem;margin:0 0 10px}
+.doc p{margin:0 0 12px;color:var(--ink2)}
+.doc p:last-child{margin-bottom:0}
+.doc a{color:var(--green);font-weight:600}
+.doc .updated{color:var(--muted);font-size:.95rem}
+footer{background:var(--green);color:var(--cream);padding:44px 0}
+.foot{display:flex;gap:24px;flex-wrap:wrap;align-items:center;justify-content:space-between}
+.foot a{color:var(--gold-on-green);text-decoration:none;font-weight:600;display:inline-block;padding:9px 0;min-height:44px}
+.foot a:hover{text-decoration:underline}
+.foot-brand{font-family:var(--font-display);font-size:20px;color:var(--cream)}
+footer small{display:block;margin-top:14px;font-size:14px;color:#E9E3CF}
+#main{scroll-margin-top:74px}
+</style>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="nav">
+  <div class="wrap nav-in">
+    <a class="brand" href="index.html" aria-label="Swabir Shariff home"><b>Swabir Shariff</b></a>
+    <nav class="nav-links" aria-label="Primary">
+      <a href="index.html">Home</a>
+    </nav>
+    <div class="nav-actions">
+      <a href="index.html#contact" class="btn btn-primary">Start the conversation →</a>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+  <div class="wrap">
+    <div class="page-head">
+      <h1>Privacy notice</h1>
+      <p class="lede">This page explains, in plain language, what information this website collects, which services process it, and how enquiry details are used.</p>
+    </div>
+    <div class="doc">
+      <section aria-labelledby="p-analytics">
+        <h2 id="p-analytics">Visits and clicks — GoatCounter</h2>
+        <p>This site uses GoatCounter, a privacy-conscious analytics service, to count page visits and clicks on the main buttons and document downloads — for example, how many people open the media kit. The counts are aggregate: they tell me which parts of the site are used, not who used them. GoatCounter does not set advertising cookies and does not build profiles of visitors for advertisers.</p>
+      </section>
+      <section aria-labelledby="p-form">
+        <h2 id="p-form">Enquiries — FormSubmit</h2>
+        <p>If you send the enquiry form, the details you enter — your name, organization, email address, enquiry type, optional event date, and your message — are transmitted to FormSubmit, a form-delivery service, which forwards them to my email inbox. I use those details only to reply to your enquiry. Please don't put highly sensitive personal information in the message field.</p>
+        <p>If JavaScript is disabled in your browser, the same form is delivered by FormSubmit directly and returns you to a thank-you page on this site.</p>
+      </section>
+      <section aria-labelledby="p-video">
+        <h2 id="p-video">Video and downloads</h2>
+        <p>The showreel video on this site is hosted on this site and plays in your browser; it is not embedded from a video platform, and it loads only when you press play. The biography, media kit and speaker one-sheet PDFs are likewise files on this site. Where this site links out to other websites — LinkedIn, YouTube, news outlets, The Good Guides — those sites are run by their own operators under their own privacy policies.</p>
+      </section>
+      <section aria-labelledby="p-hosting">
+        <h2 id="p-hosting">Hosting — GitHub Pages</h2>
+        <p>This website is hosted on GitHub Pages. As with any web host, GitHub's servers process the technical information needed to deliver pages to your browser, such as your IP address and browser type.</p>
+      </section>
+      <section aria-labelledby="p-choices">
+        <h2 id="p-choices">Questions or removal</h2>
+        <p>To ask what I hold from an enquiry you sent, or to have it deleted, email me at <a href="mailto:swabir.shariff@thegoodguides.org">swabir.shariff@thegoodguides.org</a>.</p>
+        <p class="updated">Last updated: October 2026.</p>
+      </section>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot">
+      <span class="foot-brand">Swabir Shariff</span>
+      <span><a href="index.html">Home</a> &nbsp;·&nbsp; <a href="index.html#contact">Contact</a> &nbsp;·&nbsp; <a href="https://www.linkedin.com/in/swabir" target="_blank" rel="noopener">LinkedIn</a></span>
+    </div>
+    <small>© 2026 Swabir Shariff · Toronto, Canada.</small>
+  </div>
+</footer>
+
+<script data-goatcounter="https://swabirshariff.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+</body>
+</html>
