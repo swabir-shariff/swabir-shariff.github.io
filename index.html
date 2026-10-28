@@ -81,7 +81,7 @@ h2{font-size:var(--fs-h2);font-weight:700}
 .nav-in{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:var(--space-3);padding-top:8px;padding-bottom:8px}
 .brand{display:flex;align-items:center;text-decoration:none;justify-self:start;min-height:44px}
 .brand b{font-family:var(--font-display);font-weight:700;font-size:var(--fs-lead);letter-spacing:.015em;color:var(--cream);line-height:1;white-space:nowrap}
-.nav-links{display:flex;gap:20px;align-items:center;justify-self:center}
+.nav-links{display:flex;gap:18px;align-items:center;justify-self:center}
 .nav-links a{text-decoration:none;font-size:var(--fs-small);font-weight:600;letter-spacing:.05em;white-space:nowrap;color:var(--cream);padding:12px 6px}
 .nav-links a:hover{color:#fff}
 .nav-cta{justify-self:end;white-space:nowrap}
@@ -107,7 +107,7 @@ h2{font-size:var(--fs-h2);font-weight:700}
 .mobile-menu a.mm-cta{color:var(--gold-on-green)}
 @media(min-width:901px){ .mobile-menu{display:none!important} }
 @media(max-width:900px){ .nav-links{display:none} .nav-toggle{display:inline-flex} .nav-in{grid-template-columns:1fr auto auto} }
-@media(max-width:560px){ .nav-in{gap:8px} .brand b{font-size:var(--fs-small)} .nav .btn{padding:12px 10px;font-size:.8rem} .nav-actions{gap:8px} .nav-social{display:none} }
+@media(max-width:560px){ .nav-in{gap:8px} .brand b{font-size:var(--fs-small)} .nav .btn{padding:12px 10px;font-size:.8rem;white-space:normal;text-align:center;line-height:1.25} .nav-actions{gap:8px} .nav-social{display:none} }
 .nav :focus-visible,.mobile-menu :focus-visible,footer :focus-visible,.proof :focus-visible,.cta-band :focus-visible{box-shadow:0 0 0 2px var(--green-dark),0 0 0 5px #fff}
 
 /* ---------- Hero ---------- */
@@ -155,16 +155,7 @@ h2{font-size:var(--fs-h2);font-weight:700}
 .reel-grid{display:grid;grid-template-columns:1fr;gap:var(--gap-card);margin-top:var(--space-4);align-items:stretch}
 @media(max-width:900px){ .reel-grid{grid-template-columns:1fr} }
 .stages-video{margin:0;border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;background:var(--surface);box-shadow:var(--shadow)}
-.stages-video .vid-frame{position:relative;width:100%;aspect-ratio:16/9;background:#000}
-.stages-video iframe{position:absolute;inset:0;width:100%;height:100%;border:0;display:block}
-.vid-facade{position:absolute;inset:0;width:100%;height:100%;display:block;padding:0;border:0;background:#000;cursor:pointer;font:inherit;text-align:left}
-.vid-facade img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
-.vid-shade{position:absolute;inset:0;background:linear-gradient(to top, rgba(10,9,6,.78), rgba(10,9,6,0) 58%)}
-.vid-play{position:absolute;top:50%;left:50%;transform:translate(-50%,-58%);width:68px;height:68px;border-radius:50%;background:var(--green-dark);display:flex;align-items:center;justify-content:center;box-shadow:0 10px 28px rgba(0,0,0,.45);transition:transform var(--dur-fast) var(--ease),background var(--dur-fast) var(--ease)}
-.vid-facade:hover .vid-play,.vid-facade:focus-visible .vid-play{transform:translate(-50%,-58%) scale(1.07);background:var(--green)}
-.vid-play svg{margin-left:4px}
-.vid-label{position:absolute;left:16px;right:16px;bottom:13px;color:#FFFDF6;font-weight:700;font-size:var(--fs-body);line-height:1.3}
-.vid-label small{display:block;font-weight:600;font-size:var(--fs-small);color:var(--gold-soft);margin-top:2px}
+.stages-video video{display:block;width:100%;height:auto;aspect-ratio:16/9;background:#000}
 .reel-note{margin:14px 0 0;color:var(--ink2);font-size:var(--fs-body)}
 
 /* ---------- CTA band ---------- */
@@ -362,7 +353,7 @@ footer small{display:block;margin-top:16px;font-size:var(--fs-body);color:#E9E3C
   @page{margin:18mm 16mm}
   *{-webkit-print-color-adjust:economy;print-color-adjust:economy;box-shadow:none !important;text-shadow:none !important}
   html,body{background:#fff !important;color:#000 !important}
-  header.nav,.mobile-menu,.skip-link,.vid-frame,.hero-ctas,.enquiry-panel,.btn,.cta-band{display:none !important}
+  header.nav,.mobile-menu,.skip-link,.stages-video,.hero-ctas,.enquiry-panel,.btn,.cta-band{display:none !important}
   section,.hero,.contact,.proof,.cred{padding:12pt 0 !important;background:#fff !important}
   .wrap{max-width:none !important}
   h1,h2,h3,h4,p,li,figcaption,small,dt,dd,.sub,.lede,.big{color:#000 !important}
@@ -401,7 +392,7 @@ footer small{display:block;margin-top:16px;font-size:var(--fs-body);color:#E9E3C
       "name": "What are your fees?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "I don't post fees — they depend on the format, the audience and what is being asked of me. You will always see the full fee in the written proposal before anything is agreed."
+        "text": "I don’t post fees — they depend on the format, the audience and what is being asked of me. You will always see the full fee in the written proposal before anything is agreed."
       }
     },
     {
@@ -533,20 +524,13 @@ footer small{display:block;margin-top:16px;font-size:var(--fs-body);color:#E9E3C
   <div class="wrap reveal">
     <hr class="gold-rule">
     <h2 id="reel-h">Speaking reel</h2>
-    <p class="lede">See me speak — acceptance remarks at the Scarborough Walk of Fame induction, April 2024.</p>
+    <p class="lede">Television appearances and the Scarborough Walk of Fame acceptance, 2021–2024.</p>
     <div class="reel-grid">
       <div>
         <figure class="stages-video">
-          <div class="vid-frame">
-            <button type="button" class="vid-facade" data-embed="https://www.youtube-nocookie.com/embed/o8S1yIeRFng?start=10299&amp;end=10530&amp;rel=0" data-title="Swabir Shariff — Scarborough Walk of Fame acceptance remarks, April 2024" aria-label="Play video: See me speak — Swabir Shariff's Scarborough Walk of Fame acceptance remarks">
-              <img src="assets/walk-of-fame-stage.webp" alt="Swabir Shariff on stage at the Scarborough Walk of Fame induction, April 2024" width="1290" height="724" loading="lazy" decoding="async">
-              <span class="vid-shade"></span>
-              <span class="vid-play"><svg width="26" height="26" viewBox="0 0 24 24" fill="#F5F1E6" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></span>
-              <span class="vid-label">See me speak<small>Acceptance remarks · Scarborough Walk of Fame</small></span>
-            </button>
-          </div>
+          <video controls preload="none" playsinline poster="assets/swabir-showreel-poster.jpg" src="assets/swabir-showreel-v1.1-web.mp4" aria-label="Showreel — television appearances and the Scarborough Walk of Fame acceptance, 2021 to 2024"></video>
         </figure>
-        <p class="reel-note">The player loads only when you press play — nothing is sent to a third party before then.</p>
+        <p class="reel-note">Hosted on this site — the video loads only when you press play.</p>
       </div>
     </div>
   </div>
@@ -769,8 +753,8 @@ footer small{display:block;margin-top:16px;font-size:var(--fs-body);color:#E9E3C
     <div class="image-band">
       <figure>
         <img src="assets/walk-of-fame-stage.webp" alt="Swabir Shariff on stage at the Scarborough Walk of Fame induction, April 2024" width="1290" height="724" loading="lazy" decoding="async">
+        <figcaption>On stage at the Scarborough Walk of Fame induction, April 2024.</figcaption>
       </figure>
-      <figcaption>On stage at the Scarborough Walk of Fame induction, April 2024.</figcaption>
     </div>
   </div>
 </section>
@@ -905,6 +889,7 @@ footer small{display:block;margin-top:16px;font-size:var(--fs-body);color:#E9E3C
         <h3 class="ep-h">Send an enquiry</h3>
         <p class="ep-lede">One short form, straight to my inbox — tell me what you are planning and what you need from me.</p>
         <p class="form-note">Speaking engagements are contracted with me directly.</p>
+        <p class="form-note">Personal advisory is not offered to current funders or delivery partners of The Good Guides. Your enquiry is delivered by FormSubmit to my inbox and used only to reply — see the <a href="privacy.html">privacy notice</a>.</p>
         <form id="enquiry-form" class="enquiry-form" action="https://formsubmit.co/swabir.shariff@thegoodguides.org" method="POST">
           <div class="ef-row">
             <div class="ef-field">
@@ -943,10 +928,11 @@ footer small{display:block;margin-top:16px;font-size:var(--fs-body);color:#E9E3C
           <input type="hidden" name="_subject" value="Website enquiry">
           <input type="hidden" name="_template" value="table">
           <input type="hidden" name="_captcha" value="false">
+          <input type="hidden" name="_next" value="https://swabir-shariff.github.io/thanks.html">
           <div class="ef-hp" aria-hidden="true">
             <input type="text" name="_honey" tabindex="-1" autocomplete="off">
           </div>
-          <button type="submit" class="btn btn-primary ef-submit" data-goatcounter-click="enquiry-form-submit">Send enquiry</button>
+          <button type="submit" class="btn btn-primary ef-submit">Send enquiry</button>
           <p id="enquiry-error" class="form-note" role="alert" hidden>That didn't send — please try again, or write to me directly at swabir.shariff@thegoodguides.org.</p>
         </form>
         <div id="enquiry-success" tabindex="-1" hidden>
@@ -965,7 +951,7 @@ footer small{display:block;margin-top:16px;font-size:var(--fs-body);color:#E9E3C
   <div class="wrap">
     <div class="foot">
       <span class="foot-brand">Swabir Shariff</span>
-      <span><a href="#services">Advisory &amp; speaking</a> &nbsp;·&nbsp; <a href="#talks">Signature talks</a> &nbsp;·&nbsp; <a href="#testimonials">Testimonials</a> &nbsp;·&nbsp; <a href="#honours">Honours &amp; recognition</a> &nbsp;·&nbsp; <a href="#about">About</a> &nbsp;·&nbsp; <a href="#media">Media</a> &nbsp;·&nbsp; <a href="#faq">FAQ</a> &nbsp;·&nbsp; <a href="#contact">Contact</a> &nbsp;·&nbsp; <a href="https://www.linkedin.com/in/swabir" target="_blank" rel="noopener">LinkedIn</a></span>
+      <span><a href="#services">Advisory &amp; speaking</a> &nbsp;·&nbsp; <a href="#talks">Signature talks</a> &nbsp;·&nbsp; <a href="#testimonials">Testimonials</a> &nbsp;·&nbsp; <a href="#honours">Honours &amp; recognition</a> &nbsp;·&nbsp; <a href="#about">About</a> &nbsp;·&nbsp; <a href="#media">Media</a> &nbsp;·&nbsp; <a href="#faq">FAQ</a> &nbsp;·&nbsp; <a href="#contact">Contact</a> &nbsp;·&nbsp; <a href="privacy.html">Privacy</a> &nbsp;·&nbsp; <a href="https://www.linkedin.com/in/swabir" target="_blank" rel="noopener">LinkedIn</a></span>
     </div>
     <small>© 2026 Swabir Shariff · Toronto, Canada.</small>
   </div>
@@ -1002,33 +988,27 @@ footer small{display:block;margin-top:16px;font-size:var(--fs-body);color:#E9E3C
   var toggle = document.querySelector('.nav-toggle');
   var menu = document.getElementById('mobileMenu');
   if (toggle && menu) {
-    toggle.addEventListener('click', function(){
-      var open = menu.classList.toggle('open');
+    function setMenu(open) {
+      menu.classList.toggle('open', open);
       toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
       toggle.setAttribute('aria-label', open ? 'Close section menu' : 'Open section menu');
+    }
+    toggle.addEventListener('click', function(){
+      setMenu(!menu.classList.contains('open'));
     });
     menu.querySelectorAll('a').forEach(function(a){
-      a.addEventListener('click', function(){
-        menu.classList.remove('open');
-        toggle.setAttribute('aria-expanded', 'false');
-        toggle.setAttribute('aria-label', 'Open section menu');
-      });
+      a.addEventListener('click', function(){ setMenu(false); });
+    });
+    // Escape closes the menu from anywhere and returns focus to the toggle,
+    // so keyboard users are never left in a menu they cannot see a state for.
+    document.addEventListener('keydown', function(e){
+      if ((e.key === 'Escape' || e.key === 'Esc') && menu.classList.contains('open')) {
+        setMenu(false);
+        toggle.focus();
+      }
     });
   }
 
-  // Video facades: the still frame and title are always visible; the YouTube
-  // player itself loads only when a visitor presses play.
-  document.querySelectorAll('.vid-facade').forEach(function(btn){
-    btn.addEventListener('click', function(){
-      var f = document.createElement('iframe');
-      f.src = btn.getAttribute('data-embed') + '&autoplay=1';
-      f.title = btn.getAttribute('data-title');
-      f.setAttribute('allow', 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share');
-      f.setAttribute('referrerpolicy', 'strict-origin-when-cross-origin');
-      f.setAttribute('allowfullscreen', '');
-      btn.replaceWith(f);
-    });
-  });
 
   // Enquiry intent: CTAs across the page carry the visitor's intent in
   // data attributes (S-01); apply it to the form's enquiry-type select.
@@ -1124,6 +1104,11 @@ footer small{display:block;margin-top:16px;font-size:var(--fs-body);color:#E9E3C
         body: JSON.stringify(payload)
       }).then(function(res){
         if (!res.ok) throw new Error('Enquiry send failed');
+        // Count confirmed sends only — a button click is not an enquiry.
+        // (The honeypot path above deliberately never reaches this.)
+        if (window.goatcounter && window.goatcounter.count) {
+          window.goatcounter.count({path: 'enquiry-sent', title: 'Enquiry sent', event: true});
+        }
         showSuccess();
       }).catch(function(){
         if (error) error.hidden = false;
