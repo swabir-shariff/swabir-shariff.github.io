@@ -54,13 +54,13 @@ h1,h2,h3{font-family:var(--font-display);line-height:1.08;margin:0}
 
 .nav{position:sticky;top:0;z-index:50;background:color-mix(in srgb, var(--green) 96%, transparent);color:var(--cream);border-bottom:1px solid rgba(245,241,230,.35)}
 .nav-in{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:var(--space-3);padding-top:8px;padding-bottom:8px}
-.brand{display:flex;align-items:center;text-decoration:none;justify-self:start}
+.brand{display:flex;align-items:center;text-decoration:none;justify-self:start;min-height:44px}
 .brand b{font-family:var(--font-display);font-weight:700;font-size:20px;letter-spacing:.015em;color:var(--cream);line-height:1;white-space:nowrap}
 .nav-links{display:flex;gap:15px;align-items:center;justify-self:center}
 .nav-links a{text-decoration:none;font-size:14px;font-weight:600;letter-spacing:.05em;white-space:nowrap;color:var(--cream);padding:13px 8px;transition:color var(--dur-hover) ease}
 .nav-links a:hover{color:#fff}
 .nav-actions{display:flex;align-items:center;gap:14px;justify-self:end}
-.nav-social{display:inline-flex;align-items:center;justify-content:center;width:36px;height:36px;border-radius:999px;border:1.5px solid rgba(245,241,230,.5);color:var(--cream);transition:color var(--dur-hover) ease,border-color var(--dur-hover) ease}
+.nav-social{display:inline-flex;align-items:center;justify-content:center;width:44px;height:44px;border-radius:999px;border:1.5px solid rgba(245,241,230,.5);color:var(--cream);transition:color var(--dur-hover) ease,border-color var(--dur-hover) ease}
 .nav-social svg{width:16px;height:16px;fill:currentColor;display:block}
 .nav-social:hover{color:#fff;border-color:#fff}
 .btn{display:inline-flex;align-items:center;gap:9px;text-decoration:none;font-weight:700;font-size:var(--fs-small);padding:12px 20px;border-radius:var(--radius-btn);border:1.5px solid transparent;cursor:pointer;transition:transform var(--dur-fast) var(--ease), background var(--dur-fast) var(--ease)}
@@ -71,9 +71,9 @@ h1,h2,h3{font-family:var(--font-display);line-height:1.08;margin:0}
 .btn-outline:hover{border-color:var(--green);color:var(--green)}
 .btn-outline-light{border-color:rgba(245,241,230,.65);color:var(--cream);background:transparent}
 .btn-outline-light:hover{border-color:#fff;color:#fff}
-.nav .btn{padding:9px 16px;font-size:14px}
+.nav .btn{padding:9px 16px;font-size:14px;white-space:nowrap}
 .nav :focus-visible{box-shadow:0 0 0 2px var(--green-dark),0 0 0 5px #fff}
-@media(max-width:640px){ .nav-in{gap:12px;grid-template-columns:1fr auto} .brand b{font-size:17px} .nav-links{display:none} .nav .btn{padding:8px 12px;font-size:14px} .nav-social{width:32px;height:32px} .nav-actions{gap:10px} }
+@media(max-width:640px){ .nav-in{gap:12px;grid-template-columns:1fr auto} .brand b{font-size:17px} .nav-links{display:none} .nav .btn{padding:8px 12px;font-size:14px} .nav-social{display:none} .nav-actions{gap:10px;flex-shrink:0} }
 @media (hover:hover) and (pointer:fine){ .btn:hover{transform:translateY(-1px)} }
 
 .eyebrow{font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--green);font-weight:700;margin:0 0 18px}
@@ -92,11 +92,11 @@ h1,h2,h3{font-family:var(--font-display);line-height:1.08;margin:0}
 /* Proof band — the PDF's two figures, on the site's green band */
 .proof{background:var(--green);color:var(--cream);border-top:1px solid var(--green-dark);border-bottom:1px solid var(--green-dark);position:relative}
 .proof-in{display:grid;grid-template-columns:1fr 2fr;gap:0}
-.proof div{padding:24px 20px;border-left:1px solid rgba(245,241,230,.28)}
-.proof div:first-child{border-left:0;padding-left:0}
+.proof-in > div{padding:24px 20px;border-left:1px solid rgba(245,241,230,.28)}
+.proof-in > div:first-child{border-left:0;padding-left:0}
 .proof b{font-family:var(--font-display);font-size:32px;color:var(--cream);display:block;line-height:1.1;font-variant-numeric:tabular-nums}
 .proof span{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--cream);font-weight:700;line-height:1.5;display:block;margin-top:6px}
-@media(max-width:640px){ .proof-in{grid-template-columns:1fr} .proof div{padding:18px 0} .proof div + div{border-left:0;border-top:1px solid rgba(245,241,230,.28)} }
+@media(max-width:640px){ .proof-in{grid-template-columns:1fr} .proof-in > div{padding:18px 0} .proof-in > div + div{border-left:0;border-top:1px solid rgba(245,241,230,.28)} }
 
 /* Document body — PDF two-column flow: main column + sidebar */
 .sheet-body{padding:56px 0 0}
@@ -130,14 +130,15 @@ h1,h2,h3{font-family:var(--font-display);line-height:1.08;margin:0}
 .enquire p a:hover{text-decoration:underline}
 .enquire .sp{flex:1 1 320px;min-width:240px}
 .enquire .eq-actions{display:flex;gap:14px;flex-wrap:wrap;align-items:center}
-.enquire .eq-dl{font-weight:700;font-size:var(--fs-small);color:var(--cream);text-decoration:underline;text-underline-offset:4px}
+.enquire .eq-dl{font-weight:700;font-size:var(--fs-small);color:var(--cream);text-decoration:underline;text-underline-offset:4px;padding:12px 0}
+.enquire p a{display:inline-block;padding:10px 0;margin:-10px 0}
 .enquire .eq-dl:hover{color:#fff}
 .enquire :focus-visible{box-shadow:0 0 0 2px var(--green-dark),0 0 0 5px #fff}
 .prepared{margin:18px 0 56px;text-align:center;font-size:14px;color:var(--muted)}
 
 footer{background:var(--green);color:var(--cream);padding:44px 0}
 .foot{display:flex;gap:var(--space-3);flex-wrap:wrap;align-items:center;justify-content:space-between}
-.foot a{color:var(--gold-on-green);text-decoration:none;font-weight:600}
+.foot a{color:var(--gold-on-green);text-decoration:none;font-weight:600;display:inline-flex;align-items:center;min-height:44px}
 .foot a:hover{text-decoration:underline}
 .foot-brand{font-family:var(--font-display);font-size:20px;color:var(--cream)}
 footer small{display:block;margin-top:14px;font-size:14px;color:#E9E3CF;max-width:70ch}
@@ -203,7 +204,7 @@ footer :focus-visible{box-shadow:0 0 0 2px var(--green-dark),0 0 0 5px #fff}
       <a class="nav-social" href="https://www.linkedin.com/in/swabir" target="_blank" rel="noopener" aria-label="Swabir Shariff on LinkedIn">
         <svg viewBox="0 0 448 512" aria-hidden="true"><path d="M100.28 448H7.4V148.9h92.88zM53.79 108.1C24.09 108.1 0 83.5 0 53.8a53.79 53.79 0 0 1 107.58 0c0 29.7-24.1 54.3-53.79 54.3zM447.9 448h-92.68V302.4c0-34.7-.7-79.2-48.29-79.2-48.29 0-55.69 37.7-55.69 76.7V448h-92.78V148.9h89.08v40.8h1.3c12.4-23.5 42.69-48.3 87.88-48.3 94 0 111.28 61.9 111.28 142.3V448z"/></svg>
       </a>
-      <a href="index.html#contact" class="btn btn-primary" data-goatcounter-click="enquiry-onesheet-header">Start the conversation →</a>
+      <a href="index.html#contact" class="btn btn-primary" data-goatcounter-click="enquiry-onesheet-header">Check availability for 2027</a>
     </div>
   </div>
 </header>
@@ -215,8 +216,8 @@ footer :focus-visible{box-shadow:0 0 0 2px var(--green-dark),0 0 0 5px #fff}
     <div>
       <p class="eyebrow">Speaker One-Sheet</p>
       <h1>Swabir Shariff</h1>
-      <p class="roleline">Founder &amp; Executive Director, The Good Guides · Leadership Advisor &amp; Speaker</p>
-      <p class="startline">&ldquo;I built The Good Guides to change the starting line for young people &mdash; not just cheer them on from it.&rdquo;</p>
+      <p class="roleline">Founder &amp; Executive Director, The Good Guides · Leadership Advisor &amp; Speaker · Toronto</p>
+      <p class="startline">&ldquo;Changing the starting line for young people, not cheering them on from it.&rdquo;</p>
     </div>
     <figure class="sheet-photo">
       <img src="assets/qect-award.webp" srcset="assets/qect-award-660.webp 660w, assets/qect-award.webp 1080w" sizes="(max-width: 640px) 220px, 190px" alt="The QECT 100 Young Leaders crystal award beside the invitation to the St James's Palace reception" width="1080" height="1080">
@@ -225,7 +226,7 @@ footer :focus-visible{box-shadow:0 0 0 2px var(--green-dark),0 0 0 5px #fff}
   <div class="proof">
     <div class="wrap proof-in">
       <div><b>10,000+</b><span>Youth Mentored</span></div>
-      <div><b>1 of 100</b><span>QECT 100 Young Leaders Awardee 2026 &mdash; selected through a highly competitive process from thousands of applications across the 56 Commonwealth countries</span></div>
+      <div><b>1 of 100</b><span>QECT 100 Young Leaders Awardee 2026</span></div>
     </div>
   </div>
 </div>
@@ -236,7 +237,7 @@ footer :focus-visible{box-shadow:0 0 0 2px var(--green-dark),0 0 0 5px #fff}
       <div class="sheet-col">
         <section class="about" aria-labelledby="about-h">
           <h2 class="sec-h" id="about-h">About</h2>
-          <p>Born and raised in Scarborough&rsquo;s Toronto Community Housing, Swabir Shariff watched family and friends pulled toward the justice system while services meant to help never reached them &mdash; young people couldn&rsquo;t see themselves in them and disengaged. Years as a Director of Security in Scarborough, leading round-the-clock operations for a major retail centre, where conversations with young people who had stopped showing up to school showed him what was missing. He founded The Good Guides in 2020, while still serving as Director of Security, and later stepped away to lead it full time. Built with young people, not prescribed at them, it has mentored 10,000+ youth and helped direct over a million dollars in investment into The Good Guides and other Scarborough youth initiatives. It delivers school-based violence prevention programming with local community partners, funded by the City of Toronto&rsquo;s Youth Violence Prevention Grant (2023).</p>
+          <p>Born and raised in Scarborough&rsquo;s Toronto Community Housing, Swabir Shariff watched family and friends pulled toward the justice system while services meant to help never reached them &mdash; young people couldn&rsquo;t see themselves in them and disengaged. He spent years as a Director of Security in Scarborough, leading round-the-clock operations for a major retail centre, where conversations with young people who had stopped showing up to school showed him what was missing. He founded The Good Guides in 2020, while still serving as Director of Security, and later stepped away to lead it full time. Built with young people, not prescribed at them, it has mentored 10,000+ young people across Toronto since 2020, and he has helped direct over a million dollars in investment into The Good Guides and other Scarborough youth initiatives. It delivers school-based violence prevention programming with local community partners, funded by the City of Toronto&rsquo;s Youth Violence Prevention Grant (2023).</p>
         </section>
 
         <section aria-labelledby="talks-h">
@@ -265,10 +266,6 @@ footer :focus-visible{box-shadow:0 0 0 2px var(--green-dark),0 0 0 5px #fff}
             <p>The Queen Elizabeth II Commonwealth Trust (QECT) &mdash; 1 of 100, selected through a highly competitive process from thousands of applications across the 56 Commonwealth countries</p>
           </div>
           <div class="rec">
-            <h3>Toronto Community Champion, 2025</h3>
-            <p>City of Toronto award (Honourable Mention) &mdash; received by The Good Guides</p>
-          </div>
-          <div class="rec">
             <h3>Rising Star &mdash; Scarborough Walk of Fame</h3>
             <p>Inducted April 2024</p>
           </div>
@@ -277,19 +274,27 @@ footer :focus-visible{box-shadow:0 0 0 2px var(--green-dark),0 0 0 5px #fff}
             <p>Featured in the Ambassador Spotlight, September 2026</p>
           </div>
           <div class="rec">
-            <h3>Best Individual Contribution to Youth Engagement</h3>
+            <h3>Best Contribution to Youth Engagement (Individual)</h3>
             <p>CharityVillage, 2021</p>
+          </div>
+        </section>
+
+        <section aria-labelledby="org-h">
+          <h2 class="sec-h" id="org-h">His Organisation</h2>
+          <div class="rec">
+            <h3>Toronto Community Champion Award, 2025</h3>
+            <p>City of Toronto (Honourable Mention) &mdash; received by The Good Guides, the organisation he founded and leads</p>
           </div>
         </section>
 
         <section class="eng" aria-labelledby="engagements-h">
           <h2 class="sec-h" id="engagements-h">Selected Engagements</h2>
-          <p>Selected engagements, 2023&ndash;2025: Toronto Police Service College &middot; OPTrust &middot; Scarborough Walk of Fame induction remarks &middot; post-secondary panels &middot; organizational events and private businesses &middot; Toronto schools.</p>
+          <p>Selected engagements, 2023&ndash;2025: Toronto Police Service College &middot; OPTrust &middot; Scarborough Walk of Fame induction remarks &middot; post-secondary panels &middot; organisational events and private businesses &middot; Toronto schools.</p>
         </section>
 
         <section class="booking" aria-labelledby="booking-h">
           <h2 class="sec-h" id="booking-h">Booking</h2>
-          <p class="now">Now booking 2027</p>
+          <p class="now">Check availability for 2027</p>
           <p>Toronto &middot; Scarborough &middot; On the ground since 2020</p>
           <p>Based in Toronto; available across Canada and the Commonwealth.</p>
         </section>
@@ -304,7 +309,7 @@ footer :focus-visible{box-shadow:0 0 0 2px var(--green-dark),0 0 0 5px #fff}
         <p>LinkedIn: <a href="https://www.linkedin.com/in/swabir" target="_blank" rel="noopener">linkedin.com/in/swabir</a> &middot; Enquiries also via his personal website</p>
       </div>
       <div class="eq-actions">
-        <a class="btn btn-primary" href="index.html#contact" data-goatcounter-click="enquiry-onesheet-closing">Start the conversation →</a>
+        <a class="btn btn-primary" href="index.html#contact" data-goatcounter-click="enquiry-onesheet-closing">Check availability for 2027</a>
         <a class="eq-dl" href="assets/Swabir-Shariff-Speaker-One-Sheet.pdf" download="Swabir-Shariff-Speaker-One-Sheet.pdf" data-goatcounter-click="download-speaker-one-sheet-page">Download this one-sheet (PDF)</a>
       </div>
     </div>
