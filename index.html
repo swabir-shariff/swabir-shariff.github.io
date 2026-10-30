@@ -888,8 +888,8 @@ footer small{display:block;margin-top:16px;font-size:var(--fs-body);color:#E9E3C
         <h3 class="ep-h">Send an enquiry</h3>
         <p class="ep-lede">One short form, straight to my inbox — tell me what you are planning and what you need from me.</p>
         <p class="form-note">Speaking engagements are contracted with me directly.</p>
-        <p class="form-note">Personal advisory is not offered to current funders or delivery partners of The Good Guides. Your enquiry is delivered by FormSubmit to my inbox and used only to reply — see the <a href="privacy.html">privacy notice</a>.</p>
-        <form id="enquiry-form" class="enquiry-form" action="https://formsubmit.co/swabir.shariff@thegoodguides.org" method="POST">
+        <p class="form-note">Personal advisory is not offered to current funders or delivery partners of The Good Guides. Your enquiry is delivered by Web3Forms to my inbox and used only to reply — see the <a href="privacy.html">privacy notice</a>.</p>
+        <form id="enquiry-form" class="enquiry-form" action="https://api.web3forms.com/submit" method="POST">
           <div class="ef-row">
             <div class="ef-field">
               <label for="ef-name">Your name</label>
@@ -924,12 +924,11 @@ footer small{display:block;margin-top:16px;font-size:var(--fs-body);color:#E9E3C
             <label for="ef-message">Message</label>
             <textarea id="ef-message" name="message" rows="5" required></textarea>
           </div>
-          <input type="hidden" name="_subject" value="Website enquiry">
-          <input type="hidden" name="_template" value="table">
-          <input type="hidden" name="_captcha" value="false">
-          <input type="hidden" name="_next" value="https://swabir-shariff.github.io/thanks.html">
+          <input type="hidden" name="access_key" value="__WEB3FORMS_ACCESS_KEY__">
+          <input type="hidden" name="subject" value="Website enquiry">
+          <input type="hidden" name="redirect" value="https://swabir-shariff.github.io/thanks.html">
           <div class="ef-hp" aria-hidden="true">
-            <input type="text" name="_honey" tabindex="-1" autocomplete="off">
+            <input type="checkbox" name="botcheck" tabindex="-1" style="display: none;">
           </div>
           <button type="submit" class="btn btn-primary ef-submit">Send enquiry</button>
           <p id="enquiry-error" class="form-note" role="alert" hidden>That didn't send — please try again, or write to me directly at swabir.shariff@thegoodguides.org.</p>
@@ -1054,8 +1053,8 @@ footer small{display:block;margin-top:16px;font-size:var(--fs-body);color:#E9E3C
   }
 
   // Enquiries run through the on-page form in the Contact section: it posts
-  // to FormSubmit via AJAX and swaps in the success block in place; without
-  // JavaScript the form falls back to its native FormSubmit action.
+  // to Web3Forms via AJAX and swaps in the success block in place; without
+  // JavaScript the form falls back to its native Web3Forms action.
   var enquiryForm = document.getElementById('enquiry-form');
   if (enquiryForm) {
     enquiryForm.addEventListener('submit', function(e){
@@ -1063,7 +1062,7 @@ footer small{display:block;margin-top:16px;font-size:var(--fs-body);color:#E9E3C
       var success = document.getElementById('enquiry-success');
       var error = document.getElementById('enquiry-error');
       var button = enquiryForm.querySelector('.ef-submit');
-      var honey = enquiryForm.querySelector('[name="_honey"]');
+      var honey = enquiryForm.querySelector('[name="botcheck"]');
       function showSuccess(){
         enquiryForm.hidden = true;
         if (success) {
@@ -1071,7 +1070,7 @@ footer small{display:block;margin-top:16px;font-size:var(--fs-body);color:#E9E3C
           success.focus();
         }
       }
-      if (honey && honey.value) {
+      if (honey && honey.checked) {
         showSuccess();
         return;
       }
@@ -1086,23 +1085,25 @@ footer small{display:block;margin-top:16px;font-size:var(--fs-body);color:#E9E3C
         return el ? el.value : '';
       };
       var payload = {
+        access_key: get('access_key'),
         name: get('name'),
         organization: get('organization'),
         email: get('email'),
         enquiry_type: get('enquiry_type'),
         event_date: get('event_date'),
         message: get('message'),
-        _subject: 'Website enquiry \u2014 ' + get('enquiry_type') + ' \u2014 ' + get('name'),
-        _template: 'table',
-        _captcha: 'false',
-        _honey: honey ? honey.value : ''
+        subject: 'Website enquiry \u2014 ' + get('enquiry_type') + ' \u2014 ' + get('name'),
+        botcheck: honey ? honey.checked : false
       };
-      fetch('https://formsubmit.co/ajax/swabir.shariff@thegoodguides.org', {
+      fetch('https://api.web3forms.com/submit', {
         method: 'POST',
         headers: {'Content-Type': 'application/json', 'Accept': 'application/json'},
         body: JSON.stringify(payload)
       }).then(function(res){
         if (!res.ok) throw new Error('Enquiry send failed');
+        return res.json();
+      }).then(function(data){
+        if (data && data.success === false) throw new Error('Enquiry send failed');
         // Count confirmed sends only — a button click is not an enquiry.
         // (The honeypot path above deliberately never reaches this.)
         if (window.goatcounter && window.goatcounter.count) {
