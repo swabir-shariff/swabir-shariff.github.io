@@ -56,13 +56,13 @@ body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--font-body)
 a{color:inherit}
 .skip-link{position:absolute;left:16px;top:-70px;z-index:100;background:var(--green);color:var(--cream);padding:8px 16px;border-radius:999px;font-weight:700;text-decoration:none;transition:top var(--dur-med) ease}
 .skip-link:focus{top:12px}
-.anchor-alias{display:block;height:0;scroll-margin-top:74px}
+.anchor-alias{display:block;height:0;scroll-margin-top:110px}
 :focus-visible{outline:none;box-shadow:0 0 0 2px #fff,0 0 0 5px var(--green-dark)}
 img{max-width:100%;display:block}
 .wrap{max-width:var(--content-max);margin:0 auto;padding:0 var(--gutter)}
 h1,h2,h3{font-family:var(--font-display);line-height:1.12;margin:0}
 section{padding:var(--section-pad) 0}
-section[id],#top{scroll-margin-top:74px}
+section[id],#top{scroll-margin-top:110px}
 h2{font-size:var(--fs-h2);font-weight:700}
 .lede{font-size:var(--fs-lead);color:var(--ink2);max-width:62ch;margin:16px 0 0}
 .eyebrow{font-size:.75rem;letter-spacing:.1em;text-transform:uppercase;color:var(--green);font-weight:700;margin:0 0 12px}
@@ -142,7 +142,7 @@ h2{font-size:var(--fs-h2);font-weight:700}
 .proof-in>div:first-child{border-left:0;padding-left:0}
 .proof b{font-family:var(--font-display);font-size:var(--fs-lead);color:var(--cream);display:block;line-height:1.15;font-variant-numeric:tabular-nums}
 .proof span{font-size:var(--fs-body);color:var(--cream)}
-@media(max-width:900px){ .proof-in{grid-template-columns:1fr 1fr} .proof-in>div{padding:16px} .proof-in>div:first-child{padding-left:16px} .proof-in>div:nth-child(3){border-left:0} .proof-in>div:nth-child(n+3){border-top:1px solid rgba(245,241,230,.28)} }
+@media(max-width:900px){ .proof-in{grid-template-columns:1fr 1fr} .proof-in>div{padding:16px} .proof-in>div:first-child{padding-left:16px} .proof-in>div:nth-child(3){border-left:0;grid-column:1/-1} .proof-in>div:nth-child(n+3){border-top:1px solid rgba(245,241,230,.28)} }
 
 /* ---------- Credibility strip ---------- */
 .cred{padding:40px 0;border-bottom:1px solid var(--line)}
@@ -152,11 +152,12 @@ h2{font-size:var(--fs-h2);font-weight:700}
 .cred-cat{font-family:var(--font-body);font-size:var(--fs-small);letter-spacing:.1em;text-transform:uppercase;color:var(--green);font-weight:700;margin-right:14px;white-space:nowrap}
 
 /* ---------- Reel ---------- */
-.reel-grid{display:grid;grid-template-columns:1fr;gap:var(--gap-card);margin-top:var(--space-4);align-items:stretch}
+.reel-grid{display:grid;grid-template-columns:1fr;gap:var(--gap-card);margin:var(--space-4) auto 0;max-width:720px;align-items:stretch}
 @media(max-width:900px){ .reel-grid{grid-template-columns:1fr} }
 .stages-video{margin:0;border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;background:var(--surface);box-shadow:var(--shadow)}
 .stages-video video{display:block;width:100%;height:auto;aspect-ratio:16/9;background:#000}
 .reel-note{margin:14px 0 0;color:var(--ink2);font-size:var(--fs-body)}
+#reel{padding-top:44px;padding-bottom:44px}
 
 /* ---------- CTA band ---------- */
 .cta-band{background:var(--green);color:var(--cream);padding:44px 0}
@@ -262,6 +263,10 @@ h2{font-size:var(--fs-h2);font-weight:700}
 .image-band figure{margin:0;border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow)}
 .image-band img{width:100%;height:auto}
 .image-band figcaption{font-size:var(--fs-small);color:var(--muted);margin-top:10px}
+.honours-cols{margin-top:var(--space-4)}
+.honours-cols .honours-list{margin-top:0}
+.honours-cols .image-band{margin-top:0}
+@media(min-width:901px){ .honours-cols{display:grid;grid-template-columns:1.05fr .95fr;gap:var(--space-5);align-items:start} }
 
 /* ---------- About ---------- */
 .about-grid{display:grid;grid-template-columns:280px 1fr;gap:var(--space-5);margin-top:var(--space-4);align-items:start}
@@ -393,7 +398,7 @@ footer small{display:block;margin-top:16px;font-size:var(--fs-body);color:#E9E3C
       "name": "What are your fees?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "I don’t post fees — they depend on the format, the audience and what is being asked of me. You will always see the full fee in the written proposal before anything is agreed."
+        "text": "I don’t post fees — they depend on the format, the audience and what is being asked of me. You will always see the full fee in the written proposal before anything is agreed. Engagements are contracted with me personally, and HST applies."
       }
     },
     {
@@ -401,7 +406,7 @@ footer small{display:block;margin-top:16px;font-size:var(--fs-body);color:#E9E3C
       "name": "How does booking work?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "It starts with an enquiry, then a 30-minute scoping call, then a written proposal that sets out the scope, the timeline and the full fee. Nothing is confirmed until the proposal is agreed — by both of us."
+        "text": "It starts with an enquiry and a 30-minute scoping call. The step-by-step process is set out under How it starts, above."
       }
     },
     {
@@ -425,15 +430,7 @@ footer small{display:block;margin-top:16px;font-size:var(--fs-body);color:#E9E3C
       "name": "What does an advisory engagement look like?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Most organisations start with a Program Diagnostic — a fixed-scope review over about two weeks, ending in a written findings memo and a readout session. The full Advisory Engagement runs in four stages: the first three over 8–12 weeks — discovery and program assessment, redesign strategy, implementation support — and I return at day 90 for a results review."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Who do we contract with?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "With me personally. Advisory and speaking engagements are contracted with Swabir Shariff directly, independent of The Good Guides. The written proposal sets out the full fee before anything is agreed, and HST applies."
+        "text": "Both are set out step by step under Advisory & speaking, above."
       }
     },
     {
@@ -442,22 +439,6 @@ footer small{display:block;margin-top:16px;font-size:var(--fs-body);color:#E9E3C
       "acceptedAnswer": {
         "@type": "Answer",
         "text": "Travel within the GTA is included. Travel beyond the GTA is charged at cost and agreed in the proposal, so there are no surprises."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Can you provide references?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Yes — references are available on request."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "How quickly will we hear back?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Within two business days. If you are working to a deadline, name it in the enquiry and I will match it where I can."
       }
     }
   ]
@@ -577,7 +558,6 @@ footer small{display:block;margin-top:16px;font-size:var(--fs-body);color:#E9E3C
           <li>Mentoring model design — structure, standards and a visible progression from participant to leader to mentor</li>
           <li>Institution-building for grassroots organisations — governance, delivery and accountability</li>
         </ul>
-        <p class="also">Two ways to engage — a fixed diagnostic, or the full engagement — are set out below.</p>
       </article>
       <article class="offer">
         <span class="num">02</span>
@@ -608,16 +588,16 @@ footer small{display:block;margin-top:16px;font-size:var(--fs-body);color:#E9E3C
       <h3>Step 1 · Program Diagnostic</h3>
       <p class="sub">The usual starting point: a fixed-scope review that takes about two weeks and ends with written findings you can act on — with me or without me.</p>
       <div class="steps">
-        <div class="step"><b>01 · Site visits &amp; interviews</b><p>I visit the program where it runs and hold structured interviews with leadership, staff and the young people it serves.</p></div>
-        <div class="step"><b>02 · Reach analysis</b><p>An honest picture of who the program reaches, who it misses, and where young people disengage.</p></div>
-        <div class="step"><b>03 · Written findings memo</b><p>A short, plain-language memo: what is working, what is not, and what I would change first.</p></div>
-        <div class="step"><b>04 · Readout session</b><p>We go through the findings together and decide what happens next.</p></div>
+        <div class="step"><b>01 · Site visits &amp; interviews</b><p>I visit and interview leadership, staff and the young people served.</p></div>
+        <div class="step"><b>02 · Reach analysis</b><p>Who it reaches, who it misses, and where young people disengage.</p></div>
+        <div class="step"><b>03 · Written findings memo</b><p>A short memo: what is working, what is not, what to change first.</p></div>
+        <div class="step"><b>04 · Readout session</b><p>We review the findings together and decide next steps.</p></div>
       </div>
     </div>
 
     <div class="typical">
       <h3>Step 2 · Advisory Engagement</h3>
-      <p class="sub">The full engagement, in four stages: the first three run over 8–12 weeks, and I return at day 90 for the results review. Its centrepiece is a written, board-ready redesign plan, and I stay involved — two working sessions a month — while the changes are implemented.</p>
+      <p class="sub">The full engagement, in four stages: the first three run over 8–12 weeks, and I return at day 90 for the results review. Its centrepiece is a written, board-ready redesign plan, and I stay involved while the changes are implemented.</p>
       <div class="steps">
         <div class="step"><b>01 · Discovery &amp; program assessment</b><p>Site visits and structured interviews that establish who is being reached, who is being missed, and why.</p></div>
         <div class="step"><b>02 · Redesign strategy</b><p>A written, board-ready plan setting out staffing, scheduling and program-model changes in plain language.</p></div>
@@ -667,15 +647,15 @@ footer small{display:block;margin-top:16px;font-size:var(--fs-body);color:#E9E3C
         <div>
           <span class="tlabel">Signature Talk · 01</span>
           <h3>&ldquo;Keys to the Whole House&rdquo;</h3>
-          <p>How giving young people real authority over their work builds the trust institutions struggle to earn — a working model for shared decision-making, drawn from The Good Guides.</p>
+          <p>How giving young people real authority builds trust institutions struggle to earn — a model for shared decision-making, drawn from The Good Guides.</p>
           <p class="talk-aud"><b>Best for:</b> youth-serving organisations, funders, public institutions.</p>
         </div>
         <div class="talk-details">
           <h4>Key takeaways</h4>
           <dl>
             <div><dd><ul>
-              <li>Young people need real authority over the work, with support behind them</li>
-              <li>A practical way to share decision-making with the people a program serves</li>
+              <li>Real authority for young people, with support behind them</li>
+              <li>A practical way to share decision-making with the people you serve</li>
               <li>An honest account of what happens to trust when decision-making is shared</li>
             </ul></dd></div>
           </dl>
@@ -685,16 +665,16 @@ footer small{display:block;margin-top:16px;font-size:var(--fs-body);color:#E9E3C
         <div>
           <span class="tlabel">Signature Talk · 02</span>
           <h3>&ldquo;Change the Starting Line&rdquo;</h3>
-          <p>Redesign where people start, rather than demanding more effort from the people that starting line already failed. A talk for leaders ready to find the starting lines inside their own systems — and change them.</p>
+          <p>Redesign where people start, rather than demanding more effort from the people that starting line already failed.</p>
           <p class="talk-aud"><b>Best for:</b> conferences, education leaders and civic audiences.</p>
         </div>
         <div class="talk-details">
           <h4>Key takeaways</h4>
           <dl>
             <div><dd><ul>
-              <li>A way to spot the starting lines hidden in your own intake, referral and eligibility rules</li>
+              <li>How to spot the starting lines hidden in your intake, referral and eligibility rules</li>
               <li>A framework for redesigning where people start inside your own system</li>
-              <li>A worked example: one intake rule, redesigned — and what changed for the people it had been failing</li>
+              <li>A worked example: one intake rule, redesigned — and what changed</li>
             </ul></dd></div>
           </dl>
         </div>
@@ -703,22 +683,22 @@ footer small{display:block;margin-top:16px;font-size:var(--fs-body);color:#E9E3C
         <div>
           <span class="tlabel">Signature Talk · 03</span>
           <h3>&ldquo;Every Piece of the Whole&rdquo;</h3>
-          <p>Teams underperform when some roles are treated as support instead of as part of the result. This talk shows leaders how to redesign those roles so every person owns a real piece of the work, as they do at The Good Guides.</p>
+          <p>Teams underperform when some roles are treated as support instead of part of the result. This talk shows leaders how to redesign those roles so every person owns a real piece of the work.</p>
           <p class="talk-aud"><b>Best for:</b> leadership teams and boards.</p>
         </div>
         <div class="talk-details">
           <h4>Key takeaways</h4>
           <dl>
             <div><dd><ul>
-              <li>A simple test for whether every role in the room carries real work — and what to change when one doesn&rsquo;t</li>
+              <li>A simple test for whether every role carries real work — and what to change when one doesn&rsquo;t</li>
               <li>How to lead so each person&rsquo;s contribution lands as part of the result</li>
-              <li>How to spot the &lsquo;passenger&rsquo; roles in your structure — and the conversation that turns them into ownership</li>
+              <li>How to spot the &lsquo;passenger&rsquo; roles — and the conversation that turns them into ownership</li>
             </ul></dd></div>
           </dl>
         </div>
       </article>
     </div>
-    <p class="talks-note">Keynote, fireside conversation, or panel — virtual or in-person; tailored to your audience.</p>
+    <p class="talks-note">Every talk is tailored to your audience.</p>
 
     <div class="appearances" id="stages">
       <h3 class="appearances-h">Selected appearances</h3>
@@ -795,6 +775,7 @@ footer small{display:block;margin-top:16px;font-size:var(--fs-body);color:#E9E3C
         </div>
       </article>
     </div>
+    <div class="honours-cols">
     <ul class="honours-list">
       <li>
         <div class="hon-line"><span class="hon-name">One Young World Ambassador</span><span class="hon-inst">One Young World</span><span class="hon-date">2026</span></div>
@@ -822,6 +803,7 @@ footer small{display:block;margin-top:16px;font-size:var(--fs-body);color:#E9E3C
         <figcaption>On stage at the Scarborough Walk of Fame induction, April 2024.</figcaption>
       </figure>
     </div>
+    </div>
   </div>
 </section>
 
@@ -843,8 +825,8 @@ footer small{display:block;margin-top:16px;font-size:var(--fs-body);color:#E9E3C
       </figure>
       <div class="about-copy">
         <p>Born and raised in Scarborough, I grew up in Toronto Community Housing and watched friends — and my own brother — pulled toward the justice system. The services meant to reach them never did: no mentors, no one they could see themselves in, only solutions designed from the outside. That failure is where my work begins.</p>
-        <p>Through The Good Guides — the organisation I founded in 2020 and lead as Executive Director today — I lead mentorship, youth leadership and violence-prevention programming for young people aged 11–18, delivered through specific schools and cohorts across Toronto. That work includes school-based violence prevention delivered with community partners and funded by the City of Toronto, alongside sports and co-op placements designed to carry young people into leadership.</p>
-        <p>I am <strong>an operator, not a theorist</strong>: accountable for governance, delivery and results. I built the organisation unpaid alongside an executive security career. As Director of Security, I led round-the-clock (24/7) operations for a major retail centre. The Good Guides has operated on steady funding since 2023.</p>
+        <p>Through The Good Guides — the organisation I founded in 2020 and lead as Executive Director today — I lead school-based violence prevention delivered with community partners and funded by the City of Toronto, alongside sports and co-op placements designed to carry young people into leadership.</p>
+        <p>I am <strong>an operator, not a theorist</strong>: accountable for governance, delivery and results. I built the organisation unpaid alongside an executive security career. As Director of Security, I led round-the-clock (24/7) operations for a major retail centre.</p>
         <p>I have also sat <strong>at the policy table</strong>: I helped lead the City of Toronto Youth Violence Prevention partnership work in Scarborough and helped lead Scarborough's youth engagement through COVID, and I was instrumental in creating Community Connect, a program connecting young people with their neighbourhood officers through certification workshops including CPR, food handling and babysitting. In October 2026, that record was recognised in London, where I was received at St James's Palace.</p>
       </div>
     </div>
@@ -900,11 +882,11 @@ footer small{display:block;margin-top:16px;font-size:var(--fs-body);color:#E9E3C
     <dl class="faq-list">
       <div class="faq">
         <dt>What are your fees?</dt>
-        <dd>I don&rsquo;t post fees — they depend on the format, the audience and what is being asked of me. You will always see the full fee in the written proposal before anything is agreed.</dd>
+        <dd>I don&rsquo;t post fees — they depend on the format, the audience and what is being asked of me. You will always see the full fee in the written proposal before anything is agreed. Engagements are contracted with me personally, and HST applies.</dd>
       </div>
       <div class="faq">
         <dt>How does booking work?</dt>
-        <dd>It starts with an enquiry, then a 30-minute scoping call, then a written proposal that sets out the scope, the timeline and the full fee. Nothing is confirmed until the proposal is agreed — by both of us.</dd>
+        <dd>It starts with an enquiry and a 30-minute scoping call. The step-by-step process is set out under How it starts, above.</dd>
       </div>
       <div class="faq">
         <dt>How far ahead should we book?</dt>
@@ -916,23 +898,11 @@ footer small{display:block;margin-top:16px;font-size:var(--fs-body);color:#E9E3C
       </div>
       <div class="faq">
         <dt>What does an advisory engagement look like?</dt>
-        <dd>Most organisations start with a Program Diagnostic — a fixed-scope review over about two weeks, ending in a written findings memo and a readout session. The full Advisory Engagement runs in four stages: the first three over 8–12 weeks — discovery and program assessment, redesign strategy, implementation support — and I return at day 90 for a results review.</dd>
-      </div>
-      <div class="faq">
-        <dt>Who do we contract with?</dt>
-        <dd>With me personally. Advisory and speaking engagements are contracted with Swabir Shariff directly, independent of The Good Guides. The written proposal sets out the full fee before anything is agreed, and HST applies.</dd>
+        <dd>Both are set out step by step under Advisory &amp; speaking, above.</dd>
       </div>
       <div class="faq">
         <dt>Is travel included?</dt>
         <dd>Travel within the GTA is included. Travel beyond the GTA is charged at cost and agreed in the proposal, so there are no surprises.</dd>
-      </div>
-      <div class="faq">
-        <dt>Can you provide references?</dt>
-        <dd>Yes — references are available on request.</dd>
-      </div>
-      <div class="faq">
-        <dt>How quickly will we hear back?</dt>
-        <dd>Within two business days. If you are working to a deadline, name it in the enquiry and I will match it where I can.</dd>
       </div>
     </dl>
   </div>
@@ -944,7 +914,7 @@ footer small{display:block;margin-top:16px;font-size:var(--fs-body);color:#E9E3C
     <hr class="gold-rule">
     <h2 id="contact-h">Contact &amp; enquiries</h2>
     <p class="lede">Send one enquiry — for advisory, speaking or briefings — and I will reply personally within two business days.</p>
-    <p class="lede">This is my personal practice, separate from The Good Guides. I don&rsquo;t offer personal advisory to organisations that fund The Good Guides or deliver its programs — that keeps both sides of my work clean.</p>
+    <p class="lede">This is my personal practice, separate from The Good Guides — engagements are contracted with me directly.</p>
     <div class="contact-grid">
       <div class="direct">
         <a href="mailto:swabir.shariff@thegoodguides.org">
@@ -967,9 +937,7 @@ footer small{display:block;margin-top:16px;font-size:var(--fs-body);color:#E9E3C
 
       <div class="enquiry-panel">
         <h3 class="ep-h">Send an enquiry</h3>
-        <p class="ep-lede">One short form, straight to my inbox — tell me what you are planning and what you need from me.</p>
-        <p class="form-note">Speaking engagements are contracted with me directly.</p>
-        <p class="form-note">Your enquiry is delivered by Web3Forms to my inbox and used only to reply — see the <a href="privacy.html">privacy notice</a>.</p>
+        <p class="ep-lede">Tell me what you are planning and what you need from me. References are available on request.</p>
         <form id="enquiry-form" class="enquiry-form" action="https://api.web3forms.com/submit" method="POST">
           <div class="ef-row">
             <div class="ef-field">
@@ -1012,6 +980,7 @@ footer small{display:block;margin-top:16px;font-size:var(--fs-body);color:#E9E3C
             <input type="checkbox" name="botcheck" tabindex="-1" style="display: none;">
           </div>
           <button type="submit" class="btn btn-primary ef-submit">Send enquiry</button>
+          <p class="form-note">Your enquiry is delivered by Web3Forms to my inbox and used only to reply — see the <a href="privacy.html">privacy notice</a>.</p>
           <p id="enquiry-error" class="form-note" role="alert" hidden>That didn't send — please try again, or write to me directly at swabir.shariff@thegoodguides.org.</p>
         </form>
         <div id="enquiry-success" tabindex="-1" hidden>
