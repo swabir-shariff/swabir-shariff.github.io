@@ -178,6 +178,7 @@ h2{font-size:var(--fs-h2);font-weight:700}
 .typical{margin-top:var(--space-5);border:1px solid var(--line);border-radius:var(--radius);background:var(--surface);padding:var(--card-pad)}
 .typical h3{font-size:var(--fs-lead);margin:0 0 8px}
 .typical .sub{margin:0;color:var(--ink2);font-size:var(--fs-body)}
+.typical .sub + .sub{margin-top:12px}
 .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:var(--space-3);margin-top:var(--space-3)}
 @media(max-width:900px){ .steps{grid-template-columns:1fr 1fr} }
 @media(max-width:640px){ .steps{grid-template-columns:1fr} }
@@ -400,7 +401,7 @@ footer small{display:block;margin-top:16px;font-size:var(--fs-body);color:#E9E3C
       "name": "How does booking work?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "It starts with an enquiry, then an introductory conversation, then a written proposal that sets out the scope and the timeline. Nothing is confirmed until the proposal is agreed — by both of us."
+        "text": "It starts with an enquiry, then a 30-minute scoping call, then a written proposal that sets out the scope, the timeline and the full fee. Nothing is confirmed until the proposal is agreed — by both of us."
       }
     },
     {
@@ -424,7 +425,31 @@ footer small{display:block;margin-top:16px;font-size:var(--fs-body);color:#E9E3C
       "name": "What does an advisory engagement look like?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "The first three stages run over 8–12 weeks: discovery and program assessment, a redesign strategy, and implementation support. After the engagement, I return at day 90 for a results review, so we can review the results together."
+        "text": "Most organisations start with a Program Diagnostic — a fixed-scope review over about two weeks, ending in a written findings memo and a readout session. The full Advisory Engagement runs in four stages: the first three over 8–12 weeks — discovery and program assessment, redesign strategy, implementation support — and I return at day 90 for a results review."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Who do we contract with?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "With me personally. Advisory and speaking engagements are contracted with Swabir Shariff directly, independent of The Good Guides. The written proposal sets out the full fee before anything is agreed, and HST applies."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is travel included?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Travel within the GTA is included. Travel beyond the GTA is charged at cost and agreed in the proposal, so there are no surprises."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can you provide references?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes — references are available on request."
       }
     },
     {
@@ -500,7 +525,7 @@ footer small{display:block;margin-top:16px;font-size:var(--fs-body);color:#E9E3C
     <div class="wrap">
       <div class="proof-in">
         <div><b>1 of 100</b><span>QECT 100 Young Leaders Awardee 2026</span></div>
-        <div><b>10,000+</b><span>young people mentored across Toronto since 2020, through The Good Guides</span></div>
+        <div><b>10,000+</b><span>Through The Good Guides: young people mentored across Toronto since 2020</span></div>
         <div><b>Over $1 million directed</b><span>into The Good Guides and other Scarborough youth initiatives</span></div>
       </div>
     </div>
@@ -552,6 +577,7 @@ footer small{display:block;margin-top:16px;font-size:var(--fs-body);color:#E9E3C
           <li>Mentoring model design — structure, standards and a visible progression from participant to leader to mentor</li>
           <li>Institution-building for grassroots organisations — governance, delivery and accountability</li>
         </ul>
+        <p class="also">Two ways to engage — a fixed diagnostic, or the full engagement — are set out below.</p>
       </article>
       <article class="offer">
         <span class="num">02</span>
@@ -579,13 +605,41 @@ footer small{display:block;margin-top:16px;font-size:var(--fs-body);color:#E9E3C
     </div>
 
     <div class="typical" id="typical">
-      <h3>A typical engagement</h3>
-      <p class="sub">An advisory engagement runs in four stages: the first three run over 8–12 weeks, and I return at day 90 for the results review.</p>
+      <h3>Step 1 · Program Diagnostic</h3>
+      <p class="sub">The usual starting point: a fixed-scope review that takes about two weeks and ends with written findings you can act on — with me or without me.</p>
+      <div class="steps">
+        <div class="step"><b>01 · Site visits &amp; interviews</b><p>I visit the program where it runs and hold structured interviews with leadership, staff and the young people it serves.</p></div>
+        <div class="step"><b>02 · Reach analysis</b><p>An honest picture of who the program reaches, who it misses, and where young people disengage.</p></div>
+        <div class="step"><b>03 · Written findings memo</b><p>A short, plain-language memo: what is working, what is not, and what I would change first.</p></div>
+        <div class="step"><b>04 · Readout session</b><p>We go through the findings together and decide what happens next.</p></div>
+      </div>
+    </div>
+
+    <div class="typical">
+      <h3>Step 2 · Advisory Engagement</h3>
+      <p class="sub">The full engagement, in four stages: the first three run over 8–12 weeks, and I return at day 90 for the results review. Its centrepiece is a written, board-ready redesign plan, and I stay involved — two working sessions a month — while the changes are implemented.</p>
       <div class="steps">
         <div class="step"><b>01 · Discovery &amp; program assessment</b><p>Site visits and structured interviews that establish who is being reached, who is being missed, and why.</p></div>
         <div class="step"><b>02 · Redesign strategy</b><p>A written, board-ready plan setting out staffing, scheduling and program-model changes in plain language.</p></div>
         <div class="step"><b>03 · Implementation support</b><p>Two working sessions a month to support implementation and resolve issues as they arise.</p></div>
         <div class="step"><b>04 · Day-90 results review</b><p>After the engagement, we meet again to review what moved, what did not, and what happens next.</p></div>
+      </div>
+    </div>
+
+    <div class="typical">
+      <h3>Who this is for — and who it isn&rsquo;t</h3>
+      <p class="sub"><strong>For:</strong> institutions — schools, municipalities, funders and youth-serving organisations — whose mentoring or youth programs are losing the young people they exist to reach, and whose leadership wants an operator&rsquo;s account of why.</p>
+      <p class="sub"><strong>Not for:</strong> current funders or delivery partners of The Good Guides — I don&rsquo;t advise an organisation on one side of my work while it funds the other. Nor is this crisis cover or front-line staffing: I advise the people who run programs; I don&rsquo;t step in and run them.</p>
+    </div>
+
+    <div class="typical">
+      <h3>How it starts</h3>
+      <p class="sub">Every engagement — diagnostic or full — begins the same way, and nothing is confirmed until a written proposal is agreed by both of us.</p>
+      <div class="steps">
+        <div class="step"><b>01 · Enquiry</b><p>Send the enquiry form below. I reply personally within two business days.</p></div>
+        <div class="step"><b>02 · Scoping call</b><p>A 30-minute conversation to test the fit and define the problem properly.</p></div>
+        <div class="step"><b>03 · Written proposal</b><p>Fixed scope, timeline and the full fee, in writing — before anything is agreed.</p></div>
+        <div class="step"><b>04 · Agreed start</b><p>We fix a start window and begin. If I am not the right fit, I will say so on the call.</p></div>
       </div>
     </div>
 
@@ -709,6 +763,19 @@ footer small{display:block;margin-top:16px;font-size:var(--fs-body);color:#E9E3C
   </div>
 </section>
 
+<!-- THE RECORD BEHIND THE ADVICE -->
+<section id="record" aria-labelledby="record-h">
+  <div class="wrap reveal">
+    <hr class="gold-rule">
+    <h2 id="record-h">The record behind the advice</h2>
+    <p class="lede">Through The Good Guides — one organisation, built and led by the person you would be hiring.</p>
+    <div class="typical">
+      <p class="sub">I founded The Good Guides in Scarborough in 2020 and built it unpaid alongside a full-time career as a Director of Security; it has operated on steady funding since 2023 and now runs with a team of 20. It delivers mentorship, youth leadership and violence-prevention programming for young people aged 11–18, through schools and cohorts across Toronto.</p>
+      <p class="sub">Since 2020, that work has mentored more than 10,000 young people, and I have helped direct over $1 million into The Good Guides and other Scarborough youth initiatives. This is the record the advisory work draws on — not a model studied from outside, but one I am accountable for: its governance, its delivery and its results.</p>
+    </div>
+  </div>
+</section>
+
 <span id="accolades" class="anchor-alias" aria-hidden="true"></span>
 <!-- 7 · HONOURS & RECOGNITION -->
 <section id="honours" aria-labelledby="honours-h">
@@ -792,8 +859,9 @@ footer small{display:block;margin-top:16px;font-size:var(--fs-body);color:#E9E3C
     <div class="kit-band">
       <div class="sp">
         <h3>Media kit &amp; downloads</h3>
-        <p>Biography, honours and contact details — as a media kit, speaker one-sheet or short biography.</p>
+        <p>Start with the advisory one-pager — the offer, the process and the record on one page. Biography, honours and contact details are in the media kit, speaker one-sheet and short biography.</p>
       </div>
+      <a class="btn btn-outline" href="assets/Swabir-Shariff-Advisory-One-Pager.pdf" download="Swabir-Shariff-Advisory-One-Pager.pdf" data-goatcounter-click="download-advisory-one-pager">Advisory one-pager (PDF)</a>
       <a class="btn btn-outline" href="assets/Swabir-Shariff-Media-Kit.pdf" download="Swabir-Shariff-Media-Kit.pdf" data-goatcounter-click="download-media-kit">Media kit (PDF)</a>
       <a class="btn btn-outline" href="assets/Swabir-Shariff-Speaker-One-Sheet.pdf" download="Swabir-Shariff-Speaker-One-Sheet.pdf" data-goatcounter-click="download-speaker-one-sheet">Speaker one-sheet (PDF)</a>
       <a class="btn btn-outline" href="assets/Swabir-Shariff-Biography.pdf" download="Swabir-Shariff-Biography.pdf" data-goatcounter-click="download-biography">Short biography (PDF)</a>
@@ -836,7 +904,7 @@ footer small{display:block;margin-top:16px;font-size:var(--fs-body);color:#E9E3C
       </div>
       <div class="faq">
         <dt>How does booking work?</dt>
-        <dd>It starts with an enquiry, then an introductory conversation, then a written proposal that sets out the scope and the timeline. Nothing is confirmed until the proposal is agreed — by both of us.</dd>
+        <dd>It starts with an enquiry, then a 30-minute scoping call, then a written proposal that sets out the scope, the timeline and the full fee. Nothing is confirmed until the proposal is agreed — by both of us.</dd>
       </div>
       <div class="faq">
         <dt>How far ahead should we book?</dt>
@@ -848,7 +916,19 @@ footer small{display:block;margin-top:16px;font-size:var(--fs-body);color:#E9E3C
       </div>
       <div class="faq">
         <dt>What does an advisory engagement look like?</dt>
-        <dd>The first three stages run over 8–12 weeks: discovery and program assessment, a redesign strategy, and implementation support. After the engagement, I return at day 90 for a results review, so we can review the results together.</dd>
+        <dd>Most organisations start with a Program Diagnostic — a fixed-scope review over about two weeks, ending in a written findings memo and a readout session. The full Advisory Engagement runs in four stages: the first three over 8–12 weeks — discovery and program assessment, redesign strategy, implementation support — and I return at day 90 for a results review.</dd>
+      </div>
+      <div class="faq">
+        <dt>Who do we contract with?</dt>
+        <dd>With me personally. Advisory and speaking engagements are contracted with Swabir Shariff directly, independent of The Good Guides. The written proposal sets out the full fee before anything is agreed, and HST applies.</dd>
+      </div>
+      <div class="faq">
+        <dt>Is travel included?</dt>
+        <dd>Travel within the GTA is included. Travel beyond the GTA is charged at cost and agreed in the proposal, so there are no surprises.</dd>
+      </div>
+      <div class="faq">
+        <dt>Can you provide references?</dt>
+        <dd>Yes — references are available on request.</dd>
       </div>
       <div class="faq">
         <dt>How quickly will we hear back?</dt>
@@ -864,6 +944,7 @@ footer small{display:block;margin-top:16px;font-size:var(--fs-body);color:#E9E3C
     <hr class="gold-rule">
     <h2 id="contact-h">Contact &amp; enquiries</h2>
     <p class="lede">Send one enquiry — for advisory, speaking or briefings — and I will reply personally within two business days.</p>
+    <p class="lede">This is my personal practice, separate from The Good Guides. I don&rsquo;t offer personal advisory to organisations that fund The Good Guides or deliver its programs — that keeps both sides of my work clean.</p>
     <div class="contact-grid">
       <div class="direct">
         <a href="mailto:swabir.shariff@thegoodguides.org">
@@ -888,7 +969,7 @@ footer small{display:block;margin-top:16px;font-size:var(--fs-body);color:#E9E3C
         <h3 class="ep-h">Send an enquiry</h3>
         <p class="ep-lede">One short form, straight to my inbox — tell me what you are planning and what you need from me.</p>
         <p class="form-note">Speaking engagements are contracted with me directly.</p>
-        <p class="form-note">Personal advisory is not offered to current funders or delivery partners of The Good Guides. Your enquiry is delivered by Web3Forms to my inbox and used only to reply — see the <a href="privacy.html">privacy notice</a>.</p>
+        <p class="form-note">Your enquiry is delivered by Web3Forms to my inbox and used only to reply — see the <a href="privacy.html">privacy notice</a>.</p>
         <form id="enquiry-form" class="enquiry-form" action="https://api.web3forms.com/submit" method="POST">
           <div class="ef-row">
             <div class="ef-field">
