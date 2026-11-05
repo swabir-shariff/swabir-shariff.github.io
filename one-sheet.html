@@ -26,7 +26,7 @@
 <title>Swabir Shariff — Speaker One-Sheet</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 <style>
 :root{
   color-scheme: light;
@@ -190,6 +190,37 @@ footer :focus-visible{box-shadow:0 0 0 2px var(--green-dark),0 0 0 5px #fff}
   ]
 }
 </script>
+<style>
+/* ===== DIRECTION A alignment (Nov 5) — mirrors the index's Direction A
+   override block: Archivo throughout, deep green #173D24 ground,
+   #0B2413 nav / proof / enquire / footer, cream text, gold rationed to
+   eyebrows, rules, proof figures and the one button style; the side
+   panel takes the index's dark panel surface #1E472B. Presentation
+   only; no text, link or structure change. Print rules in the base
+   stylesheet still force black on white. */
+:root{
+  --font-display:"Archivo",system-ui,sans-serif;
+  --font-body:"Archivo",system-ui,sans-serif;
+  --bg:#173D24; --ink:#F5F1E6; --ink2:#E4DCC4; --muted:#C9C0A2; --line:#2E5339;
+  --surface:#F5F1E6; --surface2:#1E472B;
+}
+body{background:#173D24;color:#F5F1E6}
+h1,h2,h3{font-weight:800;letter-spacing:-.015em}
+.nav{background:#0B2413}
+footer{background:#0B2413}
+.btn-primary{color:#14230F}
+.eyebrow{color:var(--gold)}
+.sheet-head h1{color:#F5F1E6}
+.roleline{font-style:normal;color:#C9C0A2}
+.startline{font-style:normal;font-weight:600;color:#E4DCC4}
+.proof{background:#0B2413;border-top:2px solid var(--gold)}
+.proof b{color:var(--gold)}
+.proof span{color:#D9D2B8}
+.sec-h{color:var(--gold)}
+.talk-item h3 .tnum{color:var(--gold)}
+.booking .now{color:#F5F1E6}
+.enquire{background:#0B2413}
+</style>
 </head>
 <body>
 <a class="skip-link" href="#main">Skip to content</a>
