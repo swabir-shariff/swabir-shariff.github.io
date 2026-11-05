@@ -460,6 +460,20 @@ footer,.foot{background:#0B2413;color:#EDE6D2}
 .honours-list a{color:var(--gold)}
 .when,.media-row .when{color:var(--gold)}
 #media .arr{color:var(--gold)}
+/* Mobile polish (Nov 5, owner phone pass): one-card Walk of Fame figure +
+   un-crowded phone bar. Figure: the #0F2E1A surface moves onto the figure
+   itself (the colour the caption zone already showed through the transparent
+   figure over its square-cornered wrapper), the wrapper stops painting
+   behind it, so the figure's own 16px radius defines all four outer corners
+   — photo and caption read as one card, matching the page's other card
+   figures (.about-photo, .tquote, .acc: own surface + radius + overflow).
+   Caption padding replaces its top margin so the caption sits inside the
+   card. Phone bar: the gold CTA leaves the ≤560px bar (it stays in the
+   mobile menu, the hero and the closing bands). */
+.image-band{background:transparent}
+.image-band figure{background:#0F2E1A}
+.image-band figcaption{margin-top:0;padding:10px 14px 14px}
+@media(max-width:560px){ .nav-cta{display:none} }
 </style>
 <script type="application/ld+json">
 {
