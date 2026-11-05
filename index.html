@@ -27,7 +27,7 @@
 <link rel="preload" as="image" fetchpriority="high" imagesrcset="assets/spotlight-candid-726.webp 726w, assets/spotlight-candid.webp 1290w" imagesizes="(max-width: 900px) 100vw, 50vw">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 <style>
 /* ============================================================
    REDESIGN — Oct 28, 2026 (preview build, per BUILD-BRIEF.md)
@@ -369,6 +369,97 @@ footer small{display:block;margin-top:16px;font-size:var(--fs-body);color:#E9E3C
   .js .reveal{opacity:1 !important;transform:none !important}
 }
 </style>
+<style>
+/* ===== DIRECTION A — Editorial dark-green (production, Nov 5) =====
+   Owner-picked design: deep green is the dominant surface, Archivo
+   heavy display type, gold rationed to eyebrows / rules / proof
+   figures / one button style, Showreel as a dark cinema block,
+   cream cards on green. The base :root override below drives every
+   rule that reads a custom property; the rules after it cover the
+   base declarations with literal colours. */
+:root{
+  --font-display:"Archivo",system-ui,sans-serif;
+  --font-body:"Archivo",system-ui,sans-serif;
+  --bg:#173D24; --ink:#F5F1E6; --ink2:#E4DCC4; --muted:#C9C0A2; --line:#2E5339;
+  --surface:#F5F1E6; --surface2:#1E472B;
+  --fs-h2:clamp(2rem,4.4vw,3rem); --fs-lead:1.15rem; --section-pad:56px; --radius:16px;
+}
+body{background:#173D24;color:#F5F1E6}
+h1,h2,h3{font-family:"Archivo",sans-serif;font-weight:800;letter-spacing:-.015em;line-height:1.05;color:#F5F1E6}
+h2{font-size:var(--fs-h2)}
+p,li,span,div{color:inherit}
+section p,section li{color:#EDE6D2}
+.lede{font-size:1.15rem;line-height:1.55;max-width:56ch;color:#E4DCC4}
+.nav{background:#0B2413!important}
+.nav-links a,.brand b{color:#F5F1E6}
+.mobile-menu{background:#0B2413}
+.hero{background:linear-gradient(180deg,#1B4530,#173D24 80%)}
+.hero-label{color:var(--gold);letter-spacing:.16em;font-weight:800}
+.hero-name{font-weight:900;letter-spacing:-.02em}
+.hero-name em{font-style:normal;color:var(--gold)}
+.startline{font-style:normal;font-weight:600;color:#E4DCC4}
+.pron-note,.hero-role{color:#C9C0A2}
+.portrait-frame{border:3px solid var(--gold);border-radius:20px;overflow:hidden;box-shadow:0 24px 60px rgba(0,0,0,.45)}
+.proof{background:#0B2413;border-top:2px solid var(--gold)}
+.proof b{font-weight:800;color:var(--gold)}
+.proof span{color:#D9D2B8}
+.btn-primary{background:var(--gold);color:#14230F;border-color:var(--gold)}
+.cred{background:#0F2E1A}
+.cred-cat{color:var(--gold)}
+#reel{background:#0B2413}
+#reel h2::before{content:"ON SCREEN";display:block;font-size:.75rem;font-weight:800;letter-spacing:.22em;color:var(--gold);margin-bottom:14px}
+#services{background:#173D24}
+.offer,.talk,.step,.typical{background:#F5F1E6!important;color:#1D1A15!important;border-radius:16px}
+.offer h3,.offer p,.offer li,.talk h3,.talk p,.talk li,.step b,.step p,.step li,.typical h3,.typical p,.typical li{color:#1D1A15!important}
+.offer .num,.talk .num{font-style:normal;font-weight:800;color:var(--green)}
+.talks-grid{gap:20px}
+#talks{background:#0F2E1A}
+.appearances{background:#F5F1E6;color:#1D1A15;border-radius:16px;padding:24px}
+.appearances h3,.appearances p,.appearances li,.appearances span{color:#1D1A15!important}
+.testimonials{background:#F5F1E6;color:#1D1A15}
+.testimonials h2,.testimonials h3{color:#1D1A15}
+.tquote{background:#fff;border-radius:16px;padding:24px}
+.tquote p,.tquote span,.tquote div{color:#1D1A15!important}
+#record{background:#0F2E1A}
+#honours{background:#173D24}
+.hon-line{border-color:#2E5339}
+.hon-date{color:var(--gold)}
+.hon-name{color:#F5F1E6}
+.hon-inst{color:#C9C0A2}
+#about{background:#0F2E1A}
+.philosophy .big{font-family:"Archivo",sans-serif;font-weight:700;color:#F5F1E6}
+#media{background:#173D24}
+.media-row{border-color:#2E5339}
+.media-row p,.media-row span,.media-row div{color:#EDE6D2}
+#faq{background:#0F2E1A}
+.faq details,details{background:#1E472B;border:1px solid #2E5339;border-radius:12px}
+summary{color:#F5F1E6}
+.contact{background:#0B2413}
+.enquiry-panel{background:#F5F1E6;color:#1D1A15;border-radius:18px;padding:28px}
+.enquiry-panel h3,.enquiry-panel p,.enquiry-panel label,.enquiry-panel span{color:#1D1A15!important}
+input,select,textarea{background:#FFFDF6;color:#1D1A15}
+.cta-band{background:#0B2413}
+.cta-band p{color:#F5F1E6}
+.kit-band,.image-band{background:#0F2E1A}
+.acc,.acc-feat{background:#F5F1E6;color:#1D1A15;border-radius:14px}
+.acc h3,.acc p,.acc span,.acc-feat h3,.acc-feat p,.acc-feat span{color:#1D1A15!important}
+footer,.foot{background:#0B2413;color:#EDE6D2}
+.gold-rule{border-color:var(--gold)}
+.stages-video{border:2px solid var(--gold);border-radius:16px;overflow:hidden;box-shadow:0 24px 60px rgba(0,0,0,.5)}
+#reel .gold-rule{display:none}
+/* Production fixes (Nov 5 QA): base rules read var(--ink) / var(--ink2) /
+   var(--green) for elements sitting on surfaces this design flips, which
+   left them unreadable. Each fix keeps the design's own logic — dark text
+   on the cream cards, gold for accents on the dark bands. */
+.philosophy .big{color:#1D1A15}
+.talk-aud b{color:#1D1A15}
+.tquote figcaption{color:#4C463B}
+.tquote figcaption b{color:#1D1A15}
+.direct,.direct b,.direct span,.direct a,.direct p{color:#1D1A15!important}
+.honours-list a{color:var(--gold)}
+.when,.media-row .when{color:var(--gold)}
+#media .arr{color:var(--gold)}
+</style>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -629,7 +720,7 @@ footer small{display:block;margin-top:16px;font-size:var(--fs-body);color:#E9E3C
 <div class="cta-band">
   <div class="wrap cta-band-in">
     <p>Now accepting engagements for 2027.</p>
-    <a class="btn btn-primary" href="#contact" data-goatcounter-click="enquiry-services">Check availability for 2027</a> <a class="btn btn-outline-light" href="assets/Swabir-Shariff-Advisory-One-Pager.pdf" download="Swabir-Shariff-Advisory-One-Pager.pdf" data-goatcounter-click="download-advisory-one-pager">Advisory one-pager (PDF)</a>
+    <a class="btn btn-primary" href="#contact" data-goatcounter-click="enquiry-services">Check availability for 2027</a>
   </div>
 </div>
 
@@ -723,7 +814,7 @@ footer small{display:block;margin-top:16px;font-size:var(--fs-body);color:#E9E3C
 <div class="cta-band">
   <div class="wrap cta-band-in">
     <p>Bring a signature talk to your audience.</p>
-    <a class="btn btn-primary" href="#contact" data-goatcounter-click="enquiry-talks">Check availability for 2027</a> <a class="btn btn-outline-light" href="assets/Swabir-Shariff-Speaker-One-Sheet.pdf" download="Swabir-Shariff-Speaker-One-Sheet.pdf" data-goatcounter-click="download-speaker-one-sheet">Speaker one-sheet (PDF)</a>
+    <a class="btn btn-primary" href="#contact" data-goatcounter-click="enquiry-talks">Check availability for 2027</a>
   </div>
 </div>
 
